@@ -41,3 +41,19 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# =========================
+# Phonegap specific dirs and files
+# =========================
+.cordova/
+hook/
+platforms/
+!platforms/android/ant.properties
+plugins/
+
+www/css/jqm_1.4.2/images/ajax-loader.gif
+www/css/jquery.mobile.structure-1.4.2.min.css
+*.map
+www/js/jquery-1.9.1.min.js
+www/js/jquery.mobijq.min.js
+www/js/jquery.mobile-1.4.2.min.js

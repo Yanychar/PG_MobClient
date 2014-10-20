@@ -1,0 +1,122 @@
+var SupportedDeviceType = {
+	EMULATOR:	      0,
+	DEVICE:   	    1,
+	BROWSER_LOCAL:	2,
+	BROWSER_REMOTE: 3
+};
+
+var SupportedEnvironments = {
+    LOCAL:  0,
+    DEMO:   1,
+    PROD:   2
+};
+
+var supportedURL = {
+  LOCAL:  "http://192.168.255.11:8080/Inventory_1/rest/",
+  DEMO:   "http://toolsdemo.uisko.com/tools/rest/"
+}
+
+var application = {
+
+	configuration : {
+
+		deviceType:		SupportedDeviceType.DEVICE,
+		environment:	SupportedEnvironments.DEMO,
+		logging: false,
+
+	},
+
+	/*
+	 * Global variables declarations
+	 */
+
+	// Login info
+	loginInfo: null,
+
+	// used to move through Category page(-s)
+	toolsPageDescriptor: {
+	    category: null,
+	    toolsList: null,
+
+	    setActive: function( cat, tl ) {
+	      console.log( "SetActive[category, toolslist]:" + cat + ", " + tl );
+
+	      this.category=cat;
+	      this.toolsList = tl;
+	    }
+
+	},
+
+	// Category selected in Category Selection
+	selectedCategory: null,
+
+	// Tool selected in Toolselection view for Tool Details view
+	currentTool: null,
+
+	getServiceURL:	function() {
+		if ( this.configuration.environment == SupportedEnvironments.LOCAL ) {
+			  return supportedURL.LOCAL;
+		} else if ( this.configuration.environment == SupportedEnvironments.DEMO ) {
+			  return supportedURL.DEMO;
+		} else {
+			  alert( "Wrong Environment set up i the Configuration!" );
+		}
+
+		return "";
+	},
+
+	getDeviceType: function() {
+
+  	return this.configuration.deviceType;
+
+	},
+
+	// Application Constructor
+	initialize: function() {
+
+		$( '#readiness_page' ).find( '.devicestatus' ).text( "Progressing..." );
+
+
+	    this.initGlobal();
+
+	    if ( this.getDeviceType() != SupportedDeviceType.BROWSER_LOCAL
+	      &&
+	         this.getDeviceType() != SupportedDeviceType.BROWSER_REMOTE
+	     ) {
+	    	console.log( "Readyness of real device will be listened!!!" );
+
+
+	    	document.addEventListener( "deviceready", this.onDeviceReady, false);
+
+	    } else {
+
+	    	console.log( "Web Browser is used as client. Device readyness will be sent automatically!!!" );
+
+	    	this.onDeviceReady();
+	    }
+
+	  },
+
+	  initGlobal: function() {
+
+	  },
+
+	  listenDeviceReadyness: function() {
+	  },
+
+	  onDeviceReady: function() {
+
+		$( '#readiness_page' ).find( '.devicestatus' ).text( "DEVICE IS READY!" );
+
+		console.log( "Before switch login page" );
+		// Go to Login Page
+		$.mobile.navigate( "#login_page", {
+		    transition: "fade"
+		  }
+		);
+
+		console.log( "After switch login page" );
+
+	  }
+
+};

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+    <link rel="stylesheet" href="css/jqm_1.4.2/jquery.mobile.theme-1.4.2.min.css"/>
+    <link rel="stylesheet" href="css/jqm_1.4.2/jquery.mobile.icons-1.4.2.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css"/>
+    <link rel="stylesheet" href="css/my.css"/>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+
+    <script src="js/application.js"></script>
+    <script src="js/logging.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/categoryselection.js"></script>
+    <script src="js/toolsselection.js"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/scanning.js"></script>
+
+      <title>Inventory Mobile</title>
+    </head>
+    <body>
+
+     <div id="readiness_page" data-role="page" data-theme="a" data-title="Readiness" class="loginview" style="background-repeat: repeat repeat; background-color: rgb(237, 163, 83);" >
+      <div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
+
+        <h1>Mobile Inventory (c) 2014</h1>
+        <p>Mobile Inventory (c) 2014</p>
+        <div id="deviceready" class="blink">
+          <p class="devicestatus">Connecting to Device...</p>
+        </div>
+
+      </div>
+    </div>
+
+
+     <div id="login_page" data-role="page" data-theme="a" data-title="Login" class="loginview" style="background-image: url(&quot;img/5370e1ff3b3b8_BG007.jpg&quot;); background-repeat: repeat repeat;" >
+      <div data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
+        <h1 style="text-align: center;">Login</h1>
+      </div>
+      <div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
+        <label for="usrname">Username:</label>
+        <input id="usrname" type="text" value="" data-theme="a" data-clear-btn="false" data-corners="true" data-mini="false"/>
+        <label for="passwd">Password:</label>
+        <input id="passwd" type="password" value="" data-theme="a" data-clear-btn="false" data-corners="true" data-mini="false"/>
+        <fieldset>
+          <div data-role="fieldcontain">
+            <label for="remember_switch">Remember:</label>
+            <input id="remember_switch" type="checkbox" data-role="flipswitch" data-theme="a" data-corners="true" data-mini="false" data-off-text="Off" data-on-text="On"/>
+          </div>
+        </fieldset>
+        <input id="login_button" type="button" value="Sign In" data-corners="true" data-mini="false" data-shadow="true" data-inline="true" />
+      </div>
+    </div>
+
+    <div id="main_menu_page" data-role="page" data-theme="e" data-title="Main Menu" class="mainmenuview" style="background-image: url(&quot;img/5370e1ff3b3b8_BG007.jpg&quot;); background-repeat: repeat repeat;">
+      <div data-role="header" data-theme="b" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
+
+        <a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none">Back Button</a>
+        <h1 id="toolbar_header"style="text-align:center;">Main Menu</h1>
+
+      </div>
+      <div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
+        <div style="overflow: auto;">
+          <div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
+            <div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
+              <a href="#categories_page">
+                <img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/search.png"/>
+              </a>
+            </div>
+          </div>
+          <div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
+            <div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
+              <a href="#msg_list_page">
+                <img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/mailbox.png"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div style="overflow: auto;">
+          <div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
+            <div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
+              <a href="">
+                <img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/basket.png"/>
+              </a>
+            </div>
+          </div>
+          <div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
+            <div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
+              <a href="">
+                <img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/settings.png"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;" data-role="controlgroup" data-theme="a" data-corners="true" data-mini="false" data-shadow="false" data-type="">
+          <a id="scan_button" href="" data-role="button" data-theme="a" data-corners="true" data-mini="false" data-transition="none" data-iconpos="top" data-icon="camera" data-shadow="true" data-inline="false">Scan</a>
+        </div>
+        <div id="results"></div>
+      </div>
+
+    </div>
+
+    <div id="categories_page" data-role="page" data-title="Categories" data-theme="a" style="background-image: url(&quot;img/5370e1ff3b3b8_BG007.jpg&quot;); background-repeat: repeat repeat;" >
+      <div data-role="header" data-theme="b" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        <a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+        <h1 id="toolbar_header"style="text-align:center;">Title</h1>
+      </div>
+      <div role="main" class="ui-content" style="margin:0px;padding:0px;">
+        <div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
+          <ul data-role="listview" id="catlist" data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="false">
+
+          </ul>
+        </div>
+      </div>
+      <div data-role="footer" data-theme="b" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        <h1 style="text-align:center;">Copyright © 2014. All rights reserved</h1>
+      </div>
+    </div>
+
+    <div id="msg_list_page" data-role="page" data-title="Messages List" data-theme="a" style="background-image: url(&quot;img/5370e1ff3b3b8_BG007.jpg&quot;); background-repeat: repeat repeat;" >
+
+      <div data-role="header" data-theme="b" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+
+          <a id="msg_back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-rel="back">Back Button</a>
+
+        <h1 id="toolbar_header"style="text-align:center;">Messages</h1>
+      </div>
+
+      <div role="main" class="ui-content" style="margin:0px;padding:0px;">
+        <div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
+
+          <ul id="msglist" data-role="listview" data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="true">
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="tools_list_page" data-role="page" data-title="Tools" data-theme="a" style="background-image: url(&quot;img/5370e1ff3b3b8_BG007.jpg&quot;); background-repeat: repeat repeat;" >
+
+      <div data-role="header" data-theme="b" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        <a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+        <h1 id="toolbar_header"style="text-align:center;">Tools</h1>
+      </div>
+
+      <div role="main" class="ui-content" style="margin:0px;padding:0px;">
+        <div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
+
+          <ul id="tools_list" data-role="listview">
+
+          </ul>
+
+        </div>
+      </div>
+      <div data-role="footer" data-theme="b" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        <h1 style="text-align:center;">Copyright � 2014. All rights reserved</h1>
+      </div>
+    </div>
+
+
+    <div id="tool_data_page" data-role="page" data-theme="a" data-title="Tool Info" class="tool_data" data-dialog="true">
+      <div data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
+        <h1 style="text-align: center;">Tool Info</h1>
+
+      </div>
+      <div role="main" class="ui-content" style="margin: 0px; padding: 1em;">
+        <div id="tool_descr_dynamic">
+
+        </div>
+
+        <a id="borrow_button" href="#" class="ui-btn ui-btn-b ui-btn-inline">Ask to Borrow</a>
+        <a id="back_button" href="#" class="ui-btn ui-btn-a ui-btn-inline ui-mini" data-rel="back">Back</a>
+
+
+      </div>
+    </div>
+
+
+
+    <div id="message_data_page" data-role="page" data-theme="a" data-title="Message" class="message_data_class" data-dialog="true" data-close-btn="right">
+
+      <div id="header" data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
+          <h1 style="text-align: center;">Message</h1>
+      </div>
+      <div role="main" class="ui-content" style="margin: 0px; padding: 1em;">
+          <div id="message_content">
+
+          </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script type="text/javascript" src="js/application.js"></script>
+    <script type="text/javascript">
+
+        $( '#readiness_page' ).find( '.devicestatus' ).text( "Before init..." );
+
+        application.initialize();
+
+    </script>
+
+    <script>
+
+
+      $(document).on("pagecreate","#login_page",function(){
+        // Login button click
+        $("#login_button").on("click",function(){
+
+          console.log( "Sign In button clicked!" );
+
+          loginUser( $("#usrname").val(), $("#passwd").val(),
+            // If succeeded
+            function( result ) {
+              console.log( "Authentication succeeded!" );
+              application.loginInfo = result;
+
+              // Go to MainMenu
+              $.mobile.navigate( "#main_menu_page", {
+                                    transition: "pop"
+              });
+            },
+            // If failed
+            function( jqXHR ) {
+
+              switch ( jqXHR.status ) {
+
+                case 0:
+                  // Network error
+					console.log( "No network connection!" );
+                  	alert( "No network connection" );
+                  	break;
+                case 404:
+                  	// Not found. Authentication failure
+					console.log( "Wrong username and/or password were specified!" );
+                  	alert( "Wrong username and/or password were specified!" );
+                  	break;
+                default:
+                  	// Unknown reason
+              		console.log( "Authentication Failed because unknown reason. Code = " + jqXHR.status );
+                  	alert( "Authentication Failed because unknown reason. Code = " + jqXHR.status );
+                  	break;
+              }
+
+            }
+          );
+
+        });
+    });
+
+
+    $(document).on("pagecreate","#main_menu_page",function(){
+
+      scanner.initialize();
+
+      $("#main_menu_page #scan_button").on("click",function(){
+
+        scanner.scan();
+
+      });
+
+      $( '#main_menu_page #back_buton' ).on( "click", function() {
+
+        // Return back to Login screen
+        $.mobile.navigate( "#login_page", {
+                                  transition: "slide"
+
+        });
+
+      });
+    });
+
+
+    // Fill Category list
+    $(document).on("pagecreate","#categories_page",function(){
+
+      $( '#categories_page #back_buton' ).on( "click", function() {
+
+        // Return back to Login screen
+        $.mobile.navigate( "#main_menu_page", {
+                                  transition: "slide"
+        });
+
+      });
+    });
+
+    $(document).on("pageshow","#categories_page",function(){
+
+      showCategoriesSelection();
+
+    });
+
+    // Fill Tools List
+    $(document).on("pagecreate","#tools_list_page",function(){
+
+      console.log( "*** ToolsList PageCreated handler" );
+
+      $( '#tools_list_page #back_buton' ).on( "click", function() {
+
+      console.log( "*** Back button pressed!" );
+
+        // Return back to Login screen
+        $.mobile.navigate( "#categories_page", {
+                            transition: "slide"
+        });
+
+      });
+
+    });
+
+    $(document).on("pageshow","#tools_list_page",function(){
+
+      console.log( "*** ToolsList PageShow handler" );
+
+
+      console.log( "Selected category: " + application.selectedCategory.name );
+      showCategoryToolsList( application.selectedCategory );
+    });
+
+
+
+
+
+
+      // Fill Message List list
+      $(document).on("pageshow","#msg_list_page",function(){
+
+        console.log( "Message icon has been pressed!" );
+        showMessages();
+
+      });
+
+      $(document).on("pageshow","#message_data_page",function(){
+
+          prepareMsgDialog( $("#message_data_page").data( "dat" ) );
+      });
+
+
+      // Fill Tool Info dialog
+      $(document).on("pageshow","#tool_data_page",function(){
+
+          fillToolDialog( application.currentTool );
+
+      });
+
+      $("#borrow_button").on("click",function(){
+
+        if ( askToBorrow( application.currentTool )) {
+
+          parent.history.back();
+
+        } else {
+          alert( "Could not send request to Borrow the Tool!"           );
+        }
+
+      });
+
+    </script>
+
+
+    </body>
+</html>
