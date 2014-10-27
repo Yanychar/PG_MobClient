@@ -1,8 +1,8 @@
 var SupportedDeviceType = {
 	EMULATOR:	      0,
 	DEVICE:   	    1,
-	BROWSER_LOCAL:	2,
-	BROWSER_REMOTE: 3
+	BROWSER:	2
+//	BROWSER_REMOTE: 3
 };
 
 var SupportedEnvironments = {
@@ -12,17 +12,18 @@ var SupportedEnvironments = {
 };
 
 var supportedURL = {
-  LOCAL:  "http://192.168.255.11:8080/Inventory_1/rest/",
-  DEMO:   "http://toolsdemo.uisko.com/tools/rest/"
+  LOCAL:  "http://192.168.255.11:8080/InventoryServer/rest",
+  DEMO:   "http://toolsdemo.uisko.com/tools/rest"
 }
 
 var application = {
 
 	configuration : {
 
-		deviceType:		SupportedDeviceType.DEVICE,
-		environment:	SupportedEnvironments.DEMO,
-		logging: false,
+		deviceType:		SupportedDeviceType.BROWSER,
+		environment:	SupportedEnvironments.LOCAL,
+		logging: 		false,
+		testing:		true,
 
 	},
 
@@ -79,10 +80,7 @@ var application = {
 
 	    this.initGlobal();
 
-	    if ( this.getDeviceType() != SupportedDeviceType.BROWSER_LOCAL
-	      &&
-	         this.getDeviceType() != SupportedDeviceType.BROWSER_REMOTE
-	     ) {
+	    if ( this.getDeviceType() != SupportedDeviceType.BROWSER ) {
 	    	console.log( "Readyness of real device will be listened!!!" );
 
 

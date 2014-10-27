@@ -36,6 +36,9 @@
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
+    <script src="js/i18n/resource_EN.js"></script>
+    <script src="js/i18n/resources.js"></script>
+    
     <script src="js/application.js"></script>
     <script src="js/logging.js"></script>
     <script src="js/login.js"></script>
@@ -66,17 +69,18 @@
         <h1 style="text-align: center;">Login</h1>
       </div>
       <div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
-        <label for="usrname">Username:</label>
+        <label id="usrnamelabel" for="usrname">Username:</label>
         <input id="usrname" type="text" value="" data-theme="a" data-clear-btn="false" data-corners="true" data-mini="false"/>
-        <label for="passwd">Password:</label>
+        <label id="passwdlabel" for="passwd">Password:</label>
         <input id="passwd" type="password" value="" data-theme="a" data-clear-btn="false" data-corners="true" data-mini="false"/>
         <fieldset>
           <div data-role="fieldcontain">
-            <label for="remember_switch">Remember:</label>
+            <label id="rememberswitchlabel" for="remember_switch">Remember:</label>
             <input id="remember_switch" type="checkbox" data-role="flipswitch" data-theme="a" data-corners="true" data-mini="false" data-off-text="Off" data-on-text="On"/>
           </div>
         </fieldset>
-        <input id="login_button" type="button" value="Sign In" data-corners="true" data-mini="false" data-shadow="true" data-inline="true" />
+		<button id="login_button" class="ui-btn ui-btn-inline ui-corner-all">Sign In</button>
+
       </div>
     </div>
 
@@ -233,50 +237,6 @@
     <script>
 
 
-      $(document).on("pagecreate","#login_page",function(){
-        // Login button click
-        $("#login_button").on("click",function(){
-
-          console.log( "Sign In button clicked!" );
-
-          loginUser( $("#usrname").val(), $("#passwd").val(),
-            // If succeeded
-            function( result ) {
-              console.log( "Authentication succeeded!" );
-              application.loginInfo = result;
-
-              // Go to MainMenu
-              $.mobile.navigate( "#main_menu_page", {
-                                    transition: "pop"
-              });
-            },
-            // If failed
-            function( jqXHR ) {
-
-              switch ( jqXHR.status ) {
-
-                case 0:
-                  // Network error
-					console.log( "No network connection!" );
-                  	alert( "No network connection" );
-                  	break;
-                case 404:
-                  	// Not found. Authentication failure
-					console.log( "Wrong username and/or password were specified!" );
-                  	alert( "Wrong username and/or password were specified!" );
-                  	break;
-                default:
-                  	// Unknown reason
-              		console.log( "Authentication Failed because unknown reason. Code = " + jqXHR.status );
-                  	alert( "Authentication Failed because unknown reason. Code = " + jqXHR.status );
-                  	break;
-              }
-
-            }
-          );
-
-        });
-    });
 
 
     $(document).on("pagecreate","#main_menu_page",function(){

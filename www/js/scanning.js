@@ -43,7 +43,7 @@ var scanner = {
   	    console.log( "... exit from BarcodeScanner.scan. Scan successful. Barcode: '" + result.text + "'" );
 	    }
 
-  	  if ( application.testing ) {
+  	  if ( application.configuration.testing ) {
   	    alert( s );
 	    }
 

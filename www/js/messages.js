@@ -85,7 +85,7 @@ function addMsgElement( listControl, msg ) {
   var listElement = $( '<li>'
                       + '<a href="#">'
                       + createIconTag( msg )
-                      + createMsgText( msg )
+                      + createShortMsgText( msg )
                       + '</a>'
                       + '</li>'
   );
@@ -112,7 +112,7 @@ function addMsgElement( listControl, msg ) {
 
 function createIconTag( msg ) {
 
-  var str = "Empty message";
+  var str;
   switch ( msg.type ) {
     case "REQUEST":
     case "AGREEMENT":
@@ -126,7 +126,7 @@ function createIconTag( msg ) {
   return str;
 }
 
-function createMsgText( msg ) {
+function createShortMsgText( msg ) {
 
   var defText = "";
 
@@ -171,15 +171,15 @@ function createMsgText( msg ) {
 
 function prepareMsgDialog( msg ) {
 
-  console.log( "Prepare Msg Dialog start ...   Msg is NOT null? " + ( msg != undefined && msg != null ));
+	console.log( "Prepare Msg Dialog start ...   Msg is NOT null? " + ( msg != undefined && msg != null ));
 
-  // Setup Header
-  setMsgDialogHeader( $( '#message_data_page #header h1' ), msg );
+	// Setup Header
+	setMsgDialogHeader( $( '#message_data_page #header h1' ), msg );
 
-  // Setup Content
-  setMsgDialogContent( $( '#message_data_page #message_content' ), msg );
+	// Setup Content
+	setMsgDialogContent( $( '#message_data_page #message_content' ), msg );
 
-    $( '#message_data_page #message_content' ).append( $( "Dddd" ));
+//    $( '#message_data_page #message_content' ).append( $( "Dddd" ));
 
     //  $( '#message_data_page #message_content' ).refresh();
 
