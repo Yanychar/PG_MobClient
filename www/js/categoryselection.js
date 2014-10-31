@@ -38,7 +38,7 @@ function readCategoriesList( categoriesWereRead ) {
     type: 'GET',
     url: application.getServiceURL() + "/getcategories",
     data: {
-      sessionid : application.loginInfo.sessionid,
+      sessionid : loginInfo.sessionid,
     },
 
     dataType: "json",

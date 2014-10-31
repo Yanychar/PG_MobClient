@@ -1,25 +1,23 @@
 
 var scanner = {
 
-  initialize: function() {
+	initialize: function() {
 
-  },
+	},
 
 	scan: function() {
 
-    if ( application.getDeviceType() == SupportedDeviceType.EMULATOR
-        ||
-         application.getDeviceType() == SupportedDeviceType.DEVICE
-    ) {
-  	  console.log( "Call for BarcodeScanner.scan..." );
+		if ( application.getDeviceType() == SupportedDeviceType.EMU_OR_DEVICE ) {
 
-  		cordova.plugins.barcodeScanner.scan(
-  		  this.successScan,
-  		  this.failedScan
-  	  );
+			console.log( "Call for BarcodeScanner.scan..." );
 
-    } else {
-  	  console.log( "Emulate result return from BarcodeScanner.scan..." );
+			cordova.plugins.barcodeScanner.scan(
+					this.successScan,
+					this.failedScan
+			);
+
+		} else {
+			console.log( "Emulate result return from BarcodeScanner.scan..." );
 
 			var result = {
   			text:       "2000000000008",
@@ -28,34 +26,34 @@ var scanner = {
 		  };
 
 		  this.successScan( result );
-	  }
-  },
+		}
+	},
 
 	successScan: function( result ) {
 
-			var s = "Result: " + result.text + "\n" +
+		var s = "Result: " + result.text + "\n" +
 //			"Format: " + result.format + "<br/>" +
 			"Cancelled: " + result.cancelled;
 
-			if ( result.cancelled ) {
-  	    console.log( "... exit from BarcodeScanner.scan. Scan had been canceled" );
-		  } else {
-  	    console.log( "... exit from BarcodeScanner.scan. Scan successful. Barcode: '" + result.text + "'" );
-	    }
+		if ( !result.cancelled ) {
 
-  	  if ( application.configuration.testing ) {
-  	    alert( s );
-	    }
+			console.log( "... exit from BarcodeScanner.scan. Scan successful. Barcode: '" + result.text + "'" );
 
- 	    toolToShow.presentTool( result.text );
+			toolItemMngr.findAndShowTool( result.text );
 
-			return result;
+
+		} else {
+			console.log( "... exit from BarcodeScanner.scan. Scan had been canceled" );
+		}
+
+		return result;
 	},
 
 	failedScan: function( error ) {
-  	  console.log( "... exit from BarcodeScanner.scan with failure!" );
 
-			alert("Scanning failed: " + error );
+		console.log( "... exit from BarcodeScanner.scan with failure!" );
+
+		alert("Scanning failed: " + error );
 	},
 
 

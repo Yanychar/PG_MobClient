@@ -46,7 +46,7 @@ function readMessages( msgStatus ) {
     type: 'GET',
     url: application.getServiceURL() + "/getmessages",
     data: {
-      sessionid : application.loginInfo.sessionid,
+      sessionid : loginInfo.sessionid,
       status : msgStatus
     },
 
@@ -177,7 +177,7 @@ function prepareMsgDialog( msg ) {
 	setMsgDialogHeader( $( '#message_data_page #header h1' ), msg );
 
 	// Setup Content
-	setMsgDialogContent( $( '#message_data_page #message_content' ), msg );
+	setMsgDialogContent( $( '#message_data_page #dialog_content' ), msg );
 
 //    $( '#message_data_page #message_content' ).append( $( "Dddd" ));
 
@@ -407,7 +407,7 @@ function updateMessage( msg, newStatus ) {
     type: 'GET',
     url: application.getServiceURL() + "/updatemessage",
     data: {
-      sessionid : application.loginInfo.sessionid,
+      sessionid : loginInfo.sessionid,
       msgid     : msg.id,
       status    : newStatus
     },
@@ -456,7 +456,7 @@ function agreeToBorrow( item, requester ) {
     type: 'GET',
     url: application.getServiceURL() + "/agreement",
     data: {
-      sessionid : application.loginInfo.sessionid,
+      sessionid : loginInfo.sessionid,
       toolid    : item.id,
       userid    : requester.id
     },
@@ -506,7 +506,7 @@ function rejectToBorrow( item, requester ) {
     type: 'GET',
     url: application.getServiceURL() + "/rejection",
     data: {
-      sessionid : application.loginInfo.sessionid,
+      sessionid : loginInfo.sessionid,
       toolid    : item.id,
       userid    : requester.id
     },
@@ -556,7 +556,7 @@ function confirmBorrow( item, oldOwner ) {
     type: 'GET',
     url: application.getServiceURL() + "/confirm",
     data: {
-      sessionid : application.loginInfo.sessionid,
+      sessionid : loginInfo.sessionid,
       toolid    : item.id,
       userid    : oldOwner.id
     },

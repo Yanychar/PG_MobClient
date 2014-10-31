@@ -1,5 +1,13 @@
+// Login info
+var	loginInfo = {
+
+		sessionid:	null,
+}
+
+
+
 $( document ).on( "pagecreate","#login_page",function() {
-	
+
 	// Set resource strings
 	$( ".ui-header .ui-title" ).text( currentResource.headers.login + ":" );
 	$( "#login_page #usrnamelabel" ).text( currentResource.labels.username + ":" );
@@ -8,7 +16,7 @@ $( document ).on( "pagecreate","#login_page",function() {
 	$( "#login_page #remember_switch" ).flipswitch( "option", "onText", currentResource.labels.on );
 	$( "#login_page #remember_switch" ).flipswitch( "option", "offText", currentResource.labels.off );
 	$( "#login_page #login_button").text( currentResource.buttons.signin );
-	
+
 	// Login button click
 	$("#login_button").on( "click", function() {
 		console.log("Sign In button clicked!");
@@ -16,10 +24,9 @@ $( document ).on( "pagecreate","#login_page",function() {
 		loginUser( $("#usrname").val(), $("#passwd").val(),
 			// If succeeded
 			function(result) {
-				console
-						.log("Authentication succeeded!");
-				application.loginInfo = result;
-	
+				console.log("Authentication succeeded!");
+				loginInfo = result;
+
 				// Go to MainMenu
 				$.mobile
 						.navigate(
@@ -38,7 +45,7 @@ $( document ).on( "pagecreate","#login_page",function() {
 						console.log("No network connection!");
 						alert("No network connection");
 						break;
-						
+
 					case 404:
 						// Not found.
 						// Authentication
@@ -46,7 +53,7 @@ $( document ).on( "pagecreate","#login_page",function() {
 						console.log("Wrong username and/or password were specified!");
 						alert("Wrong username and/or password were specified!");
 						break;
-						
+
 					default:
 						// Unknown reason
 						console.log("Authentication Failed because unknown reason. Code = " + jqXHR.status);
@@ -62,7 +69,7 @@ $( document ).on( "pagecreate","#login_page",function() {
 
 function loginUser(usrname, pwd, loggedIn, failed) {
 
-	if (application.configuration.testing && !usrname) {
+	if (application.configuration.autologin && !usrname) {
 		usrname = "sev";
 		pwd = "sev";
 	}

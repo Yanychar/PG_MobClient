@@ -1,8 +1,7 @@
+
 var SupportedDeviceType = {
-	EMULATOR:	      0,
-	DEVICE:   	    1,
-	BROWSER:	2
-//	BROWSER_REMOTE: 3
+	EMU_OR_DEVICE:	0,
+	BROWSER:	      1
 };
 
 var SupportedEnvironments = {
@@ -13,6 +12,7 @@ var SupportedEnvironments = {
 
 var supportedURL = {
   LOCAL:  "http://192.168.255.11:8080/InventoryServer/rest",
+//  LOCAL:  "http://localhost:8080/InventoryServer/rest",
   DEMO:   "http://toolsdemo.uisko.com/tools/rest"
 }
 
@@ -20,19 +20,16 @@ var application = {
 
 	configuration : {
 
-		deviceType:		SupportedDeviceType.BROWSER,
-		environment:	SupportedEnvironments.LOCAL,
-		logging: 		false,
-		testing:		true,
+		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,  // BROWSER,
+		environment : SupportedEnvironments.DEMO,   //LOCAL,
+		consolelog  : false,
+		autologin   : false,
 
 	},
 
 	/*
 	 * Global variables declarations
 	 */
-
-	// Login info
-	loginInfo: null,
 
 	// used to move through Category page(-s)
 	toolsPageDescriptor: {
@@ -52,7 +49,7 @@ var application = {
 	selectedCategory: null,
 
 	// Tool selected in Toolselection view for Tool Details view
-	currentTool: null,
+//	currentTool: null,
 
 	getServiceURL:	function() {
 		if ( this.configuration.environment == SupportedEnvironments.LOCAL ) {

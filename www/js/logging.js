@@ -1,7 +1,5 @@
-if( !window.console
-  ||
-    !application.configuration.logging ) {
-	
+if( !window.console || !application.configuration.consolelog ) {
+
     window.console = {log: function(){} };
-    
+
 }

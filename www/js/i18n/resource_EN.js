@@ -14,7 +14,7 @@ var resource_en_EN = {
  */
 
 	headers	:  {
-		login	:	"Login EN",
+		login	:	"Login",
 		mainmenu:	"Main Menu",
 		catlist	:	"Tools Categories",
 		toollist:	"Tools",
@@ -58,6 +58,13 @@ var resource_en_EN = {
 		reject		:	"Reject",
 		borrow		:	"Borrow",
 		notneeded	:	"Not needed",
+		todo		:	"To Do",
+		
+		request		:	"Request",
+        takeOver	:	"Take Over",
+        validate	:	"Validate",
+        release		:	"Release",
+        recover		:	"Recover",
 		
 	},
 
@@ -70,12 +77,12 @@ var resource_en_EN = {
  */
 
 	labels : {
-		username	:	"Username:",
-		pwd 		:	"Password:",
-		remember	:	"Remember:",
-		usedby		:	"Used by:",
-		respb		:	"Responsible:",
-		status		:	"Status:",
+		username	:	"Username",
+		pwd 		:	"Password",
+		remember	:	"Remember",
+		usedby		:	"User",
+		respb		:	"Responsible",
+		status		:	"Status",
 		
 	},
 	
@@ -112,5 +119,12 @@ var resource_en_EN = {
 		
 	},
 
-	copyright		: "Copyright (C)2014. All rights reserved",
+	text :	{
+		
+		personaltool:	"Personal Tool",
+		nolocationdata:	"No location data",
+		copyright	:	"Copyright © 2014. All rights reserved",
+	}
+	
+	
 }
