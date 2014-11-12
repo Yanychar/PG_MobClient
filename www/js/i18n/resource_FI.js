@@ -2,7 +2,7 @@
  *	 This is resource file for Finnish Language Pack
  */
 
-var resource_en_EN = { 
+var resource_fi_FI = { 
 	
 	locale	:	"fi_FI",		// Do not touch
 	

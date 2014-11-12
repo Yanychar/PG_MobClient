@@ -168,7 +168,7 @@ var resource_en_EN = {
 		authfailed	:	"Wrong username and/or password were specified!",
 		loginfailed	:	"Authentication Failed because unknown reason. Code = ",
 		categoriesfailed	:	"Read categories list failed!",
-        toolnotfound		:	"Tool was not found in the Inventory!" );
+        toolnotfound		:	"Tool was not found in the Inventory!",
 		searchfailed		:	"Search Failed because unknown reason. Code = ",
 		
 	
