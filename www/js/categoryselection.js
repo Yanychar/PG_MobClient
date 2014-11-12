@@ -50,8 +50,7 @@ function readCategoriesList( categoriesWereRead ) {
     },
 
     error: function ( jqXHR ) {
-      alert( "Failed!!!" );
-//      failed( jqXHR );
+      alert( currentResource.errors.categoriesfailed );
     },
 
   });
@@ -169,8 +168,8 @@ function selectCategory( categoryTree, header ) {
 
 function showHeader( header ) {
 
-  $( '#categories_page' ).find( '#toolbar_header' )
-      .text(( header != undefined ) ? header : "Tools Categories" );
+	$( '#categories_page' ).find( '#toolbar_header' )
+      	.text(( header != undefined ) ? header : currentResource.headers.catlist );
 
 }
 

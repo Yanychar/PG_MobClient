@@ -43,7 +43,7 @@ $( document ).on( "pagecreate","#login_page",function() {
 					case 0:
 						// Network error
 						console.log("No network connection!");
-						alert("No network connection");
+						alert( currentResource.errors.noconection );
 						break;
 
 					case 404:
@@ -51,13 +51,13 @@ $( document ).on( "pagecreate","#login_page",function() {
 						// Authentication
 						// failure
 						console.log("Wrong username and/or password were specified!");
-						alert("Wrong username and/or password were specified!");
+						alert( currentResource.errors.authfailed );
 						break;
 
 					default:
 						// Unknown reason
 						console.log("Authentication Failed because unknown reason. Code = " + jqXHR.status);
-						alert("Authentication Failed because unknown reason. Code = " + jqXHR.status);
+						alert( currentResource.errors.loginfailed + jqXHR.status);
 						break;
 				}
 

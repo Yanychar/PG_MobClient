@@ -203,7 +203,6 @@ var toolsManager = {
 	  listElement.data( "dat", tool );
 	  listElement.on( "click", function() {
 
-	    console.log( "**** 11" );
 	    // Store selected Tool
 	    toolItemMngr.selectedTool = tool;
 
@@ -212,8 +211,6 @@ var toolsManager = {
 	                            allowSamePageTransition: false,
 	                            transition: "none"
 	    });
-
-	    console.log( "**** 22" );
 
 	  });
 

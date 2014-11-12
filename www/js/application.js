@@ -20,10 +20,10 @@ var application = {
 
 	configuration : {
 
-		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,  // BROWSER,
+		deviceType  : SupportedDeviceType.BROWSER,
 		environment : SupportedEnvironments.DEMO,   //LOCAL,
-		consolelog  : false,
-		autologin   : false,
+		consolelog  : true,
+		autologin   : true,
 
 	},
 
@@ -57,7 +57,7 @@ var application = {
 		} else if ( this.configuration.environment == SupportedEnvironments.DEMO ) {
 			  return supportedURL.DEMO;
 		} else {
-			  alert( "Wrong Environment set up i the Configuration!" );
+			  alert( "Wrong Environment set up in the Configuration!" );
 		}
 
 		return "";
@@ -72,7 +72,7 @@ var application = {
 	// Application Constructor
 	initialize: function() {
 
-		$( '#readiness_page' ).find( '.devicestatus' ).text( "Progressing..." );
+		$( '#readiness_page' ).find( '.devicestatus' ).text( currentResource.text.progressing );
 
 
 	    this.initGlobal();
@@ -101,7 +101,7 @@ var application = {
 
 	  onDeviceReady: function() {
 
-		$( '#readiness_page' ).find( '.devicestatus' ).text( "DEVICE IS READY!" );
+		$( '#readiness_page' ).find( '.devicestatus' ).text( currentResource.text.readiness );
 
 		console.log( "Before switch login page" );
 		// Go to Login Page

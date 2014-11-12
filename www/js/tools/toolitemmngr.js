@@ -26,6 +26,9 @@ var toolItemMngr = {
 
 	pageCreated:	function() {
 
+		// setup correct header
+	    $("#tool_data_page .ui-header .ui-title").text( currentResource.headers.tooldata );
+		
 	},
 	
 	pageBeforeShow:	function() {
@@ -266,22 +269,22 @@ var toolItemMngr = {
 			
 			switch ( tool.status ) {
 		    	case "FREE":
-		    		resStr = "Not used";
+		    		resStr = currentResource.toolstatus.free;
 		    		break;
 		    	case "INUSE":
-		    		resStr = "In-use";
+		    		resStr = currentResource.toolstatus.inuse;
 		    		break;
 		    	case "BROCKEN":
-		    		resStr = "Brocken";
+		    		resStr = currentResource.toolstatus.brocken;
 		    		break;
 		    	case "REPAIRING":
-		    		resStr = "Under repairing";
+		    		resStr = currentResource.toolstatus.repair;
 		    		break;
 		    	case "STOLEN":
-		    		resStr = "Stolen";
+		    		resStr = currentResource.toolstatus.stolen;
 		    		break;
 		    	case "RESERVED":
-		    		resStr = "Reserved";
+		    		resStr = currentResource.toolstatus.reserved;
 		    		break;
 			
 			}
@@ -379,10 +382,10 @@ var toolItemMngr = {
 
 				if ( jqXHR.status == 404 ) {
 					// It is Ok. Just nothing was found
-			        alert( "No Tool with '" + barcode + "' found in repository!" );
+			        alert( currentResource.errors.toolnotfound+ ". Barcode: '" + barcode + "'!" );
 
 			    } else {
-			    	alert( "Failed with unknown reason. Errorcode = " + jqXHR.status );
+			    	alert( currentResource.errors.searchfailed + jqXHR.status );
 			    }
 
 			        console.log( "... Tool was not found or search failed: " + jqXHR.status );

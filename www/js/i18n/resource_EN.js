@@ -18,6 +18,7 @@ var resource_en_EN = {
 		mainmenu:	"Main Menu",
 		catlist	:	"Tools Categories",
 		toollist:	"Tools",
+		tooldata:	"Tool Info",
 		msglist	:	"Messages",
 	},
 
@@ -96,10 +97,10 @@ var resource_en_EN = {
 	msgListTemplates : {
 
 		empty		:	"Empty message",
-		request		:	"Tool requested by ",
-		agreement	:	"Approved by ",
-		rejection	:	"Rejected by ",
-		confirmation:	"Confirmed by ",
+		request		:	"Tool requested by",
+		agreement	:	"Approved by",
+		rejection	:	"Rejected by",
+		confirmation:	"Confirmed by",
 		
 	},
 
@@ -119,12 +120,57 @@ var resource_en_EN = {
 		
 	},
 
+
+	/**
+	 *	Tool Data
+	 *
+	 *	Different text strings used in Tool Data dialog
+	 * 
+	 */
+	
+	toolstatus	:	{
+		
+		free	:	"Not used",
+		inuse	:	"In-use",
+		brocken	:	"Brocken",
+		repair	:	"Under repairing",
+		stolen	:	"Stolen",
+		reserved:	"Reserved",
+		
+	},
+	
+	
+	/**
+	 *	Other Text Strings
+	 *
+	 *	Different text strings
+	 */
+	
 	text :	{
 		
 		personaltool:	"Personal Tool",
 		nolocationdata:	"No location data",
-		copyright	:	"Copyright © 2014. All rights reserved",
-	}
+		progressing	:	"Progressing ...",
+		readiness	:	"DEVICE IS READY!",
+		init		:	"Before init ...",
+		unknown		:	"unknown",
+		
+// NOT NECESSARY TO TRANSLATE BELOW
+//		copyright	:	"Copyright © 2014. All rights reserved",
+//		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+		
+	},
+
+	errors : {
 	
+		scanfailure	:	"Scanning failed",
+		noconection	:	"No network connection",
+		authfailed	:	"Wrong username and/or password were specified!",
+		loginfailed	:	"Authentication Failed because unknown reason. Code = ",
+		categoriesfailed	:	"Read categories list failed!",
+        toolnotfound		:	"Tool was not found in the Inventory!" );
+		searchfailed		:	"Search Failed because unknown reason. Code = ",
+		
 	
+	},
 }

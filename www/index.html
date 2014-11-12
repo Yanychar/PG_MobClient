@@ -133,6 +133,10 @@
         <div id="results"></div>
       </div>
 
+      <div data-role="footer" data-theme="b" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        <h1 style="text-align:center;">Uisko Nordic Oy. Copyright © 2014</h1>
+      </div>
+
     </div>
 
     <div id="categories_page" data-role="page" data-title="Categories" data-theme="a" style="background-image: url(&quot;img/5370e1ff3b3b8_BG007.jpg&quot;); background-repeat: repeat repeat;" >
@@ -147,9 +151,11 @@
           </ul>
         </div>
       </div>
+<!-- 
       <div data-role="footer" data-theme="b" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
         <h1 style="text-align:center;">Copyright © 2014. All rights reserved</h1>
       </div>
+ -->      
     </div>
 
     <div id="msg_list_page" data-role="page" data-title="Messages List" data-theme="a" style="background-image: url(&quot;img/5370e1ff3b3b8_BG007.jpg&quot;); background-repeat: repeat repeat;" >
@@ -188,9 +194,11 @@
 
         </div>
       </div>
+<!--       
       <div data-role="footer" data-theme="b" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
         <h1 style="text-align:center;">Copyright � 2014. All rights reserved</h1>
       </div>
+-->      
     </div>
 
 
@@ -239,13 +247,15 @@
     <script>
 
     
-        $( '#readiness_page' ).find( '.devicestatus' ).text( "Before init..." );
-
+        $( '#readiness_page' ).find( '.devicestatus' ).text( currentResource.text.init );
         application.initialize();
 
 
     $(document).on("pagecreate","#main_menu_page",function(){
 
+		// Footer text
+		// Later can be changed to LANG PACK
+    	
       scanner.initialize();
 
       $("#main_menu_page #scan_button").on("click",function(){

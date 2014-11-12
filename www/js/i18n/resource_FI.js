@@ -14,10 +14,11 @@ var resource_en_EN = {
  */
 
 	headers	:  {
-		login	:	"Login EN",
+		login	:	"Login",
 		mainmenu:	"Main Menu",
 		catlist	:	"Tools Categories",
 		toollist:	"Tools",
+		tooldata:	"Tool Info",
 		msglist	:	"Messages",
 	},
 
@@ -58,6 +59,13 @@ var resource_en_EN = {
 		reject		:	"Reject",
 		borrow		:	"Borrow",
 		notneeded	:	"Not needed",
+		todo		:	"To Do",
+		
+		request		:	"Request",
+        takeOver	:	"Take Over",
+        validate	:	"Validate",
+        release		:	"Release",
+        recover		:	"Recover",
 		
 	},
 
@@ -70,12 +78,12 @@ var resource_en_EN = {
  */
 
 	labels : {
-		username	:	"Username:",
-		pwd 		:	"Password:",
-		remember	:	"Remember:",
-		usedby		:	"Used by:",
-		respb		:	"Responsible:",
-		status		:	"Status:",
+		username	:	"Username",
+		pwd 		:	"Password",
+		remember	:	"Remember",
+		usedby		:	"User",
+		respb		:	"Responsible",
+		status		:	"Status",
 		
 	},
 	
@@ -89,10 +97,10 @@ var resource_en_EN = {
 	msgListTemplates : {
 
 		empty		:	"Empty message",
-		request		:	"Tool requested by ",
-		agreement	:	"Approved by ",
-		rejection	:	"Rejected by ",
-		confirmation:	"Confirmed by ",
+		request		:	"Tool requested by",
+		agreement	:	"Approved by",
+		rejection	:	"Rejected by",
+		confirmation:	"Confirmed by",
 		
 	},
 
@@ -112,5 +120,57 @@ var resource_en_EN = {
 		
 	},
 
-	copyright		: "Copyright (C)2014. All rights reserved",
+
+	/**
+	 *	Tool Data
+	 *
+	 *	Different text strings used in Tool Data dialog
+	 * 
+	 */
+	
+	toolstatus	:	{
+		
+		free	:	"Not used",
+		inuse	:	"In-use",
+		brocken	:	"Brocken",
+		repair	:	"Under repairing",
+		stolen	:	"Stolen",
+		reserved:	"Reserved",
+		
+	},
+	
+	
+	/**
+	 *	Other Text Strings
+	 *
+	 *	Different text strings
+	 */
+	
+	text :	{
+		
+		personaltool:	"Personal Tool",
+		nolocationdata:	"No location data",
+		progressing	:	"Progressing ...",
+		readiness	:	"DEVICE IS READY!",
+		init		:	"Before init ...",
+		unknown		:	"unknown",
+		
+// NOT NECESSARY TO TRANSLATE BELOW
+//		copyright	:	"Copyright © 2014. All rights reserved",
+//		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+		
+	},
+
+	errors : {
+	
+		scanfailure	:	"Scanning failed",
+		noconection	:	"No network connection",
+		authfailed	:	"Wrong username and/or password were specified!",
+		loginfailed	:	"Authentication Failed because unknown reason. Code = ",
+		categoriesfailed	:	"Read categories list failed!",
+        toolnotfound		:	"Tool was not found in the Inventory!" );
+		searchfailed		:	"Search Failed because unknown reason. Code = ",
+		
+	
+	},
 }

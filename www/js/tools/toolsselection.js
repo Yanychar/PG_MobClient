@@ -1,26 +1,3 @@
-/*
-function fillToolDialog( tool ) {
-
-  var content = $( '#tool_data_page' ).find( '#tool_descr_dynamic' );
-
-  // Clear current content
-  content.empty();
-
-  content.append( "<h3>" + (( tool.name != undefined && tool.name != null && tool.name.length > 0 ) ? tool.name : "" ) + "</h2>" );
-
-  content.append(
-    (( tool.description != undefined && tool.description.length > 0 ) ? tool.description  + "<br/>": "" )
-      + "<hr/>"
-      + (( tool.currentUser != undefined ) ? "<b>Used by: </b>"
-      + tool.currentUser.firstName + " " + tool.currentUser.lastName + "<br/>" : " " )
-      + (( tool.responsible != undefined ) ? "<b>Responsible: </b>"
-      + tool.responsible.firstName + " " + tool.responsible.lastName + "<br/>" : " " )
-      + "<hr/>"
-      + (( tool.status != undefined ) ? "<b>Status: </b>" + tool.status + "<br/>" : " " )
-  );
-
-}
-*/
 function askToBorrow( tool ) {
 
   var bRes = false;

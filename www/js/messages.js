@@ -141,25 +141,20 @@ function createShortMsgText( msg ) {
       str = defText;
       break;
     case "REQUEST":
-      str =
-        "Tool requested by "
-        msg.from.firstName + " " + msg.from.lastName;
+      str = currentResource.msgListTemplates.request + " "
+        	+ msg.from.firstName + " " + msg.from.lastName;
       break;
     case "AGREEMENT":
-      str =
-        "Approved by "
+    	str = currentResource.msgListTemplates.agreement + " "
         + msg.from.firstName + " " + msg.from.lastName;
       break;
     case "REJECTION":
-		  str =
-        "Rejected by "
+        str = currentResource.msgListTemplates.rejection + " "
         + msg.from.firstName + " " + msg.from.lastName;
       break;
     case "CONFIRMATION":
-		  str =
-        "Confirmed by "
+        str = currentResource.msgListTemplates.confirmation + " "
         + msg.from.firstName + " " + msg.from.lastName;
-
       break;
     case "INFO":
       str = defText;
@@ -179,10 +174,6 @@ function prepareMsgDialog( msg ) {
 	// Setup Content
 	setMsgDialogContent( $( '#message_data_page #dialog_content' ), msg );
 
-//    $( '#message_data_page #message_content' ).append( $( "Dddd" ));
-
-    //  $( '#message_data_page #message_content' ).refresh();
-
   // Setup buttons
   setupDlgButtons( $( '#message_data_page .ui-content' ), msg );
 
@@ -194,24 +185,24 @@ function setMsgDialogHeader( header, msg ) {
     var headerStr = "";
 
     switch ( msg.type ) {
-      case "TEXT":
-        headerStr = "Text Message";
-        break;
-	    case "REQUEST":
-        headerStr = "Request";
-        break;
+    	case "TEXT":
+	        headerStr = currentResource.msgheaders.text;
+	        break;
+    	case "REQUEST":
+	        headerStr = currentResource.msgheaders.request;
+	        break;
 	    case "AGREEMENT":
-        headerStr = "Agreement";
-        break;
+	        headerStr = currentResource.msgheaders.agreement;
+	        break;
 	    case "REJECTION":
-        headerStr = "Rejection";
-        break;
+	        headerStr = currentResource.msgheaders.rejection;
+	        break;
 	    case "CONFIRMATION":
-        headerStr = "Confirmation";
-        break;
+	        headerStr = currentResource.msgheaders.confirmation;
+	        break;
 	    case "INFO":
-        headerStr = "Info Message";
-        break;
+	        headerStr = currentResource.msgheaders.info;
+	        break;
     }
 
     console.log( "  setMsgDialogHeader ...   Header: " + headerStr );
@@ -221,60 +212,62 @@ function setMsgDialogHeader( header, msg ) {
 
 function setMsgDialogContent( contentElement, msg ) {
 
-  console.log( "*** 3 " + msg );
-  var sender = msg.from.firstName + " " + msg.from.lastName;
-  var tool = ( msg.item != undefined ) ? msg.item.name : "Unknown";
+	var sender = msg.from.firstName + " " + msg.from.lastName;
+	var tool = ( msg.item != undefined ) ? msg.item.name : currentResource.text.unknown;
 
-  contentElement.empty();
+	contentElement.empty();
 
-  contentElement.append(
-      "From: " + "<b>" + sender + "</b><br/><hr/>"
-  );
+	contentElement.append(
+			"From: " + "<b>" + sender + "</b><br/><hr/>"
+	);
 
-  switch ( msg.type ) {
-    case "TEXT":
-      contentElement.append(
-          msg.text
-        + "<br/><br/>"
-      );
-      break;
-    case "REQUEST":
-      contentElement.append(
-          "Request to borrow"+ "<br/>"
-        + "<h3>" + tool + "</h3>"
-        + "<br/><br/>"
-      );
-      break;
-    case "AGREEMENT":
-      contentElement.append(
-          "Tool may be borrowed"+ "<br/>"
-        + "<h3>" + tool + "</h3>"
-        + "<br/><br/>"
-      );
-      break;
-    case "REJECTION":
-      contentElement.append(
-          "Reject to borrow"+ "<br/>"
-        + "<h3>" + tool + "</h3>"
-        + "<br/><br/>"
-      );
-      break;
-    case "CONFIRMATION":
-      contentElement.append(
-          "Was borrowed"+ "<br/>"
-        + "<h3>" + tool + "</h3>"
-        + "<br/><br/>"
-      );
-      break;
-    case "INFO":
-      contentElement.append(
-          "New user of "
-        + "<h3>" + tool + "</h3>"
-        + "<br/><br/>"
-      );
-      break;
-  }
-  console.log( "*** 6 " );
+	switch ( msg.type ) {
+    	case "TEXT":
+    		contentElement.append(
+    				msg.text
+    				+ "<br/><br/>"
+    		);
+    		break;
+    	case "REQUEST":
+    		contentElement.append(
+    				currentResource.msgContentTemplates.request
+					+ "<br/>"
+					+ "<h3>" + tool + "</h3>"
+					+ "<br/><br/>"
+    		);
+    		break;
+    	case "AGREEMENT":
+    		contentElement.append(
+    				currentResource.msgContentTemplates.agreement
+    				+ "<br/>"
+					+ "<h3>" + tool + "</h3>"
+					+ "<br/><br/>"
+    		);
+    		break;
+	    case "REJECTION":
+	    	contentElement.append(
+	    			currentResource.msgContentTemplates.rejection
+	    			+ "<br/>"
+	    			+ "<h3>" + tool + "</h3>"
+	    			+ "<br/><br/>"
+	    	);
+	    	break;
+	    case "CONFIRMATION":
+	    	contentElement.append(
+	    			currentResource.msgContentTemplates.confirmation
+	    			+ "<br/>"
+	    			+ "<h3>" + tool + "</h3>"
+	    			+ "<br/><br/>"
+	    	);
+	    	break;
+	    case "INFO":
+	    	contentElement.append(
+	    			currentResource.msgContentTemplates.info
+	    			+ "<h3>" + tool + "</h3>"
+	    			+ "<br/><br/>"
+	    	);
+	    	break;
+	}
 
 }
 
@@ -290,14 +283,14 @@ console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
     switch ( msg.type ) {
       case "REQUEST":
         addButtons( contentElement,
-                    "Agree",
+        			currentResource.buttons.agree,
                     function() {
                       console.log( "AGREE button pressed" );
                       agreeToBorrow( msg.item, msg.from );
                       updateMessage( msg, "RESPONDED" );
                       parent.history.back();
                     },
-                    "Reject",
+        			currentResource.buttons.reject,
                     function() {
                       console.log( "REJECT button pressed" );
                       rejectToBorrow( msg );
@@ -308,7 +301,7 @@ console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
         break;
       case "AGREEMENT":
         addButtons( contentElement,
-                    "Borrow",
+    				currentResource.buttons.borrow,
                     function() {
                       console.log( "BORROW button pressed" );
                       confirmBorrow( msg.item, msg.from );
@@ -317,7 +310,7 @@ console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
                       console.log( "AFTER UPDATE message.status = " + msg.status );
                       parent.history.back();
                     },
-                    "Not Needed",
+    				currentResource.buttons.notneeded,
                     function() {
                       console.log( "NOT NEEDED button pressed" );
 
@@ -334,7 +327,7 @@ console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
       case "CONFIRMATION":
       case "INFO":
         addButtons( contentElement,
-                    "OK",
+					currentResource.buttons.ok,
                     function() {
                       console.log( "OK button pressed" );
                       updateMessage( msg, "READ" );
