@@ -1,0 +1,7 @@
+.ui-icon-scan:after {
+	background-image: url("../img/scan.svg");
+}
+/* Fallback */
+.ui-nosvg .ui-icon-scan:after {
+	background-image: url("../img/scan16.png");
+}
