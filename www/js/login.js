@@ -9,7 +9,7 @@ var	loginInfo = {
 $( document ).on( "pagecreate","#login_page",function() {
 
 	// Set resource strings
-	$( ".ui-header .ui-title" ).text( currentResource.headers.login + ":" );
+	$( ".ui-header .ui-title" ).text( currentResource.headers.login );
 	$( "#login_page #usrnamelabel" ).text( currentResource.labels.username + ":" );
 	$( "#login_page #passwdlabel" ).text( currentResource.labels.pwd + ":" );
 	$( "#login_page #rememberswitchlabel" ).text( currentResource.labels.remember + ":" );
