@@ -26,12 +26,12 @@ var toolsManager = {
 
 	      $( '#tools_list_page #back_buton' ).on( "click", function() {
 
-	      console.log( "*** Back button pressed!" );
+	    	  console.log( "*** Back button pressed!" );
 
-	        // Return back to Login screen
-	        $.mobile.navigate( "#categories_page", {
+	    	  // Return back to Login screen
+	    	  $.mobile.navigate( "#categories_page", {
 	                            transition: "slide"
-	        });
+	    	  });
 
 	      });
 

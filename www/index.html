@@ -20,198 +20,181 @@
     under the License.
 -->
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<!-- 
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
-    <link rel="stylesheet" href="css/jqm_1.4.2/jquery.mobile.theme-1.4.2.min.css"/>
-    <link rel="stylesheet" href="css/jqm_1.4.2/jquery.mobile.icons-1.4.2.min.css"/>
-    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css"/>
-    <link rel="stylesheet" href="css/my.css"/>
--->
-    <link rel="stylesheet" href="css/jqm_1.4.2/jquery.mobile.icons-1.4.2.min.css"/>
-    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css"/>
-	<link rel="stylesheet" href="css/inventtheme_1.min.css" />
-    <link rel="stylesheet" href="css/addons.css"/>
+	<head>
+	    <meta charset="utf-8" />
+	    <meta name="format-detection" content="telephone=no" />
+	    <meta name="msapplication-tap-highlight" content="no" />
+	    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	    <link rel="stylesheet" href="css/jqm_1.4.2/jquery.mobile.icons-1.4.2.min.css"/>
+	    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css"/>
+		<link rel="stylesheet" href="css/inventtheme_1.min.css" />
+	    <link rel="stylesheet" href="css/addons.css"/>
 
 
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		
+		<script src="js/i18n/resource_EN.js"></script>
+		<script src="js/i18n/resources.js"></script>
+		
+		<script src="js/application.js"></script>
+		<script src="js/communication.js"></script>
+		<script src="js/logging.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/categoryselection.js"></script>
+		<script src="js/tools/toolslistmngr.js"></script>
+		<script src="js/tools/toolsselection.js"></script>
+		<script src="js/tools/toolitemmngr.js"></script>
+		<script src="js/messages.js"></script>
+		<script src="js/scanning.js"></script>
+		<script src="js/notification.js"></script>
 
-    <script src="js/i18n/resource_EN.js"></script>
-    <script src="js/i18n/resources.js"></script>
-
-    <script src="js/application.js"></script>
-    <script src="js/communication.js"></script>
-    <script src="js/logging.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/categoryselection.js"></script>
-    <script src="js/tools/toolslistmngr.js"></script>
-    <script src="js/tools/toolsselection.js"></script>
-    <script src="js/tools/toolitemmngr.js"></script>
-    <script src="js/messages.js"></script>
-    <script src="js/scanning.js"></script>
-    <script src="js/notification.js"></script>
-
-      <title>Mobile Inventory</title>
-    </head>
+		<title>Mobile Inventory</title>
+	</head>
     <body>
 
-     <div id="readiness_page" data-role="page" data-theme="a" data-title="Readiness" class="loginview" >
-      <div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
+		<div id="readiness_page" data-role="page" data-theme="a" data-title="Readiness" class="loginview" >
+			<div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
+			
+				<h1>Mobile Inventory (c) 2014</h1>
+				<div id="deviceready" class="blink">
+			    	<p class="devicestatus">Connecting to Device...</p>
+			  	</div>
+			
+			</div>
+		</div>
 
-        <h1>Mobile Inventory (c) 2014</h1>
-        <div id="deviceready" class="blink">
-          <p class="devicestatus">Connecting to Device...</p>
-        </div>
 
-      </div>
-    </div>
+		<div id="login_page" data-role="page" data-theme="a" data-title="Login" class="loginview" >
+		
+		 	<div data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
+		   		<h1 style="text-align: center;">Login</h1>
+			</div>
+      
+      		<div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
+				<label id="usrnamelabel" for="usrname">Username:</label>
+				<input id="usrname" type="text" value="" data-theme="a" data-clear-btn="false" data-corners="true" data-mini="false"/>
+	      		<label id="passwdlabel" for="passwd">Password:</label>
+	      		<input id="passwd" type="password" value="" data-theme="a" data-clear-btn="false" data-corners="true" data-mini="false"/>
+	      		<fieldset>
+	        		<div data-role="fieldcontain">
+	          			<label id="rememberswitchlabel" for="remember_switch">Remember:</label>
+	          			<input id="remember_switch" type="checkbox" data-role="flipswitch" data-theme="a" data-corners="true" data-mini="false" data-off-text="Off" data-on-text="On"/>
+	        		</div>
+	      		</fieldset>
+	      		
+				<button id="login_button" class="ui-btn ui-btn-inline ui-corner-all">Sign In</button>
+	
+      		</div>
+    	</div>
 
+    	<div id="main_menu_page" data-role="page" data-theme="a" data-title="Main Menu" class="mainmenuview" >
+      		<div data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
 
-     <div id="login_page" data-role="page" data-theme="a" data-title="Login" class="loginview" >
-      <div data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
-        <h1 style="text-align: center;">Login</h1>
-      </div>
-      <div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
-        <label id="usrnamelabel" for="usrname">Username:</label>
-        <input id="usrname" type="text" value="" data-theme="a" data-clear-btn="false" data-corners="true" data-mini="false"/>
-        <label id="passwdlabel" for="passwd">Password:</label>
-        <input id="passwd" type="password" value="" data-theme="a" data-clear-btn="false" data-corners="true" data-mini="false"/>
-        <fieldset>
-          <div data-role="fieldcontain">
-            <label id="rememberswitchlabel" for="remember_switch">Remember:</label>
-            <input id="remember_switch" type="checkbox" data-role="flipswitch" data-theme="a" data-corners="true" data-mini="false" data-off-text="Off" data-on-text="On"/>
-          </div>
-        </fieldset>
-		<button id="login_button" class="ui-btn ui-btn-inline ui-corner-all">Sign In</button>
+        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none">Back Button</a>
+        		<h1 id="toolbar_header"style="text-align:center;">Main Menu</h1>
 
-      </div>
-    </div>
-
-    <div id="main_menu_page" data-role="page" data-theme="a" data-title="Main Menu" class="mainmenuview" >
-      <div data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
-
-        <a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none">Back Button</a>
-        <h1 id="toolbar_header"style="text-align:center;">Main Menu</h1>
-
-      </div>
-      <div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
-        <div style="overflow: auto;">
-          <div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
-            <div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
-              <a href="#categories_page">
-                <img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/find.png"/>
-              </a>
-            </div>
-          </div>
-          <div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
-            <div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
-              <a href="#msg_list_page">
-                <img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/noemails.png"/>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div style="overflow: auto;">
-          <div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
-            <div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
-              <a href="">
-                <img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/owntools.png"/>
-              </a>
-            </div>
-          </div>
-          <div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
-            <div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
-              <a href="">
-                <img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/settings.png"/>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div style="text-align: center;" data-role="controlgroup" data-theme="a" data-corners="true" data-mini="false" data-shadow="false" data-type="">
-<!-- 
-          <a id="scan_button" href="" data-role="button" data-theme="a" data-corners="true" data-mini="false" data-transition="none" data-iconpos="top" data-icon="camera" data-shadow="true" data-inline="false">Scan</a>
- -->          
-          <a id="scan_button" href="" data-role="button" data-theme="a" data-corners="true" data-mini="false" data-transition="none" data-iconpos="top" data-icon="scan" data-shadow="true" data-inline="false">Scan</a>
+      		</div>
+      		
+      		<div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
+        		<div style="overflow: auto;">
+          			
+          			<div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
+            			<div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
+              				<a href="#categories_page">
+                				<img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/find.png"/>
+              				</a>
+            			</div>
+          			</div>
           
-          
-          
-        </div>
-        <div id="results"></div>
-      </div>
+          			<div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
+            			<div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
+              				<a href="#msg_list_page">
+                				<img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/noemails.png"/>
+              				</a>
+            			</div>
+          			</div>
+        		</div>
+        	
+        		<div style="overflow: auto;">
+          			<div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
+            			<div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
+              				<a href="">
+                				<img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/owntools.png"/>
+              				</a>
+            			</div>
+          			</div>
+          			
+          			<div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
+            			<div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
+              				<a href="">
+                				<img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/settings.png"/>
+              				</a>
+            			</div>
+          			</div>
+        		</div>
+        		
+        		<div style="text-align: center;" data-role="controlgroup" data-theme="a" data-corners="true" data-mini="false" data-shadow="false" data-type="">
+          			<a id="scan_button" href="" data-role="button" data-theme="a" data-corners="true" data-mini="false" data-transition="none" data-iconpos="top" data-icon="scan" data-shadow="true" data-inline="false">Scan</a>
+        		</div>
+      		</div>
 
-      <div data-role="footer" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        <h1 style="text-align:center;">Uisko Nordic Oy. Copyright © 2014</h1>
-      </div>
+			<div data-role="footer" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+				<h1 style="text-align:center;">Uisko Nordic Oy. Copyright © 2014</h1>
+			</div>
 
-    </div>
+    	</div>
 
-    <div id="categories_page" data-role="page" data-title="Categories" data-theme="a" >
-      <div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        <a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
-        <h1 id="toolbar_header"style="text-align:center;">Title</h1>
-      </div>
-      <div role="main" class="ui-content" style="margin:0px;padding:0px;">
-        <div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
-          <ul data-role="listview" id="catlist" data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="false">
+    	<div id="categories_page" data-role="page" data-title="Categories" data-theme="a" >
+      		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+        		<h1 id="toolbar_header"style="text-align:center;">Title</h1>
+      		</div>
+      		
+      		<div role="main" class="ui-content" style="margin:0px;padding:0px;">
+        		<div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
+          			<ul data-role="listview" id="catlist" data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="false">
+          			
+          			</ul>
+        		</div>
+      		</div>
 
-          </ul>
-        </div>
-      </div>
-<!-- 
-      <div data-role="footer" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        <h1 style="text-align:center;">Copyright © 2014. All rights reserved</h1>
-      </div>
- -->      
-    </div>
+    	</div>
 
-    <div id="msg_list_page" data-role="page" data-title="Messages List" data-theme="a" >
+		<div id="msg_list_page" data-role="page" data-title="Messages List" data-theme="a" >
+      		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+          		<a id="msg_back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-rel="back">Back Button</a>
+        		<h1 id="toolbar_header"style="text-align:center;">Messages</h1>
+      		</div>
 
-      <div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+      		<div role="main" class="ui-content" style="margin:0px;padding:0px;">
+        		<div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
+          			<ul id="msglist" data-role="listview" data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="true">
+          			</ul>
+        		</div>
+      		</div>
+    	</div>
 
-          <a id="msg_back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-rel="back">Back Button</a>
 
-        <h1 id="toolbar_header"style="text-align:center;">Messages</h1>
-      </div>
+    	<div id="tools_list_page" data-role="page" data-title="Tools" data-theme="a" >
+      		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+        		<h1 id="toolbar_header"style="text-align:center;">Tools</h1>
+      		</div>
 
-      <div role="main" class="ui-content" style="margin:0px;padding:0px;">
-        <div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
-
-          <ul id="msglist" data-role="listview" data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="true">
-
-          </ul>
-
-        </div>
-      </div>
-    </div>
-
-    <div id="tools_list_page" data-role="page" data-title="Tools" data-theme="a" >
-
-      <div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        <a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
-        <h1 id="toolbar_header"style="text-align:center;">Tools</h1>
-      </div>
-
-      <div role="main" class="ui-content" style="margin:0px;padding:0px;">
-        <div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
-
-          <ul id="tools_list" data-role="listview">
-
-          </ul>
-
-        </div>
-      </div>
-<!--       
-      <div data-role="footer" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        <h1 style="text-align:center;">Copyright � 2014. All rights reserved</h1>
-      </div>
--->      
-    </div>
+      		<div role="main" class="ui-content" style="margin:0px;padding:0px;">
+        		<div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
+					<form class="ui-filterable">
+						<input id="myFilter" data-type="search">
+					</form>
+					<ul id="tools_list" data-role="listview" data-filter="true" data-input="#myFilter" >
+					
+					</ul>
+        		</div>
+      		</div>
+    	</div>
 
 
     <div id="tool_data_page" data-role="page" data-theme="b" data-overlay-theme="b" data-title="Tool Info" class="tool_data" data-dialog="true">
