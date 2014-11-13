@@ -1,5 +1,8 @@
 function showMessages( msgList ) {
 
+	// Header text
+	$( ".ui-header .ui-title" ).text( currentResource.headers.msglist );
+	
     if ( msgList == undefined ) {
 
         console.log( "Entered into Show Messages. NO msgList specified. Will be read" );

@@ -37,6 +37,7 @@
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 		
 		<script src="js/i18n/resource_EN.js"></script>
+		<script src="js/i18n/resource_FI.js"></script>
 		<script src="js/i18n/resources.js"></script>
 		
 		<script src="js/application.js"></script>
@@ -184,15 +185,13 @@
         		<h1 id="toolbar_header"style="text-align:center;">Tools</h1>
       		</div>
 
-      		<div role="main" class="ui-content" style="margin:0px;padding:0px;">
-        		<div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
+      		<div role="main" class="ui-content" >
 					<form class="ui-filterable">
 						<input id="myFilter" data-type="search">
 					</form>
-					<ul id="tools_list" data-role="listview" data-filter="true" data-input="#myFilter" >
+					<ul id="tools_list" data-role="listview" data-filter="true" data-input="#myFilter" data-inset="true">
 					
 					</ul>
-        		</div>
       		</div>
     	</div>
 
@@ -225,12 +224,12 @@
 
 
 
-    <div id="message_data_page" data-role="page" data-theme="b" data-title="Message" class="message_data_class" data-dialog="true" data-close-btn="right">
+    <div id="message_data_page" data-role="page" data-theme="a" data-overlay-theme="a" data-title="Message" class="message_data_class" data-dialog="true">
 
       <div id="header" data-role="header" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
           <h1 style="text-align: center;">Message</h1>
       </div>
-      <div role="main" class="ui-content" style="margin: 0px; padding: 1em;">
+      <div role="main" class="ui-content" data-theme="b" style="margin: 0px; padding: 1em;">
           <div id="dialog_content">
 
           </div>
@@ -238,37 +237,37 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script>
 
-    
-        $( '#readiness_page' ).find( '.devicestatus' ).text( currentResource.text.init );
+		$( '#readiness_page' ).find( '.devicestatus' ).text( currentResource.text.init );
         application.initialize();
 
 
-    $(document).on("pagecreate","#main_menu_page",function(){
+    	$(document).on("pagecreate","#main_menu_page",function(){
 
-		// Footer text
-		// Later can be changed to LANG PACK
-    	
-      scanner.initialize();
+			// Header text
+			$( ".ui-header .ui-title" ).text( currentResource.headers.mainmenu );
+			// Scan button text
+			$("#main_menu_page #scan_button").text( currentResource.buttons.scan );
+		
+		
+			// Later can be changed to LANG PACK
+			scanner.initialize();
+	
+	      	$("#main_menu_page #scan_button").on("click",function(){
+	        	scanner.scan();
+	        });
 
-      $("#main_menu_page #scan_button").on("click",function(){
+			$( '#main_menu_page #back_buton' ).on( "click", function() {
+	
+	        	// Return back to Login screen
+	        	$.mobile.navigate( "#login_page", {
+	                                  transition: "slide"
+        		});
 
-        scanner.scan();
-
-      });
-
-      $( '#main_menu_page #back_buton' ).on( "click", function() {
-
-        // Return back to Login screen
-        $.mobile.navigate( "#login_page", {
-                                  transition: "slide"
-
-        });
-
-      });
-    });
+      		});
+    	});
 
 
     // Fill Category list
@@ -296,22 +295,20 @@
 
 
 
-      // Fill Message List list
-      $(document).on("pageshow","#msg_list_page",function(){
+      		// Fill Message List list
+      		$(document).on("pageshow","#msg_list_page",function(){
 
-        console.log( "Message icon has been pressed!" );
-        showMessages();
+        		console.log( "Message icon has been pressed!" );
+        		showMessages();
 
-      });
+      		});
 
-      $(document).on("pageshow","#message_data_page",function(){
+      		$(document).on("pageshow","#message_data_page",function(){
 
-          prepareMsgDialog( $("#message_data_page").data( "dat" ) );
-      });
-
-
-    </script>
+          		prepareMsgDialog( $("#message_data_page").data( "dat" ) );
+      		});
 
 
-    </body>
+    	</script>
+	</body>
 </html>

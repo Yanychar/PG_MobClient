@@ -27,7 +27,7 @@ var toolItemMngr = {
 	pageCreated:	function() {
 
 		// setup correct header
-	    $("#tool_data_page .ui-header .ui-title").text( currentResource.headers.tooldata );
+	    $(".ui-header .ui-title").text( currentResource.headers.tooldata );
 		
 	},
 	

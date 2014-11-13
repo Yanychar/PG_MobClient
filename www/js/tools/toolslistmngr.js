@@ -22,20 +22,23 @@ var toolsManager = {
 		
 	pageCreated:	function() {
 
-	      console.log( "ToolsList pageCreated handler start ..." );
+		console.log( "ToolsList pageCreated handler start ..." );
 
-	      $( '#tools_list_page #back_buton' ).on( "click", function() {
+	    // Header text
+		$( ".ui-header .ui-title" ).text( currentResource.headers.toollist );
+	      
+	    $( '#tools_list_page #back_buton' ).on( "click", function() {
+	    	
+	    	console.log( "*** Back button pressed!" );
 
-	    	  console.log( "*** Back button pressed!" );
-
-	    	  // Return back to Login screen
-	    	  $.mobile.navigate( "#categories_page", {
+	    	// Return back to Login screen
+	    	$.mobile.navigate( "#categories_page", {
 	                            transition: "slide"
-	    	  });
+	    	});
 
-	      });
+	    });
 
-	      console.log( "... ToolsList pageCreated handler end." );
+	    console.log( "... ToolsList pageCreated handler end." );
 	      
 	},
 	
