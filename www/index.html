@@ -209,13 +209,20 @@
 
         	<div id="dialog_btns">
 				<a href="#todoMenu" id="todo_button" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-d ui-btn-icon-right ui-btn-b">Todooo...</a>
-				<div data-role="popup" id="todoMenu" data-overlay-theme="a" data-theme="a" data-dismissible="true" style="min-width:400px;">
-	      			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+				<div data-role="popup" id="todoMenu" data-overlay-theme="a" data-theme="a" data-dismissible="true" style="min-width:80%;">
+				
+					<div data-role="header" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
+	      				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
+					    <h1 style="text-align: center;">Select</h1>
+					</div>
+				
 				    <div id="todoMenuContent" role="main" class="ui-content" data-theme="b">
+<!-- 				    
 				        <a href="#" id="requestButton"  class="ui-btn ui-btn-a">Request</a>
 				        <a href="#" id="takeOverButton" class="ui-btn ui-btn-a">Take Over</a>
 				        <a href="#" id="validateButton" class="ui-btn ui-btn-a">Validate</a>
 				        <a href="#" id="releaseButton" 	class="ui-btn ui-btn-a">Release</a>
+ -->				        
 				    </div>
 				</div>
         	</div>
@@ -237,6 +244,10 @@
       </div>
     </div>
 
+
+
+
+
 	<script type="text/javascript" src="cordova.js"></script>
 	<script>
 
@@ -247,7 +258,7 @@
     	$(document).on("pagecreate","#main_menu_page",function(){
 
 			// Header text
-			$( ".ui-header .ui-title" ).text( currentResource.headers.mainmenu );
+			$( "#main_menu_page .ui-header .ui-title" ).text( currentResource.headers.mainmenu );
 			// Scan button text
 			$("#main_menu_page #scan_button").text( currentResource.buttons.scan );
 		

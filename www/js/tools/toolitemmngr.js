@@ -27,7 +27,7 @@ var toolItemMngr = {
 	pageCreated:	function() {
 
 		// setup correct header
-	    $(".ui-header .ui-title").text( currentResource.headers.tooldata );
+	    $("#tool_data_page .ui-header .ui-title").text( currentResource.headers.tooldata );
 		
 	},
 	
@@ -85,7 +85,7 @@ var toolItemMngr = {
 	    if ( tool.location ) {
 	    	
 	    	// TODO: Add button to show location in the map
-	    	// Tomporarily just show text
+	    	// Temporarily just show text
 	    	contentElement.append( currentResource.buttons.nolocationdata ); 
 	    	
 	    }
@@ -111,12 +111,10 @@ var toolItemMngr = {
 		// Clear current content
 		menuContent.empty();
 
+		// setup correct header
+	    $("#todoMenu .ui-header .ui-title").text( currentResource.headers.select );
+		
 		switch ( tool.status ) {
-	    	case "FREE":
-	    		this.addButton( menuContent, currentResource.buttons.request,  this.requestHandler );
-	    		this.addButton( menuContent, currentResource.buttons.takeOver, this.takeOverHandler );
-//	    		this.addButton( menuContent, currentResource.buttons.validate, this.validateHandler );
-	    		break;
 	    	case "INUSE":
 	    		this.addButton( menuContent, currentResource.buttons.request,  this.requestHandler );
 	    		this.addButton( menuContent, currentResource.buttons.takeOver, this.takeOverHandler );
@@ -133,7 +131,13 @@ var toolItemMngr = {
 	    		this.addButton( menuContent, currentResource.buttons.release,  this.releaseHandler );
 //	    		this.addButton( menuContent, currentResource.buttons.validate, this.validateHandler );
 	    		break;
+	    	case "FREE":
 	    	default:
+	    		this.addButton( menuContent, currentResource.buttons.request,	this.requestHandler );
+	    		this.addButton( menuContent, currentResource.buttons.takeOver,	this.takeOverHandler );
+	    		this.addButton( menuContent, currentResource.buttons.inUse,		this.inUseHandler );
+//	    		this.addButton( menuContent, currentResource.buttons.validate,	this.validateHandler );
+	    		break;
 	    		break;
 		};
 		
@@ -149,12 +153,17 @@ var toolItemMngr = {
 		if ( communicator.sendBorrowRequest( toolItemMngr.selectedTool )) {		
 			console.log( "Successful result received from server after 'borrow' request" );
 
+			toolItemMngr.setDialogButtons( toolItemMngr.selectedTool );
+			
 		} else {
 			console.log( "Failure result received from server after 'borrow' request" );
 		};
+
+		
+		Notification.show( "AAA" );
 		
 		$( "#tool_data_page #todoMenu" ).popup( "close" );
-		
+
 	},
 	
 	takeOverHandler:	function() {
@@ -168,15 +177,19 @@ var toolItemMngr = {
 			toolItemMngr.selectedTool.currentUser = loginInfo.user;
 			toolItemMngr.selectedTool.status = "INUSE";
 			
+			toolItemMngr.setDialogButtons( toolItemMngr.selectedTool );
 			
 		} else {
 			console.log( "Failure result received from server after 'takeOver' request" );
 		};
 		
+		Notification.show( "BBB" );
 		
 		$( "#tool_data_page #todoMenu" ).popup( "close" );
 		
 		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
+
+		
 	},
 	
 	validateHandler:	function() {
@@ -198,8 +211,11 @@ var toolItemMngr = {
 			console.log( "Failure result received from server after 'validation' request" );
 		};
 		
+		Notification.show( "CCC" );
 	
 //		$( "#tool_data_page #todoMenu" ).popup( "close" )
+		
+		
 	},
 	
 	releaseHandler:	function() {
@@ -212,15 +228,47 @@ var toolItemMngr = {
 
 			toolItemMngr.selectedTool.status = "FREE";
 			
+			toolItemMngr.setDialogButtons( toolItemMngr.selectedTool );
 			
 		} else {
 			console.log( "Failure result received from server after 'Release' request" );
 		};
+
+		Notification.show( "DDD" );
 		
 		
 		$( "#tool_data_page #todoMenu" ).popup( "close" )
 
 		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
+		
+		
+	},
+
+	inUseHandler:	function() {
+		
+		console.log( "'In Use' button has been pressed" );
+
+		// Send Release request
+		if ( communicator.sendInUseRequest( toolItemMngr.selectedTool )) {		
+			// Change the tool user and tool status
+			console.log( "Successful result received from server after 'Release' request" );
+
+			toolItemMngr.selectedTool.status = "INUSE";
+			
+			toolItemMngr.setDialogButtons( toolItemMngr.selectedTool );
+			
+		} else {
+			console.log( "Failure result received from server after 'Release' request" );
+		};
+
+		Notification.show( "DDD" );
+		
+		
+		$( "#tool_data_page #todoMenu" ).popup( "close" )
+
+		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
+		
+		
 	},
 
 	addButton:		function( placeHolder, itemCaption, handler ) {
@@ -268,9 +316,6 @@ var toolItemMngr = {
 		if ( tool && tool.status ) {
 			
 			switch ( tool.status ) {
-		    	case "FREE":
-		    		resStr = currentResource.toolstatus.free;
-		    		break;
 		    	case "INUSE":
 		    		resStr = currentResource.toolstatus.inuse;
 		    		break;
@@ -286,7 +331,10 @@ var toolItemMngr = {
 		    	case "RESERVED":
 		    		resStr = currentResource.toolstatus.reserved;
 		    		break;
-			
+		    	case "FREE":
+		    	default:
+		    		resStr = currentResource.toolstatus.free;
+		    		break;
 			}
 			 
 		}

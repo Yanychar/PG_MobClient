@@ -21,7 +21,7 @@ var application = {
 	configuration : {
 
 		deviceType  : SupportedDeviceType.BROWSER,
-		environment : SupportedEnvironments.DEMO,   //LOCAL,
+		environment : SupportedEnvironments.LOCAL,
 		consolelog  : true,
 		autologin   : true,
 

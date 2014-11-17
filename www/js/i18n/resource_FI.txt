@@ -20,6 +20,7 @@ var resource_fi_FI = {
 		toollist:	"Työkalut",
 		tooldata:	"Info",
 		msglist	:	"Viestit",
+		select	:	"Valitse",
 	},
 
 /**
@@ -66,6 +67,7 @@ var resource_fi_FI = {
         validate	:	"Tarkista työkalun tiedot",
         release		:	"Vapauta",
         recover		:	"Palauta",
+        inUse		:	"Varattu",
 		
 	},
 

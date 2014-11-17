@@ -25,8 +25,8 @@ var toolsManager = {
 		console.log( "ToolsList pageCreated handler start ..." );
 
 	    // Header text
-		$( ".ui-header .ui-title" ).text( currentResource.headers.toollist );
-	      
+		$( "#tools_list_page .ui-header .ui-title" ).text( currentResource.headers.toollist );
+		
 	    $( '#tools_list_page #back_buton' ).on( "click", function() {
 	    	
 	    	console.log( "*** Back button pressed!" );
@@ -44,13 +44,13 @@ var toolsManager = {
 	
 	pageBeforeShow:	function() {
 
-	      console.log( "ToolsList pageBeforeShow handler start ..." );
+		console.log( "ToolsList pageBeforeShow handler start ..." );
 
-	      console.log( "Selected category: " + application.selectedCategory.name );
+		console.log( "Selected category: " + application.selectedCategory.name );
 	      
-	      this.showCategory( application.selectedCategory );
+		this.showCategory( application.selectedCategory );
 
-	      console.log( "... ToolsList pageBeforeShow handler end." );
+		console.log( "... ToolsList pageBeforeShow handler end." );
 	      
 	},
 

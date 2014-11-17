@@ -20,6 +20,7 @@ var resource_en_EN = {
 		toollist:	"Tools",
 		tooldata:	"Tool Info",
 		msglist	:	"Messages",
+		select	:	"Select",
 	},
 
 /**
@@ -66,6 +67,7 @@ var resource_en_EN = {
         validate	:	"Validate",
         release		:	"Release",
         recover		:	"Recover",
+        inUse		:	"In Use",
 		
 	},
 

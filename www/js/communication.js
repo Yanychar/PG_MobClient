@@ -60,15 +60,40 @@ var communicator = {
 			console.log( "Tool is not defined!" );
 		};
 
-		result = this.sendSyncGetRequest( "release",
+		result = this.sendSyncGetRequest( "updatestatus",
 				  					{
 		      							sessionid : loginInfo.sessionid,
-		      							toolid : tool.id
+		      							toolid : tool.id,
+		      							status : "FREE"
 				  					}
 		);
 
 		if ( result ) {
 			console.log( "'Release' request was sent successfully!" );
+		};
+
+		return result;
+
+	},
+
+	sendInUseRequest:	function( tool ) {
+
+		var result = false;
+
+		if ( !tool ) {
+			console.log( "Tool is not defined!" );
+		};
+
+		result = this.sendSyncGetRequest( "updatestatus",
+					{
+						sessionid : loginInfo.sessionid,
+						toolid : tool.id,
+						status : "INUSE"
+					}
+);
+
+		if ( result ) {
+			console.log( "'InUse' request was sent successfully!" );
 		};
 
 		return result;

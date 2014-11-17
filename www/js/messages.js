@@ -1,7 +1,7 @@
 function showMessages( msgList ) {
 
 	// Header text
-	$( ".ui-header .ui-title" ).text( currentResource.headers.msglist );
+	$( "#msg_list_page .ui-header .ui-title" ).text( currentResource.headers.msglist );
 	
     if ( msgList == undefined ) {
 
