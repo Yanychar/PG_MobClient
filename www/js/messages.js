@@ -122,7 +122,7 @@ function createIconTag( msg ) {
       str = '<img src=\"img/attention.png\" alt=\"A\" class=\"ui-li-icon\">';
       break;
     default:
-      str = '<img src=\"img/info.png\" alt=\"i\" class=\"ui-li-icon\">';
+      str = '<img src=\"img/info2.png\" alt=\"i\" class=\"ui-li-icon\">';
       break;
   }
 
