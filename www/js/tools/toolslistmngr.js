@@ -24,8 +24,6 @@ var toolsManager = {
 
 		console.log( "ToolsList pageCreated handler start ..." );
 
-	    // Header text
-		$( "#tools_list_page .ui-header .ui-title" ).text( currentResource.headers.toollist );
 		
 	    $( '#tools_list_page #back_buton' ).on( "click", function() {
 	    	
@@ -33,7 +31,7 @@ var toolsManager = {
 
 	    	// Return back to Login screen
 	    	$.mobile.navigate( "#categories_page", {
-	                            transition: "slide"
+//	                            transition: "slide"
 	    	});
 
 	    });
@@ -48,6 +46,11 @@ var toolsManager = {
 
 		console.log( "Selected category: " + application.selectedCategory.name );
 	      
+	    // Header text
+		$( "#tools_list_page .ui-header .ui-title" ).text( currentResource.headers.toollist );
+		// Search ...
+    	$( '#tools_list_page' ).find( '.ui-input-search input' ).attr( 'placeholder', currentResource.text.search + " ..."  );
+		
 		this.showCategory( application.selectedCategory );
 
 		console.log( "... ToolsList pageBeforeShow handler end." );
@@ -115,7 +118,7 @@ var toolsManager = {
 		
 	    console.log( "showCategoryToolsList start ..." );
 
-	    var listControl = $( '#tools_list_page' ).find( '#tools_list' );
+//	    var listControl = $( '#tools_list_page' ).find( '#tools_list' );
 
 //	    if ( application.toolsPageDescriptor.category != category ) {
 

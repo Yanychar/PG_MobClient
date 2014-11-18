@@ -44,7 +44,7 @@
 		<script src="js/communication.js"></script>
 		<script src="js/logging.js"></script>
 		<script src="js/login.js"></script>
-		<script src="js/categoryselection.js"></script>
+		<script src="js/tools/categorymngr.js"></script>
 		<script src="js/tools/toolslistmngr.js"></script>
 		<script src="js/tools/toolsselection.js"></script>
 		<script src="js/tools/toolitemmngr.js"></script>
@@ -151,12 +151,12 @@
     	<div id="categories_page" data-role="page" data-title="Categories" data-theme="a" >
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
         		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
-        		<h1 id="toolbar_header"style="text-align:center;">Title</h1>
+        		<h1 id="toolbar_header"style="text-align:center;">Categories</h1>
       		</div>
       		
-      		<div role="main" class="ui-content" style="margin:0px;padding:0px;">
-        		<div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
-          			<ul data-role="listview" id="catlist" data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="false">
+      		<div role="main" class="ui-content" style="width:100%;margin:0px;padding:0px">
+        		<div class="ui-body ui-body-e " style="margin:0px;padding:0em">
+          			<ul id="catlist" data-role="listview" data-filter="true" data-filter-placeholder="Search ..." data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="true" >
           			
           			</ul>
         		</div>
@@ -164,36 +164,36 @@
 
     	</div>
 
+		<div id="tools_list_page" data-role="page" data-title="Tools" data-theme="a" >
+      		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+        		<h1 id="toolbar_header"style="text-align:center;">Tools</h1>
+      		</div>
+
+      		<div role="main" class="ui-content" style="width:100%;margin:0px;padding:0px">
+        		<div class="ui-body ui-body-e " style="margin:0px;padding:0em">
+					<ul id="tools_list" data-role="listview" data-filter="true" data-filter-placeholder="Search ..." data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="true" >
+					
+					</ul>
+      			</div>
+      		</div>
+    	</div>
+
+
 		<div id="msg_list_page" data-role="page" data-title="Messages List" data-theme="a" >
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
           		<a id="msg_back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-rel="back">Back Button</a>
         		<h1 id="toolbar_header"style="text-align:center;">Messages</h1>
       		</div>
 
-      		<div role="main" class="ui-content" style="margin:0px;padding:0px;">
-        		<div class="ui-body ui-body-e " style="margin:auto;padding:1em;;background-repeat:repeat repeat;">
+      		<div role="main" class="ui-content" style="width:100%;margin:0px;padding:0px">
+        		<div class="ui-body ui-body-e " style="margin:0px;padding:0em">
           			<ul id="msglist" data-role="listview" data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="true">
           			</ul>
         		</div>
       		</div>
     	</div>
 
-
-    	<div id="tools_list_page" data-role="page" data-title="Tools" data-theme="a" >
-      		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
-        		<h1 id="toolbar_header"style="text-align:center;">Tools</h1>
-      		</div>
-
-      		<div role="main" class="ui-content" >
-					<form class="ui-filterable">
-						<input id="myFilter" data-type="search">
-					</form>
-					<ul id="tools_list" data-role="listview" data-filter="true" data-input="#myFilter" data-inset="true">
-					
-					</ul>
-      		</div>
-    	</div>
 
 
     <div id="tool_data_page" data-role="page" data-theme="b" data-overlay-theme="b" data-title="Tool Info" class="tool_data" data-dialog="true">
@@ -274,35 +274,19 @@
 	
 	        	// Return back to Login screen
 	        	$.mobile.navigate( "#login_page", {
-	                                  transition: "slide"
+//	                                  transition: "slide"
         		});
 
       		});
     	});
 
 
-    // Fill Category list
-    $(document).on("pagecreate","#categories_page",function(){
+    		// Category list initialization
+    		catgrsManager.init();
 
-      $( '#categories_page #back_buton' ).on( "click", function() {
-
-        // Return back to Login screen
-        $.mobile.navigate( "#main_menu_page", {
-                                  transition: "slide"
-        });
-
-      });
-    });
-
-    $(document).on("pageshow","#categories_page",function(){
-
-      showCategoriesSelection();
-
-    });
-
-	 // Tools List initialization
-	toolsManager.init();
-	toolItemMngr.init();
+			 // Tools List initialization
+			toolsManager.init();
+			toolItemMngr.init();
 
 
 

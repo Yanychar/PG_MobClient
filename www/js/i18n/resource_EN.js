@@ -156,6 +156,7 @@ var resource_en_EN = {
 		readiness	:	"DEVICE IS READY!",
 		init		:	"Before init ...",
 		unknown		:	"unknown",
+		search		:	"Search",
 		
 // NOT NECESSARY TO TRANSLATE BELOW
 //		copyright	:	"Copyright © 2014. All rights reserved",

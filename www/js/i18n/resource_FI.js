@@ -156,6 +156,7 @@ var resource_fi_FI = {
 		readiness	:	"LAITE ON VALMIS!",
 		init		:	"Before init ...",
 		unknown		:	"Ei tiedossa",
+		search		:	"Haku",
 		
 // NOT NECESSARY TO TRANSLATE BELOW
 //		copyright	:	"Copyright \u00a9 2014. All rights reserved",
