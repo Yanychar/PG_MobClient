@@ -4,7 +4,7 @@ var settingsManager = {
 	storage	: 	null,
 	wasRead	:	false,
 
-	supportedLangs	:	[ "English", "Suomi" ],		// Do not touch
+	supportedLangs	:	[ "English", "Suomi", "Русский" ],		// Do not touch
 	
 	currentLang:	"Suomi",
 	
@@ -165,6 +165,8 @@ var settingsManager = {
 				return resource_fi_FI;
 			case "English":
 				return resource_en_EN;
+			case "Русский":
+				return resource_ru_RU;
 		}
 
 		return resource_fi_FI;

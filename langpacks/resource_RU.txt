@@ -1,0 +1,180 @@
+﻿/**
+ *	 This is resource file for Russian Language Pack
+ */
+
+var resource_ru_RU = { 
+	
+	locale			:	"ru_RU",				// Do not touch
+	
+	/**
+	 *	Headers
+	 *
+	 *		There are headers of all screens in application except Message Dialog headers (see next)
+	 */
+
+		headers	:  {
+			login	:	"Вход",
+			mainmenu:	"Главное Меню",
+			catlist	:	"Виды Инструмента",
+			toollist:	"Цписок Инструментов",
+			tooldata:	"Данные о Инструменте",
+			msglist	:	"Сообщения",
+			select	:	"Выберите",
+			settings:	"Установки",
+		},
+
+	/**
+	 *	 Message dialog Headers 
+	 *
+	 *		Message Dialog generates different headers depend on message type
+	 */
+
+		msgheaders	:  {
+			empty		:	"Тип неизвестен",		// For failure situation. Not used
+			text		:	"Письмо",
+			request		:	"Запрос",
+			agreement	:	"Одобрение",
+			rejection	:	"Отказ",
+			confirmation:	"Подтверждение",
+			info		:	"Информация",
+
+		},
+		
+
+	/**
+	 *	Buttons 
+	 *
+	 *		There are different buttons text 
+	 */
+
+		buttons : {
+			on			:	"Да",
+			off			:	"Нет",
+			signin		:	"Вход",
+			scan		:	"Сканировать",
+			askborrow	:	"Запросить",
+			ok			:	"OK",
+			cancel		:	"Отказ",
+			back		:	"Назад",
+			agree		:	"Утвердить",
+			reject		:	"Отказать",
+			borrow		:	"Взать",
+			notneeded	:	"Не нужно",
+			todo		:	"Сделать",
+			
+			request		:	"Запрос взять",
+	        takeOver	:	"Взять",
+	        validate	:	"Отметить",
+	        release		:	"Свободно",
+	        recover		:	"Починено",
+	        inUse		:	"Используется",
+			
+		},
+
+
+	/**
+	 *	Labels 
+	 *
+	 *		Caption of input fields
+	 *		For example field to input username has caption "Username:"
+	 */
+
+		labels : {
+			username	:	"Имя пользователя",
+			pwd 		:	"Пароль",
+			remember	:	"Запомнить",
+			usedby		:	"Кто использует",
+			respb		:	"Ответственный",
+			status		:	"Статус",
+			lang		:	"Язык",
+			
+		},
+		
+
+	/**
+	 *	Messages in the Lists
+	 *
+	 *	Templates. There are templates for messages in the Messages List. They will be modified according to message type
+	 */
+
+		msgListTemplates : {
+
+			empty		:	"Пустое сообщение",
+			request		:	"Запрос на Инструмент от",
+			agreement	:	"Согласие от",
+			rejection	:	"Отказ от",
+			confirmation:	"Подтверждение от",
+			
+		},
+
+		/**
+		 *	Content of Message Dialog
+		 *
+		 *	Templates. There are templates for the Message Dialogs. They will be modified according to message type
+		 */
+
+		msgContentTemplates : {
+
+			request		:	"Просьба взять",
+			agreement	:	"Разрешение взять",
+			rejection	:	"Отказ взять",
+			confirmation:	"Взял",
+			info		:	"Новый пользователь",
+			
+		},
+
+
+		/**
+		 *	Tool Data
+		 *
+		 *	Different text strings used in Tool Data dialog
+		 * 
+		 */
+		
+		toolstatus	:	{
+			
+			free	:	"Свободен",
+			inuse	:	"Используется",
+			brocken	:	"Сломано",
+			repair	:	"В ремонте",
+			stolen	:	"Украдено",
+			reserved:	"Зарезервировано",
+			
+		},
+		
+		
+		/**
+		 *	Other Text Strings
+		 *
+		 *	Different text strings
+		 */
+		
+		text :	{
+			
+			personaltool:	"Личный Инструмент",
+			nolocationdata:	"Нет данных о местоположении",
+			progressing	:	"Загрузка ...",
+			readiness	:	"Устройство готово!",
+			init		:	"Начало ...",
+			unknown		:	"неизвестно",
+			search		:	"Поиск",
+			
+	// NOT NECESSARY TO TRANSLATE BELOW
+//			copyright	:	"Copyright © 2014. All rights reserved",
+//			copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+			
+		},
+
+		errors : {
+		
+			scanfailure	:	"Ошибка Сканирования",
+			noconection	:	"Сеть не найдена!",
+			authfailed	:	"Неправильно введено имя и/или пароль пользователя !",
+			loginfailed	:	"Неизвестная ошибка. Код = ",
+			categoriesfailed	:	"Ошибка чтения видов Инструмента!",
+	        toolnotfound		:	"Инструмент не найден!",
+			searchfailed		:	"Неизвестная ошибка поиска. Код = ",
+			
+		
+		},
+	}

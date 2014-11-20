@@ -1,4 +1,4 @@
-/**
+﻿/**
  *	 This is resource file for Finnish Language Pack
  */
 
@@ -14,10 +14,10 @@ var resource_fi_FI = {
  */
 
 	headers	:  {
-		login	:	"Sis\u00e4\u00e4nkirjautuminen",
-		mainmenu:	"P\u00e4\u00e4valikko",
-		catlist	:	"Ty\u00f6kaluryhm\u00e4t",
-		toollist:	"Ty\u00f6kalut",
+		login	:	"Sisäänkirjautuminen",
+		mainmenu:	"Päävalikko",
+		catlist	:	"Työkaluryhmät",
+		toollist:	"Työkalut",
 		tooldata:	"Info",
 		msglist	:	"Viestit",
 		select	:	"Valitse",
@@ -34,9 +34,9 @@ var resource_fi_FI = {
 	msgheaders	:  {
 		empty		:	"Tuntematon viesti",		// For failure situation. Not used
 		text		:	"Teksti viesti",
-		request		:	"Pyyd\u00e4",
+		request		:	"Pyydä",
 		agreement	:	"Sovittu",
-		rejection	:	"Hyl\u00e4tty",
+		rejection	:	"Hylätty",
 		confirmation:	"Vahvistus",
 		info		:	"Tiedote",
 
@@ -50,23 +50,23 @@ var resource_fi_FI = {
  */
 
 	buttons : {
-		on			:	"P\u00e4\u00e4lle",
+		on			:	"Päälle",
 		off			:	"Pois",
-		signin		:	"Sis\u00e4\u00e4nkirjautuminen",
+		signin		:	"Sisäänkirjautuminen",
 		scan		:	"Lue viivakoodi",
 		askborrow	:	"Kysy lainaksi",
 		ok			:	"OK",
 		cancel		:	"Peru",
 		back		:	"Takaisin",
-		agree		:	"Hyv\u00e4ksy",
-		reject		:	"\u00c4l\u00e4 hyv\u00e4ksy",
+		agree		:	"Hyväksy",
+		reject		:	"Älä hyväksy",
 		borrow		:	"Lainaa",
 		notneeded	:	"En tarvitse",
-		todo		:	"Teht\u00e4v\u00e4t",
+		todo		:	"Tehtävät",
 
-    request		:	"Pyynt\u00f6",
-    takeOver	:	"Ota k\u00e4ytt\u00f6\u00f6si",
-    validate	:	"Tarkista ty\u00f6kalun tiedot",
+    request		:	"Pyyntö",
+    takeOver	:	"Ota käyttöösi",
+    validate	:	"Tarkista työkalun tiedot",
     release		:	"Vapauta",
     recover		:	"Palauta",
     inUse		:	"Varattu",
@@ -82,11 +82,11 @@ var resource_fi_FI = {
  */
 
 	labels : {
-		username	:	"K\u00e4ytt\u00e4j\u00e4tunnus",
+		username	:	"Käyttäjätunnus",
 		pwd 		  :	"Salasana",
 		remember	:	"Talleta tunnukset",
-		usedby		:	"K\u00e4ytt\u00e4j\u00e4",
-		respb		  :	"Vastuuhenkil\u00f6",
+		usedby		:	"Käyttäjä",
+		respb		  :	"Vastuuhenkilö",
 		status		:	"Status",
 		lang		  :	"Kieli",
 	},
@@ -100,10 +100,10 @@ var resource_fi_FI = {
 
 	msgListTemplates : {
 
-		empty		:	"Tyhj\u00e4 viesti",
-		request		:	"ty\u00f6kalupyynt\u00f6 k\u00e4ytt\u00e4j\u00e4lt\u00e4",
-		agreement	:	"Hyv\u00e4ksynt\u00e4 k\u00e4ytt\u00e4j\u00e4lt\u00e4",
-		rejection	:	"Pyynt\u00f6 hyl\u00e4tty",
+		empty		:	"Tyhjä viesti",
+		request		:	"työkalupyyntö käyttäjältä",
+		agreement	:	"Hyväksyntä käyttäjältä",
+		rejection	:	"Pyyntö hylätty",
 		confirmation:	"Vahvistettu",
 
 	},
@@ -116,11 +116,11 @@ var resource_fi_FI = {
 
 	msgContentTemplates : {
 
-		request		:	"Lainapyynt\u00f6",
-		agreement	:	"Ty\u00f6kalun voi lainata",
+		request		:	"Lainapyyntö",
+		agreement	:	"Työkalun voi lainata",
 		rejection	:	"Ei saa lainata",
 		confirmation:	"Oli lainattu",
-		info		:	"Uusi k\u00e4ytt\u00e4j\u00e4",
+		info		:	"Uusi käyttäjä",
 
 	},
 
@@ -134,8 +134,8 @@ var resource_fi_FI = {
 
 	toolstatus	:	{
 
-		free	:	"Ei k\u00e4yt\u00f6ss\u00e4",
-		inuse	:	"K\u00e4yt\u00f6ss\u00e4",
+		free	:	"Ei käytössä",
+		inuse	:	"Käytössä",
 		brocken	:	"Rikki",
 		repair	:	"Huollossa",
 		stolen	:	"Varastettu",
@@ -152,7 +152,7 @@ var resource_fi_FI = {
 
 	text :	{
 
-		personaltool:	"Henkil\u00f6kohtainen ty\u00f6kalu",
+		personaltool:	"Henkilökohtainen työkalu",
 		nolocationdata:	"Ei sijaintitietoa",
 		progressing	:	"Etenee...",
 		readiness	:	"LAITE ON VALMIS!",
@@ -161,20 +161,20 @@ var resource_fi_FI = {
 		search		:	"Haku",
 
 // NOT NECESSARY TO TRANSLATE BELOW
-//		copyright	:	"Copyright \u00a9 2014. All rights reserved",
+//		copyright	:	"Copyright © 2014. All rights reserved",
 //		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
 
 	},
 
 	errors : {
 
-		scanfailure	:	"Viivakoodin luku ep\u00e4onnistui",
-		noconection	:	"Ei verkkoyhteytt\u00e4",
-		authfailed	:	"V\u00e4\u00e4r\u00e4 k\u00e4ytt\u00e4j\u00e4tunnus ja/tai salasana!",
-		loginfailed	:	"Tunnistus ep\u00e4onnistui tuntemattomasta syyst\u00e4. Koodi = ",
+		scanfailure	:	"Viivakoodin luku epäonnistui",
+		noconection	:	"Ei verkkoyhteyttä",
+		authfailed	:	"Väärä käyttäjätunnus ja/tai salasana!",
+		loginfailed	:	"Tunnistus epäonnistui tuntemattomasta syystä. Koodi = ",
 		categoriesfailed	:	"Read categories list failed!",
-        toolnotfound		:	"Ty\u00f6kalu ei l\u00f6ytynyt varastolistasta!",
-		searchfailed		:	"Haku ep\u00e4onnistui tuntemattomasta syyst\u00e4. Koodi = ",
+        toolnotfound		:	"Työkalu ei löytynyt varastolistasta!",
+		searchfailed		:	"Haku epäonnistui tuntemattomasta syystä. Koodi = ",
 
 
 	},

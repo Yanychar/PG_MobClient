@@ -8,15 +8,6 @@ var	loginInfo = {
 
 $( document ).on( "pagecreate","#login_page",function() {
 
-	// Set resource strings
-	$( "#login_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.login );
-	$( "#login_page #usrnamelabel" ).text( settingsManager.getLangResource().labels.username + ":" );
-	$( "#login_page #passwdlabel" ).text( settingsManager.getLangResource().labels.pwd + ":" );
-	$( "#login_page #rememberswitchlabel" ).text( settingsManager.getLangResource().labels.remember + ":" );
-	$( "#login_page #remember_switch" ).flipswitch( "option", "onText", settingsManager.getLangResource().labels.on );
-	$( "#login_page #remember_switch" ).flipswitch( "option", "offText", settingsManager.getLangResource().labels.off );
-	$( "#login_page #login_button").text( settingsManager.getLangResource().buttons.signin );
-
 	// Login button click
 	$("#login_button").on( "click", function() {
 		console.log("Sign In button clicked!");
@@ -65,6 +56,19 @@ $( document ).on( "pagecreate","#login_page",function() {
 		);
 
 	});
+});
+
+$( document ).on( "pagebeforeshow","#login_page",function() {
+
+	// Set resource strings
+	$( "#login_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.login );
+	$( "#login_page #usrnamelabel" ).text( settingsManager.getLangResource().labels.username + ":" );
+	$( "#login_page #passwdlabel" ).text( settingsManager.getLangResource().labels.pwd + ":" );
+	$( "#login_page #rememberswitchlabel" ).text( settingsManager.getLangResource().labels.remember + ":" );
+	$( "#login_page #remember_switch" ).flipswitch( "option", "onText", settingsManager.getLangResource().labels.on );
+	$( "#login_page #remember_switch" ).flipswitch( "option", "offText", settingsManager.getLangResource().labels.off );
+	$( "#login_page #login_button").text( settingsManager.getLangResource().buttons.signin );
+
 });
 
 function loginUser(usrname, pwd, loggedIn, failed) {

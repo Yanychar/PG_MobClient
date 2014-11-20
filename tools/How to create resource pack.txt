@@ -1,0 +1,11 @@
+How to create new language pack or edit old one
+
+1) Create language pack or edit old one
+2) Store it in UTF-8 (Notepad can do that)
+   - Give the name something resource_XX.txt or something else
+3) If this is new file than add proper string into the "convertLangPacksToJS.bat" file
+4) Execute bat file above
+5) Check files in "<project dir>\www\js\i18n
+6) Generated file shall have extension ".js"
+7) If this is new file than add reference to in into index.html
+8) Open the file and remove BOM symbols at the start of the file
