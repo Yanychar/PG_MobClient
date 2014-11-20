@@ -38,7 +38,6 @@
 		
 		<script src="js/i18n/resource_EN.js"></script>
 		<script src="js/i18n/resource_FI.js"></script>
-		<script src="js/i18n/resources.js"></script>
 		
 		<script src="js/application.js"></script>
 		<script src="js/communication.js"></script>
@@ -48,6 +47,7 @@
 		<script src="js/tools/toolslistmngr.js"></script>
 		<script src="js/tools/toolsselection.js"></script>
 		<script src="js/tools/toolitemmngr.js"></script>
+		<script src="js/settings/settingsmngr.js"></script>
 		<script src="js/messages.js"></script>
 		<script src="js/scanning.js"></script>
 		<script src="js/notification.js"></script>
@@ -130,7 +130,7 @@
           			
           			<div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
             			<div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
-              				<a href="">
+              				<a href="#settings_page">
                 				<img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/settings.png"/>
               				</a>
             			</div>
@@ -231,19 +231,39 @@
 
 
 
-    <div id="message_data_page" data-role="page" data-theme="a" data-overlay-theme="a" data-title="Message" class="message_data_class" data-dialog="true">
+		<div id="message_data_page" data-role="page" data-theme="a" data-overlay-theme="a" data-title="Message" class="message_data_class" data-dialog="true">
+	
+			<div id="header" data-role="header" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
+				<h1 style="text-align: center;">Message</h1>
+			</div>
+			<div role="main" class="ui-content" data-theme="b" style="margin: 0px; padding: 1em;">
+				<div id="dialog_content">
+	
+				</div>
+	
+			</div>
+		</div>
 
-      <div id="header" data-role="header" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
-          <h1 style="text-align: center;">Message</h1>
-      </div>
-      <div role="main" class="ui-content" data-theme="b" style="margin: 0px; padding: 1em;">
-          <div id="dialog_content">
+		<div id="settings_page" data-role="page" data-title="Settings" data-theme="a" >
+      		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+          		<a id="settings_back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-rel="back">Back Button</a>
+        		<h1 id="toolbar_header"style="text-align:center;">Settings</h1>
+      		</div>
 
-          </div>
-
-      </div>
-    </div>
-
+      		<div role="main" class="ui-content" >
+        		
+					<div data-role="fieldcontain">
+					   <label for="select-lang" class="select">Language:</label>
+					   <select name="select-lang" id="select-lang">
+					      <option value="English">English</option>
+					      <option value="Suomi">Suomi</option>
+					      <option value="Russian">Russian</option>
+					      <option value="Eesti">Eesti</option>
+					   </select>
+					</div>          			
+        		</div>
+      		</div>
+    	</div>
 
 
 
@@ -251,16 +271,16 @@
 	<script type="text/javascript" src="cordova.js"></script>
 	<script>
 
-		$( '#readiness_page' ).find( '.devicestatus' ).text( currentResource.text.init );
+		$( '#readiness_page' ).find( '.devicestatus' ).text( settingsManager.getLangResource().text.init );
         application.initialize();
 
 
     	$(document).on("pagecreate","#main_menu_page",function(){
 
 			// Header text
-			$( "#main_menu_page .ui-header .ui-title" ).text( currentResource.headers.mainmenu );
+			$( "#main_menu_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.mainmenu );
 			// Scan button text
-			$("#main_menu_page #scan_button").text( currentResource.buttons.scan );
+			$("#main_menu_page #scan_button").text( settingsManager.getLangResource().buttons.scan );
 		
 		
 			// Later can be changed to LANG PACK
@@ -303,7 +323,12 @@
           		prepareMsgDialog( $("#message_data_page").data( "dat" ) );
       		});
 
+			settingsManager.init();
 
+      		
+      		
+      		
+      		
     	</script>
 	</body>
 </html>

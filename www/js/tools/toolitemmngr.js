@@ -27,7 +27,7 @@ var toolItemMngr = {
 	pageCreated:	function() {
 
 		// setup correct header
-	    $("#tool_data_page .ui-header .ui-title").text( currentResource.headers.tooldata );
+	    $("#tool_data_page .ui-header .ui-title").text( settingsManager.getLangResource().headers.tooldata );
 		
 	},
 	
@@ -75,10 +75,10 @@ var toolItemMngr = {
 				+ "<h3>" + this.getNormalizedString( tool.name  ) + "</h3>"
 				+ this.getNormalizedString( tool.description  )
 			    + "<hr/>"
-			    + ( tool.currentUser ? currentResource.labels.usedby + ": "
+			    + ( tool.currentUser ? settingsManager.getLangResource().labels.usedby + ": "
 			    + "<b>" + tool.currentUser.firstName + " " + tool.currentUser.lastName + "</b><br/>" : "" )
-			    + ( tool.personalFlag ? currentResource.text.personaltool + "<br/>" : "" )
-			    + currentResource.labels.status + ": " + "<b>" + this.showStatus( tool ) + "</b>"
+			    + ( tool.personalFlag ? settingsManager.getLangResource().text.personaltool + "<br/>" : "" )
+			    + settingsManager.getLangResource().labels.status + ": " + "<b>" + this.showStatus( tool ) + "</b>"
 			    + "<hr/>"
 			);
 			
@@ -86,7 +86,7 @@ var toolItemMngr = {
 	    	
 	    	// TODO: Add button to show location in the map
 	    	// Temporarily just show text
-	    	contentElement.append( currentResource.buttons.nolocationdata ); 
+	    	contentElement.append( settingsManager.getLangResource().buttons.nolocationdata ); 
 	    	
 	    }
 		
@@ -97,7 +97,7 @@ var toolItemMngr = {
 		var contentElement = $( '#tool_data_page #dialog_btns' ); 
 		
 		// Name todo button from resource
-		var button = contentElement.find( "#todo_button" ).html( currentResource.buttons.todo );
+		var button = contentElement.find( "#todo_button" ).html( settingsManager.getLangResource().buttons.todo );
 		
 		// Fill popup menu and assign operations to buttons
 		//   Avail buttons: Request to Borrow, Take Over, Validate, Release
@@ -112,31 +112,31 @@ var toolItemMngr = {
 		menuContent.empty();
 
 		// setup correct header
-	    $("#todoMenu .ui-header .ui-title").text( currentResource.headers.select );
+	    $("#todoMenu .ui-header .ui-title").text( settingsManager.getLangResource().headers.select );
 		
 		switch ( tool.status ) {
 	    	case "INUSE":
-	    		this.addButton( menuContent, currentResource.buttons.request,  this.requestHandler );
-	    		this.addButton( menuContent, currentResource.buttons.takeOver, this.takeOverHandler );
-	    		this.addButton( menuContent, currentResource.buttons.release,  this.releaseHandler );
-//	    		this.addButton( menuContent, currentResource.buttons.validate, this.validateHandler );
+	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.request,  this.requestHandler );
+	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.takeOver, this.takeOverHandler );
+	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.release,  this.releaseHandler );
+//	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate, this.validateHandler );
 	    		break;
 	    	case "BROCKEN":
 	    	case "REPAIRING":
 	    	case "STOLEN":
-	    		this.addButton( menuContent, currentResource.buttons.validate, this.releaseHandler );
-//	    		this.addButton( menuContent, currentResource.buttons.validate, this.validateHandler );
+	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate, this.releaseHandler );
+//	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate, this.validateHandler );
 	    		break;
 	    	case "RESERVED":
-	    		this.addButton( menuContent, currentResource.buttons.release,  this.releaseHandler );
-//	    		this.addButton( menuContent, currentResource.buttons.validate, this.validateHandler );
+	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.release,  this.releaseHandler );
+//	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate, this.validateHandler );
 	    		break;
 	    	case "FREE":
 	    	default:
-	    		this.addButton( menuContent, currentResource.buttons.request,	this.requestHandler );
-	    		this.addButton( menuContent, currentResource.buttons.takeOver,	this.takeOverHandler );
-	    		this.addButton( menuContent, currentResource.buttons.inUse,		this.inUseHandler );
-//	    		this.addButton( menuContent, currentResource.buttons.validate,	this.validateHandler );
+	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.request,	this.requestHandler );
+	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.takeOver,	this.takeOverHandler );
+	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.inUse,		this.inUseHandler );
+//	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate,	this.validateHandler );
 	    		break;
 	    		break;
 		};
@@ -317,23 +317,23 @@ var toolItemMngr = {
 			
 			switch ( tool.status ) {
 		    	case "INUSE":
-		    		resStr = currentResource.toolstatus.inuse;
+		    		resStr = settingsManager.getLangResource().toolstatus.inuse;
 		    		break;
 		    	case "BROCKEN":
-		    		resStr = currentResource.toolstatus.brocken;
+		    		resStr = settingsManager.getLangResource().toolstatus.brocken;
 		    		break;
 		    	case "REPAIRING":
-		    		resStr = currentResource.toolstatus.repair;
+		    		resStr = settingsManager.getLangResource().toolstatus.repair;
 		    		break;
 		    	case "STOLEN":
-		    		resStr = currentResource.toolstatus.stolen;
+		    		resStr = settingsManager.getLangResource().toolstatus.stolen;
 		    		break;
 		    	case "RESERVED":
-		    		resStr = currentResource.toolstatus.reserved;
+		    		resStr = settingsManager.getLangResource().toolstatus.reserved;
 		    		break;
 		    	case "FREE":
 		    	default:
-		    		resStr = currentResource.toolstatus.free;
+		    		resStr = settingsManager.getLangResource().toolstatus.free;
 		    		break;
 			}
 			 
@@ -430,10 +430,10 @@ var toolItemMngr = {
 
 				if ( jqXHR.status == 404 ) {
 					// It is Ok. Just nothing was found
-			        alert( currentResource.errors.toolnotfound+ ". Barcode: '" + barcode + "'!" );
+			        alert( settingsManager.getLangResource().errors.toolnotfound+ ". Barcode: '" + barcode + "'!" );
 
 			    } else {
-			    	alert( currentResource.errors.searchfailed + jqXHR.status );
+			    	alert( settingsManager.getLangResource().errors.searchfailed + jqXHR.status );
 			    }
 
 			        console.log( "... Tool was not found or search failed: " + jqXHR.status );

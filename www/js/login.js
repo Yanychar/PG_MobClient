@@ -9,13 +9,13 @@ var	loginInfo = {
 $( document ).on( "pagecreate","#login_page",function() {
 
 	// Set resource strings
-	$( "#login_page .ui-header .ui-title" ).text( currentResource.headers.login );
-	$( "#login_page #usrnamelabel" ).text( currentResource.labels.username + ":" );
-	$( "#login_page #passwdlabel" ).text( currentResource.labels.pwd + ":" );
-	$( "#login_page #rememberswitchlabel" ).text( currentResource.labels.remember + ":" );
-	$( "#login_page #remember_switch" ).flipswitch( "option", "onText", currentResource.labels.on );
-	$( "#login_page #remember_switch" ).flipswitch( "option", "offText", currentResource.labels.off );
-	$( "#login_page #login_button").text( currentResource.buttons.signin );
+	$( "#login_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.login );
+	$( "#login_page #usrnamelabel" ).text( settingsManager.getLangResource().labels.username + ":" );
+	$( "#login_page #passwdlabel" ).text( settingsManager.getLangResource().labels.pwd + ":" );
+	$( "#login_page #rememberswitchlabel" ).text( settingsManager.getLangResource().labels.remember + ":" );
+	$( "#login_page #remember_switch" ).flipswitch( "option", "onText", settingsManager.getLangResource().labels.on );
+	$( "#login_page #remember_switch" ).flipswitch( "option", "offText", settingsManager.getLangResource().labels.off );
+	$( "#login_page #login_button").text( settingsManager.getLangResource().buttons.signin );
 
 	// Login button click
 	$("#login_button").on( "click", function() {
@@ -43,7 +43,7 @@ $( document ).on( "pagecreate","#login_page",function() {
 					case 0:
 						// Network error
 						console.log("No network connection!");
-						alert( currentResource.errors.noconection );
+						alert( settingsManager.getLangResource().errors.noconection );
 						break;
 
 					case 404:
@@ -51,13 +51,13 @@ $( document ).on( "pagecreate","#login_page",function() {
 						// Authentication
 						// failure
 						console.log("Wrong username and/or password were specified!");
-						alert( currentResource.errors.authfailed );
+						alert( settingsManager.getLangResource().errors.authfailed );
 						break;
 
 					default:
 						// Unknown reason
 						console.log("Authentication Failed because unknown reason. Code = " + jqXHR.status);
-						alert( currentResource.errors.loginfailed + jqXHR.status);
+						alert( settingsManager.getLangResource().errors.loginfailed + jqXHR.status);
 						break;
 				}
 

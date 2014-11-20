@@ -42,9 +42,9 @@ var catgrsManager = {
 	
 	pageBeforeShow:	function() {
 
-    	$( '#categories_page' ).find( '#toolbar_header' ).text( currentResource.headers.catlist );
+    	$( '#categories_page' ).find( '#toolbar_header' ).text( settingsManager.getLangResource().headers.catlist );
     	
-    	$( '#categories_page' ).find( '.ui-input-search input' ).attr( 'placeholder', currentResource.text.search + " ..."  );
+    	$( '#categories_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search + " ..."  );
 		
 		if ( this.needToReadead ) {
 			
@@ -86,7 +86,7 @@ var catgrsManager = {
 		    },
 
 		    error: function ( jqXHR ) {
-		    	alert( currentResource.errors.categoriesfailed );
+		    	alert( settingsManager.getLangResource().errors.categoriesfailed );
 		    	
 				this.needToReadead = true;
 		    },

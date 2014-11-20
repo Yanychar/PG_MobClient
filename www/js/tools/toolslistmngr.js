@@ -47,9 +47,9 @@ var toolsManager = {
 		console.log( "Selected category: " + application.selectedCategory.name );
 	      
 	    // Header text
-		$( "#tools_list_page .ui-header .ui-title" ).text( currentResource.headers.toollist );
+		$( "#tools_list_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.toollist );
 		// Search ...
-    	$( '#tools_list_page' ).find( '.ui-input-search input' ).attr( 'placeholder', currentResource.text.search + " ..."  );
+    	$( '#tools_list_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search + " ..."  );
 		
 		this.showCategory( application.selectedCategory );
 
@@ -185,7 +185,7 @@ var toolsManager = {
 	      
 //				+ (( tool.description && tool.name ) ? tool.description + "<br/>" : "" )
 
-				+ (( tool.currentUser != undefined ) ? currentResource.labels.usedby + ": "
+				+ (( tool.currentUser != undefined ) ? settingsManager.getLangResource().labels.usedby + ": "
 				+ tool.currentUser.firstName + " " + tool.currentUser.lastName + "<br/>" : "" )
 //	      		+ (( tool.responsible != undefined ) ? "<b>Responsible: </b>"
 //	      		+ tool.responsible.firstName + " " + tool.responsible.lastName + "<br/>" : "" )

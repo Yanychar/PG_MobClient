@@ -53,7 +53,7 @@ var scanner = {
 
 		console.log( "... exit from BarcodeScanner.scan with failure!" );
 
-		alert( currentResource.errors.scanfailure + ": " + error );
+		alert( settingsManager.getLangResource().errors.scanfailure + ": " + error );
 	},
 
 

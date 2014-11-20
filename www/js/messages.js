@@ -1,7 +1,7 @@
 function showMessages( msgList ) {
 
 	// Header text
-	$( "#msg_list_page .ui-header .ui-title" ).text( currentResource.headers.msglist );
+	$( "#msg_list_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.msglist );
 	
     if ( msgList == undefined ) {
 
@@ -144,19 +144,19 @@ function createShortMsgText( msg ) {
       str = defText;
       break;
     case "REQUEST":
-      str = currentResource.msgListTemplates.request + " "
+      str = settingsManager.getLangResource().msgListTemplates.request + " "
         	+ msg.from.firstName + " " + msg.from.lastName;
       break;
     case "AGREEMENT":
-    	str = currentResource.msgListTemplates.agreement + " "
+    	str = settingsManager.getLangResource().msgListTemplates.agreement + " "
         + msg.from.firstName + " " + msg.from.lastName;
       break;
     case "REJECTION":
-        str = currentResource.msgListTemplates.rejection + " "
+        str = settingsManager.getLangResource().msgListTemplates.rejection + " "
         + msg.from.firstName + " " + msg.from.lastName;
       break;
     case "CONFIRMATION":
-        str = currentResource.msgListTemplates.confirmation + " "
+        str = settingsManager.getLangResource().msgListTemplates.confirmation + " "
         + msg.from.firstName + " " + msg.from.lastName;
       break;
     case "INFO":
@@ -189,22 +189,22 @@ function setMsgDialogHeader( header, msg ) {
 
     switch ( msg.type ) {
     	case "TEXT":
-	        headerStr = currentResource.msgheaders.text;
+	        headerStr = settingsManager.getLangResource().msgheaders.text;
 	        break;
     	case "REQUEST":
-	        headerStr = currentResource.msgheaders.request;
+	        headerStr = settingsManager.getLangResource().msgheaders.request;
 	        break;
 	    case "AGREEMENT":
-	        headerStr = currentResource.msgheaders.agreement;
+	        headerStr = settingsManager.getLangResource().msgheaders.agreement;
 	        break;
 	    case "REJECTION":
-	        headerStr = currentResource.msgheaders.rejection;
+	        headerStr = settingsManager.getLangResource().msgheaders.rejection;
 	        break;
 	    case "CONFIRMATION":
-	        headerStr = currentResource.msgheaders.confirmation;
+	        headerStr = settingsManager.getLangResource().msgheaders.confirmation;
 	        break;
 	    case "INFO":
-	        headerStr = currentResource.msgheaders.info;
+	        headerStr = settingsManager.getLangResource().msgheaders.info;
 	        break;
     }
 
@@ -216,7 +216,7 @@ function setMsgDialogHeader( header, msg ) {
 function setMsgDialogContent( contentElement, msg ) {
 
 	var sender = msg.from.firstName + " " + msg.from.lastName;
-	var tool = ( msg.item != undefined ) ? msg.item.name : currentResource.text.unknown;
+	var tool = ( msg.item != undefined ) ? msg.item.name : settingsManager.getLangResource().text.unknown;
 
 	contentElement.empty();
 
@@ -233,7 +233,7 @@ function setMsgDialogContent( contentElement, msg ) {
     		break;
     	case "REQUEST":
     		contentElement.append(
-    				currentResource.msgContentTemplates.request
+    				settingsManager.getLangResource().msgContentTemplates.request
 					+ "<br/>"
 					+ "<h3>" + tool + "</h3>"
 					+ "<br/><br/>"
@@ -241,7 +241,7 @@ function setMsgDialogContent( contentElement, msg ) {
     		break;
     	case "AGREEMENT":
     		contentElement.append(
-    				currentResource.msgContentTemplates.agreement
+    				settingsManager.getLangResource().msgContentTemplates.agreement
     				+ "<br/>"
 					+ "<h3>" + tool + "</h3>"
 					+ "<br/><br/>"
@@ -249,7 +249,7 @@ function setMsgDialogContent( contentElement, msg ) {
     		break;
 	    case "REJECTION":
 	    	contentElement.append(
-	    			currentResource.msgContentTemplates.rejection
+	    			settingsManager.getLangResource().msgContentTemplates.rejection
 	    			+ "<br/>"
 	    			+ "<h3>" + tool + "</h3>"
 	    			+ "<br/><br/>"
@@ -257,7 +257,7 @@ function setMsgDialogContent( contentElement, msg ) {
 	    	break;
 	    case "CONFIRMATION":
 	    	contentElement.append(
-	    			currentResource.msgContentTemplates.confirmation
+	    			settingsManager.getLangResource().msgContentTemplates.confirmation
 	    			+ "<br/>"
 	    			+ "<h3>" + tool + "</h3>"
 	    			+ "<br/><br/>"
@@ -265,7 +265,7 @@ function setMsgDialogContent( contentElement, msg ) {
 	    	break;
 	    case "INFO":
 	    	contentElement.append(
-	    			currentResource.msgContentTemplates.info
+	    			settingsManager.getLangResource().msgContentTemplates.info
 	    			+ "<h3>" + tool + "</h3>"
 	    			+ "<br/><br/>"
 	    	);
@@ -286,14 +286,14 @@ console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
     switch ( msg.type ) {
       case "REQUEST":
         addButtons( contentElement,
-        			currentResource.buttons.agree,
+        			settingsManager.getLangResource().buttons.agree,
                     function() {
                       console.log( "AGREE button pressed" );
                       agreeToBorrow( msg.item, msg.from );
                       updateMessage( msg, "RESPONDED" );
                       parent.history.back();
                     },
-        			currentResource.buttons.reject,
+        			settingsManager.getLangResource().buttons.reject,
                     function() {
                       console.log( "REJECT button pressed" );
                       rejectToBorrow( msg );
@@ -304,7 +304,7 @@ console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
         break;
       case "AGREEMENT":
         addButtons( contentElement,
-    				currentResource.buttons.borrow,
+    				settingsManager.getLangResource().buttons.borrow,
                     function() {
                       console.log( "BORROW button pressed" );
                       confirmBorrow( msg.item, msg.from );
@@ -313,7 +313,7 @@ console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
                       console.log( "AFTER UPDATE message.status = " + msg.status );
                       parent.history.back();
                     },
-    				currentResource.buttons.notneeded,
+    				settingsManager.getLangResource().buttons.notneeded,
                     function() {
                       console.log( "NOT NEEDED button pressed" );
 
@@ -330,7 +330,7 @@ console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
       case "CONFIRMATION":
       case "INFO":
         addButtons( contentElement,
-					currentResource.buttons.ok,
+					settingsManager.getLangResource().buttons.ok,
                     function() {
                       console.log( "OK button pressed" );
                       updateMessage( msg, "READ" );

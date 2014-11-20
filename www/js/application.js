@@ -72,7 +72,7 @@ var application = {
 	// Application Constructor
 	initialize: function() {
 
-		$( '#readiness_page' ).find( '.devicestatus' ).text( currentResource.text.progressing );
+		$( '#readiness_page' ).find( '.devicestatus' ).text( settingsManager.getLangResource().text.progressing );
 
 
 	    this.initGlobal();
@@ -101,7 +101,7 @@ var application = {
 
 	  onDeviceReady: function() {
 
-		$( '#readiness_page' ).find( '.devicestatus' ).text( currentResource.text.readiness );
+		$( '#readiness_page' ).find( '.devicestatus' ).text( settingsManager.getLangResource().text.readiness );
 
 		console.log( "Before switch login page" );
 		// Go to Login Page
