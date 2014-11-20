@@ -4,9 +4,9 @@ var settingsManager = {
 	storage	: 	null,
 	wasRead	:	false,
 
-	supportedLangs:	[ "fi", "en" ],
-	currentLang:	"fi",
-	langResource:	resource_fi_FI,
+	supportedLangs	:	[ "English", "Suomi" ],		// Do not touch
+	
+	currentLang:	"Suomi",
 	
 	init:	function() {
 
@@ -33,14 +33,70 @@ var settingsManager = {
 	},
 	
 	pageCreate:	function() {
+
+		console.log( "Settings page has been created" );
+		
+		// Fill Language Combo/Menu
+		this.fillLangMenu();
+	},
+	
+	pageBeforeShow:	function() {
+
+		console.log( "Settings page will be shown" );
+		console.log( "  Language: " + this.currentLang );
+		
+		// Setup Header
+	    $("#settings_page .ui-header .ui-title").text( settingsManager.getLangResource().headers.settings );
+		
+		// Setup field's labels
+	    $("#settings_page #settings-lang").text( settingsManager.getLangResource().labels.lang + ":" );
+		
+	    this.setSelected();
+	    
+		
+	},
+
+    setSelected:	function() {
+    	
+		var selectElement = $( '#settings_page #select-lang' );
+		
+		selectElement.val( this.currentLang );
+		selectElement.selectmenu( "refresh" );
+//		e.preventDefault();
+    },
+	
+	fillLangMenu:	function() {
+
+		var selectElement = $( '#settings_page #select-lang' ); 
+		
+		selectElement.empty();
+
+		$.each( this.supportedLangs, 
+				function( index, lang ) {
+					settingsManager.addLangToMenu( selectElement, lang );
+        		}
+		);
+		
+		selectElement.selectmenu( "refresh" );
 		
 	},
 	
-	pageCreate:	function() {
+	addLangToMenu:	function( selectElement, lang ) {
+
+		var selectItem = $(
+
+				"<option value=" + "'" + lang + "'" 
+//				+ ( lang === this.currentLang ? " selected='selected' " : "" )
+				+ ">" + lang + "</option>"
+
+		  );
+
+//		  selectElement.append( selectItem );
+		  selectItem.appendTo( selectElement );
 		
 	},
 	
-	pageCreate:	function() {
+	pageAfterShow:	function() {
 		
 	},
 	
@@ -55,12 +111,11 @@ var settingsManager = {
 		if ( !this.wasRead ) {
 			console.log( "Persistant Storage will be read!")
 		
-			this.lang = this.storage.getItem( "mob.inventory.lang" ); 
-			console.log( "New Language read from storage: " + this.lang )
-			if ( !this.lang ) {
-				this.lang = "fi";
-				this.storage.setItem( "mob.inventory.lang", this.lang ); 
-				console.log( "Read invalid. Will be default: " + this.lang )
+			this.currentLang = this.storage.getItem( "mob.inventory.lang" ); 
+			console.log( "New Language read from storage: " + this.currentLang )
+			if ( !this.currentLang ) {
+				console.log( "Read invalid. Will be default: " + this.currentLang )
+				setLanguage( "Suomi" );
 
 			}
 				
@@ -73,46 +128,46 @@ var settingsManager = {
 
 		readSettings();
 		
-		return this.lang;
+		return this.currentLang;
 		
 	},
 
 	setLanguage:	function( newLang ) {
+		 console.log( "SetLanguage was call with newLang: " + newLang );
 
-		if ( validLang( newLang ) && newLang != this.lang ) {
+		if ( this.validLang( newLang ) && newLang != this.currentLang ) {
 		
-			this.lang = newLang;
+			this.currentLang = newLang;
 			
-			switch( newLang ) {
-				case "fi":
-					this.langResource = resource_fi_FI;
-					break;
-				case "en":
-					this.langResource = resource_en_EN;
-					break;
-				default:
-					this.langResource = resource_fi_FI;
-					break;
-			}
-		
-			 this.storage.setItem( "mob.inventory.lang", this.lang ); 
-			 console.log( "New Language stored: " + this.lang )
+			this.storage.setItem( "mob.inventory.lang", this.currentLang ); 
+			console.log( "New Language stored: " + this.currentLang );
+			 
+			this.pageBeforeShow();
 		}
 		
 	},
 
 	validLang:	function( newLang ) {
 		
-		console.log( "Is New Language valid: " + ( newLang && this.supportedLangs.indexOf( newLang.trim().toLowerCase()) >= 0 ) );
+		console.log( "Is New Language valid: " + ( newLang && this.supportedLangs.indexOf( newLang.trim()) >= 0 ) );
+		console.log( "  New Language: " + newLang );
+		console.log( "  Is it supported? " + ( this.supportedLangs.indexOf( newLang.trim()) >= 0 ));
 
-		return ( newLang && this.supportedLangs.indexOf( newLang.trim().toLowerCase()) >= 0 );
+		return ( newLang && this.supportedLangs.indexOf( newLang.trim()) >= 0 );
 			
 	},
 
 //	var currentResource = resource_fi_FI;
 	getLangResource: function() {
 		
-		return this.langResource;
+		switch( this.currentLang ) {
+			case "Suomi":
+				return resource_fi_FI;
+			case "English":
+				return resource_en_EN;
+		}
+
+		return resource_fi_FI;
 		
 	} 
 	

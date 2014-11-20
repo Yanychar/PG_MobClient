@@ -4,9 +4,8 @@
 
 var resource_fi_FI = { 
 	
-	locale	:	"fi_FI",		// Do not touch
+	locale			:	"fi_FI",				// Do not touch
 	
-
 /**
  *	Headers
  *
@@ -21,6 +20,7 @@ var resource_fi_FI = {
 		tooldata:	"Info",
 		msglist	:	"Viestit",
 		select	:	"Valitse",
+		settings:	"Asetukset",
 	},
 
 /**
@@ -86,6 +86,7 @@ var resource_fi_FI = {
 		usedby		:	"K\u00e4ytt\u00e4j\u00e4",
 		respb		:	"Vastuuhenkil\u00f6",
 		status		:	"Status",
+		lang		:	"Kieli",
 		
 	},
 	

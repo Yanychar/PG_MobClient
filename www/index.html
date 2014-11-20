@@ -253,12 +253,8 @@
       		<div role="main" class="ui-content" >
         		
 					<div data-role="fieldcontain">
-					   <label for="select-lang" class="select">Language:</label>
-					   <select name="select-lang" id="select-lang">
-					      <option value="English">English</option>
-					      <option value="Suomi">Suomi</option>
-					      <option value="Russian">Russian</option>
-					      <option value="Eesti">Eesti</option>
+					   <label id="settings-lang" for="select-lang" class="select">Language:</label>
+					   <select name="select-lang" id="select-lang"  data-native-menu="false" onchange="settingsManager.setLanguage( this.value )">
 					   </select>
 					</div>          			
         		</div>
@@ -268,43 +264,44 @@
 
 
 
-	<script type="text/javascript" src="cordova.js"></script>
-	<script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script>
 
-		$( '#readiness_page' ).find( '.devicestatus' ).text( settingsManager.getLangResource().text.init );
-        application.initialize();
-
-
-    	$(document).on("pagecreate","#main_menu_page",function(){
-
-			// Header text
-			$( "#main_menu_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.mainmenu );
-			// Scan button text
-			$("#main_menu_page #scan_button").text( settingsManager.getLangResource().buttons.scan );
-		
-		
-			// Later can be changed to LANG PACK
-			scanner.initialize();
+			$( '#readiness_page' ).find( '.devicestatus' ).text( settingsManager.getLangResource().text.init );
+	        application.initialize();
 	
-	      	$("#main_menu_page #scan_button").on("click",function(){
-	        	scanner.scan();
-	        });
-
-			$( '#main_menu_page #back_buton' ).on( "click", function() {
 	
-	        	// Return back to Login screen
-	        	$.mobile.navigate( "#login_page", {
-//	                                  transition: "slide"
-        		});
+	    	$(document).on("pagecreate","#main_menu_page",function(){
+	
+				scanner.initialize();
+		
+		      	$("#main_menu_page #scan_button").on("click",function(){
+		        	scanner.scan();
+		        });
+	
+				$( '#main_menu_page #back_buton' ).on( "click", function() {
+		
+		        	// Return back to Login screen
+		        	$.mobile.navigate( "#login_page", {
+	//	                                  transition: "slide"
+	        		});
+	
+	      		});
+	    	});
+	
+	    	$(document).on("pagebeforeshow","#main_menu_page",function(){
+	
+				// Header text
+				$( "#main_menu_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.mainmenu );
+				// Scan button text
+				$("#main_menu_page #scan_button").text( settingsManager.getLangResource().buttons.scan );
+	    	});
 
-      		});
-    	});
 
-
-    		// Category list initialization
-    		catgrsManager.init();
-
-			 // Tools List initialization
+	   		// Category list initialization
+			catgrsManager.init();
+	
+			// Tools List initialization
 			toolsManager.init();
 			toolItemMngr.init();
 
@@ -313,6 +310,9 @@
       		// Fill Message List list
       		$(document).on("pageshow","#msg_list_page",function(){
 
+      			// Header text
+      			$( "#msg_list_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.msglist );
+      			
         		console.log( "Message icon has been pressed!" );
         		showMessages();
 
@@ -325,10 +325,6 @@
 
 			settingsManager.init();
 
-      		
-      		
-      		
-      		
     	</script>
-	</body>
+  </body>
 </html>

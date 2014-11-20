@@ -1,13 +1,11 @@
 function showMessages( msgList ) {
 
-	// Header text
-	$( "#msg_list_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.msglist );
-	
     if ( msgList == undefined ) {
 
         console.log( "Entered into Show Messages. NO msgList specified. Will be read" );
 
         readMessages( "UNREAD" );
+        
     } else {
         console.log( "Entered into Show Messages. msgList specified! Will be SHOWN" );
 

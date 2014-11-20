@@ -4,9 +4,8 @@
 
 var resource_en_EN = { 
 	
-	locale	:	"en_EN",
+	locale			:	"en_EN",					// Do not touch
 	
-
 /**
  *	Headers
  *
@@ -21,6 +20,7 @@ var resource_en_EN = {
 		tooldata:	"Tool Info",
 		msglist	:	"Messages",
 		select	:	"Select",
+		settings:	"Settings",
 	},
 
 /**
@@ -86,6 +86,7 @@ var resource_en_EN = {
 		usedby		:	"User",
 		respb		:	"Responsible",
 		status		:	"Status",
+		lang		:	"Language",
 		
 	},
 	

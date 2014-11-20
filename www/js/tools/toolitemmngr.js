@@ -26,13 +26,14 @@ var toolItemMngr = {
 
 	pageCreated:	function() {
 
-		// setup correct header
-	    $("#tool_data_page .ui-header .ui-title").text( settingsManager.getLangResource().headers.tooldata );
 		
 	},
 	
 	pageBeforeShow:	function() {
 
+		// setup correct header
+	    $("#tool_data_page .ui-header .ui-title").text( settingsManager.getLangResource().headers.tooldata );
+		
 		this.prepareToolDialog( toolItemMngr.selectedTool );
 
 	},
