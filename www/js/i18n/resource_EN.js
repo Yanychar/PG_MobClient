@@ -21,6 +21,7 @@ var resource_en_EN = {
 		msglist	:	"Messages",
 		select	:	"Select",
 		settings:	"Settings",
+		ownbasket:	"My Tools",
 	},
 
 /**

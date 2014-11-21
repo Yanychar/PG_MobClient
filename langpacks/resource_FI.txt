@@ -22,6 +22,7 @@ var resource_fi_FI = {
 		msglist	:	"Viestit",
 		select	:	"Valitse",
 		settings:	"Asetukset",
+		ownbasket:	"Minun Työkalut",
 
 	},
 
@@ -37,7 +38,7 @@ var resource_fi_FI = {
 		request		:	"Pyydä",
 		agreement	:	"Sovittu",
 		rejection	:	"Hylätty",
-		confirmation:	"Vahvistus",
+		confirmation	:	"Vahvistus",
 		info		:	"Tiedote",
 
 	},
@@ -50,12 +51,12 @@ var resource_fi_FI = {
  */
 
 	buttons : {
-		on			:	"Päälle",
-		off			:	"Pois",
+		on		:	"Päälle",
+		off		:	"Pois",
 		signin		:	"Sisäänkirjautuminen",
 		scan		:	"Lue viivakoodi",
 		askborrow	:	"Kysy lainaksi",
-		ok			:	"OK",
+		ok		:	"OK",
 		cancel		:	"Peru",
 		back		:	"Takaisin",
 		agree		:	"Hyväksy",
@@ -64,12 +65,12 @@ var resource_fi_FI = {
 		notneeded	:	"En tarvitse",
 		todo		:	"Tehtävät",
 
-    request		:	"Pyyntö",
-    takeOver	:	"Ota käyttöösi",
-    validate	:	"Tarkista työkalun tiedot",
-    release		:	"Vapauta",
-    recover		:	"Palauta",
-    inUse		:	"Varattu",
+		request		:	"Pyyntö",
+		takeOver	:	"Ota käyttöösi",
+		validate	:	"Tarkista työkalun tiedot",
+		release		:	"Vapauta",
+		recover		:	"Palauta",
+		inUse		:	"Varattu",
 
 	},
 
@@ -83,12 +84,12 @@ var resource_fi_FI = {
 
 	labels : {
 		username	:	"Käyttäjätunnus",
-		pwd 		  :	"Salasana",
+		pwd		:	"Salasana",
 		remember	:	"Talleta tunnukset",
 		usedby		:	"Käyttäjä",
-		respb		  :	"Vastuuhenkilö",
+		respb		:	"Vastuuhenkilö",
 		status		:	"Status",
-		lang		  :	"Kieli",
+		lang		:	"Kieli",
 	},
 
 
@@ -104,7 +105,7 @@ var resource_fi_FI = {
 		request		:	"työkalupyyntö käyttäjältä",
 		agreement	:	"Hyväksyntä käyttäjältä",
 		rejection	:	"Pyyntö hylätty",
-		confirmation:	"Vahvistettu",
+		confirmation	:	"Vahvistettu",
 
 	},
 
@@ -119,7 +120,7 @@ var resource_fi_FI = {
 		request		:	"Lainapyyntö",
 		agreement	:	"Työkalun voi lainata",
 		rejection	:	"Ei saa lainata",
-		confirmation:	"Oli lainattu",
+		confirmation	:	"Oli lainattu",
 		info		:	"Uusi käyttäjä",
 
 	},
@@ -152,17 +153,14 @@ var resource_fi_FI = {
 
 	text :	{
 
-		personaltool:	"Henkilökohtainen työkalu",
-		nolocationdata:	"Ei sijaintitietoa",
+		personaltool	:	"Henkilökohtainen työkalu",
+		nolocationdata	:	"Ei sijaintitietoa",
 		progressing	:	"Etenee...",
 		readiness	:	"LAITE ON VALMIS!",
 		init		:	"Before init ...",
 		unknown		:	"Ei tiedossa",
 		search		:	"Haku",
 
-// NOT NECESSARY TO TRANSLATE BELOW
-//		copyright	:	"Copyright © 2014. All rights reserved",
-//		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
 
 	},
 
@@ -172,10 +170,15 @@ var resource_fi_FI = {
 		noconection	:	"Ei verkkoyhteyttä",
 		authfailed	:	"Väärä käyttäjätunnus ja/tai salasana!",
 		loginfailed	:	"Tunnistus epäonnistui tuntemattomasta syystä. Koodi = ",
-		categoriesfailed	:	"Read categories list failed!",
-        toolnotfound		:	"Työkalu ei löytynyt varastolistasta!",
-		searchfailed		:	"Haku epäonnistui tuntemattomasta syystä. Koodi = ",
+		categoriesfailed:	"Read categories list failed!",
+		toolnotfound	:	"Työkalu ei löytynyt varastolistasta!",
+		searchfailed	:	"Haku epäonnistui tuntemattomasta syystä. Koodi = ",
 
 
 	},
+
+// NOT NECESSARY TO TRANSLATE BELOW
+//		copyright	:	"Copyright © 2014. All rights reserved",
+//		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+
 }

@@ -189,7 +189,7 @@ var toolsManager = {
 				+ tool.currentUser.firstName + " " + tool.currentUser.lastName + "<br/>" : "" )
 //	      		+ (( tool.responsible != undefined ) ? "<b>Responsible: </b>"
 //	      		+ tool.responsible.firstName + " " + tool.responsible.lastName + "<br/>" : "" )
-//	      		+ (( tool.status != undefined ) ? "<b>Status: </b>" + tool.status + "<br/>" : "" )
+//	      		+ (( tool.status != undefined ) ? "<b>" + settingsManager.getLangResource().labels.status + ": </b>" + tool.status + "<br/>" : "" )
 
 		+ "</div>"
 			  

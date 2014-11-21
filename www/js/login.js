@@ -1,7 +1,7 @@
 // Login info
 var	loginInfo = {
 
-		sessionid:	null,
+//		sessionid:	null,
 }
 
 

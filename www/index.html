@@ -48,6 +48,7 @@
 		<script src="js/tools/toolslistmngr.js"></script>
 		<script src="js/tools/toolsselection.js"></script>
 		<script src="js/tools/toolitemmngr.js"></script>
+		<script src="js/tools/ownbasket.js"></script>
 		<script src="js/settings/settingsmngr.js"></script>
 		<script src="js/messages.js"></script>
 		<script src="js/scanning.js"></script>
@@ -123,7 +124,7 @@
         		<div style="overflow: auto;">
           			<div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
             			<div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
-              				<a href="">
+              				<a href="#own_basket_page">
                 				<img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/owntools.png"/>
               				</a>
             			</div>
@@ -179,7 +180,6 @@
       			</div>
       		</div>
     	</div>
-
 
 		<div id="msg_list_page" data-role="page" data-title="Messages List" data-theme="a" >
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
@@ -262,8 +262,20 @@
       		</div>
     	</div>
 
+		<div id="own_basket_page" data-role="page" data-title="OwnBasket" data-theme="a" >
+      		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
+        		<a id="back_button" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+        		<h1 id="toolbar_header"style="text-align:center;">Own Basket</h1>
+      		</div>
 
-
+      		<div role="main" class="ui-content" style="width:100%;margin:0px;padding:0px">
+        		<div class="ui-body ui-body-e " style="margin:0px;padding:0em">
+					<ul id="tools_list" data-role="listview" data-filter="true" data-filter-placeholder="Search ..." data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="true" >
+					
+					</ul>
+      			</div>
+      		</div>
+    	</div>
 
 		<script type="text/javascript" src="cordova.js"></script>
 		<script>
@@ -299,12 +311,10 @@
 	    	});
 
 
-	   		// Category list initialization
 			catgrsManager.init();
-	
-			// Tools List initialization
 			toolsManager.init();
 			toolItemMngr.init();
+			ownBasket.init();
 
 
 

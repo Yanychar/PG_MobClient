@@ -22,6 +22,7 @@ var resource_fi_FI = {
 		msglist	:	"Viestit",
 		select	:	"Valitse",
 		settings:	"Asetukset",
+		ownbasket:	"Minun Ty\u00f6kalut",
 
 	},
 
@@ -37,7 +38,7 @@ var resource_fi_FI = {
 		request		:	"Pyyd\u00e4",
 		agreement	:	"Sovittu",
 		rejection	:	"Hyl\u00e4tty",
-		confirmation:	"Vahvistus",
+		confirmation	:	"Vahvistus",
 		info		:	"Tiedote",
 
 	},
@@ -50,12 +51,12 @@ var resource_fi_FI = {
  */
 
 	buttons : {
-		on			:	"P\u00e4\u00e4lle",
-		off			:	"Pois",
+		on		:	"P\u00e4\u00e4lle",
+		off		:	"Pois",
 		signin		:	"Sis\u00e4\u00e4nkirjautuminen",
 		scan		:	"Lue viivakoodi",
 		askborrow	:	"Kysy lainaksi",
-		ok			:	"OK",
+		ok		:	"OK",
 		cancel		:	"Peru",
 		back		:	"Takaisin",
 		agree		:	"Hyv\u00e4ksy",
@@ -64,12 +65,12 @@ var resource_fi_FI = {
 		notneeded	:	"En tarvitse",
 		todo		:	"Teht\u00e4v\u00e4t",
 
-    request		:	"Pyynt\u00f6",
-    takeOver	:	"Ota k\u00e4ytt\u00f6\u00f6si",
-    validate	:	"Tarkista ty\u00f6kalun tiedot",
-    release		:	"Vapauta",
-    recover		:	"Palauta",
-    inUse		:	"Varattu",
+		request		:	"Pyynt\u00f6",
+		takeOver	:	"Ota k\u00e4ytt\u00f6\u00f6si",
+		validate	:	"Tarkista ty\u00f6kalun tiedot",
+		release		:	"Vapauta",
+		recover		:	"Palauta",
+		inUse		:	"Varattu",
 
 	},
 
@@ -83,12 +84,12 @@ var resource_fi_FI = {
 
 	labels : {
 		username	:	"K\u00e4ytt\u00e4j\u00e4tunnus",
-		pwd 		  :	"Salasana",
+		pwd		:	"Salasana",
 		remember	:	"Talleta tunnukset",
 		usedby		:	"K\u00e4ytt\u00e4j\u00e4",
-		respb		  :	"Vastuuhenkil\u00f6",
+		respb		:	"Vastuuhenkil\u00f6",
 		status		:	"Status",
-		lang		  :	"Kieli",
+		lang		:	"Kieli",
 	},
 
 
@@ -104,7 +105,7 @@ var resource_fi_FI = {
 		request		:	"ty\u00f6kalupyynt\u00f6 k\u00e4ytt\u00e4j\u00e4lt\u00e4",
 		agreement	:	"Hyv\u00e4ksynt\u00e4 k\u00e4ytt\u00e4j\u00e4lt\u00e4",
 		rejection	:	"Pyynt\u00f6 hyl\u00e4tty",
-		confirmation:	"Vahvistettu",
+		confirmation	:	"Vahvistettu",
 
 	},
 
@@ -119,7 +120,7 @@ var resource_fi_FI = {
 		request		:	"Lainapyynt\u00f6",
 		agreement	:	"Ty\u00f6kalun voi lainata",
 		rejection	:	"Ei saa lainata",
-		confirmation:	"Oli lainattu",
+		confirmation	:	"Oli lainattu",
 		info		:	"Uusi k\u00e4ytt\u00e4j\u00e4",
 
 	},
@@ -152,17 +153,14 @@ var resource_fi_FI = {
 
 	text :	{
 
-		personaltool:	"Henkil\u00f6kohtainen ty\u00f6kalu",
-		nolocationdata:	"Ei sijaintitietoa",
+		personaltool	:	"Henkil\u00f6kohtainen ty\u00f6kalu",
+		nolocationdata	:	"Ei sijaintitietoa",
 		progressing	:	"Etenee...",
 		readiness	:	"LAITE ON VALMIS!",
 		init		:	"Before init ...",
 		unknown		:	"Ei tiedossa",
 		search		:	"Haku",
 
-// NOT NECESSARY TO TRANSLATE BELOW
-//		copyright	:	"Copyright \u00a9 2014. All rights reserved",
-//		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
 
 	},
 
@@ -172,10 +170,15 @@ var resource_fi_FI = {
 		noconection	:	"Ei verkkoyhteytt\u00e4",
 		authfailed	:	"V\u00e4\u00e4r\u00e4 k\u00e4ytt\u00e4j\u00e4tunnus ja/tai salasana!",
 		loginfailed	:	"Tunnistus ep\u00e4onnistui tuntemattomasta syyst\u00e4. Koodi = ",
-		categoriesfailed	:	"Read categories list failed!",
-        toolnotfound		:	"Ty\u00f6kalu ei l\u00f6ytynyt varastolistasta!",
-		searchfailed		:	"Haku ep\u00e4onnistui tuntemattomasta syyst\u00e4. Koodi = ",
+		categoriesfailed:	"Read categories list failed!",
+		toolnotfound	:	"Ty\u00f6kalu ei l\u00f6ytynyt varastolistasta!",
+		searchfailed	:	"Haku ep\u00e4onnistui tuntemattomasta syyst\u00e4. Koodi = ",
 
 
 	},
+
+// NOT NECESSARY TO TRANSLATE BELOW
+//		copyright	:	"Copyright \u00a9 2014. All rights reserved",
+//		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+
 }

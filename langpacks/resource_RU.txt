@@ -16,11 +16,12 @@ var resource_ru_RU = {
 			login	:	"Вход",
 			mainmenu:	"Главное Меню",
 			catlist	:	"Виды Инструмента",
-			toollist:	"Цписок Инструментов",
+			toollist:	"Список Инструментов",
 			tooldata:	"Данные о Инструменте",
 			msglist	:	"Сообщения",
 			select	:	"Выберите",
 			settings:	"Установки",
+			ownbasket:	"Мои Инструменты",
 		},
 
 	/**
@@ -35,7 +36,7 @@ var resource_ru_RU = {
 			request		:	"Запрос",
 			agreement	:	"Одобрение",
 			rejection	:	"Отказ",
-			confirmation:	"Подтверждение",
+			confirmation	:	"Подтверждение",
 			info		:	"Информация",
 
 		},
@@ -48,26 +49,26 @@ var resource_ru_RU = {
 	 */
 
 		buttons : {
-			on			:	"Да",
-			off			:	"Нет",
+			on		:	"Да",
+			off		:	"Нет",
 			signin		:	"Вход",
 			scan		:	"Сканировать",
 			askborrow	:	"Запросить",
-			ok			:	"OK",
+			ok		:	"OK",
 			cancel		:	"Отказ",
 			back		:	"Назад",
 			agree		:	"Утвердить",
 			reject		:	"Отказать",
-			borrow		:	"Взать",
+			borrow		:	"Взять",
 			notneeded	:	"Не нужно",
 			todo		:	"Сделать",
 			
-			request		:	"Запрос взять",
-	        takeOver	:	"Взять",
-	        validate	:	"Отметить",
-	        release		:	"Свободно",
-	        recover		:	"Починено",
-	        inUse		:	"Используется",
+			request		:	"Запросить",
+			takeOver	:	"Взять",
+			validate	:	"Отметить",
+			release		:	"Свободно",
+			recover		:	"Починено",
+			inUse		:	"Используется",
 			
 		},
 
@@ -159,9 +160,6 @@ var resource_ru_RU = {
 			unknown		:	"неизвестно",
 			search		:	"Поиск",
 			
-	// NOT NECESSARY TO TRANSLATE BELOW
-//			copyright	:	"Copyright © 2014. All rights reserved",
-//			copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
 			
 		},
 
@@ -172,9 +170,14 @@ var resource_ru_RU = {
 			authfailed	:	"Неправильно введено имя и/или пароль пользователя !",
 			loginfailed	:	"Неизвестная ошибка. Код = ",
 			categoriesfailed	:	"Ошибка чтения видов Инструмента!",
-	        toolnotfound		:	"Инструмент не найден!",
+			toolnotfound		:	"Инструмент не найден!",
 			searchfailed		:	"Неизвестная ошибка поиска. Код = ",
 			
 		
 		},
-	}
+
+// NOT NECESSARY TO TRANSLATE BELOW
+//			copyright	:	"Copyright © 2014. All rights reserved",
+//			copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+
+}
