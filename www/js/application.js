@@ -20,10 +20,11 @@ var application = {
 
 	configuration : {
 
-		deviceType  : SupportedDeviceType.BROWSER,
+//		deviceType  : SupportedDeviceType.BROWSER,
+		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
 		environment : SupportedEnvironments.DEMO,
-		consolelog  : true,
-		autologin   : true,
+		consolelog  : false,
+		autologin   : false,
 
 	},
 

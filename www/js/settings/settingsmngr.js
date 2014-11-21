@@ -4,12 +4,21 @@ var settingsManager = {
 	storage	: 	null,
 	wasRead	:	false,
 
-	supportedLangs	:	[ "English", "Suomi", "Русский" ],		// Do not touch
+	supportedLangs	:	[ "Suomi", "English", "Русский" ],		
+	defaultLang		:	"Suomi",
 	
-	currentLang:	"Suomi",
+	currentLang		:	this.defaultLang,
 	
 	init:	function() {
+/*
+		this.storage = null;
+		this.wasRead = false;
 
+		this.supportedLangs = [ "Suomi", "English", "Русский" ];		
+		this.defaultLang = "Suomi";
+		
+		this.currentLang = this.defaultLang;
+*/		
 		this.initStorage();
 		this.readSettings();
 		
@@ -112,10 +121,15 @@ var settingsManager = {
 			console.log( "Persistant Storage will be read!")
 		
 			this.currentLang = this.storage.getItem( "mob.inventory.lang" ); 
-			console.log( "New Language read from storage: " + this.currentLang )
-			if ( !this.currentLang ) {
-				console.log( "Read invalid. Will be default: " + this.currentLang )
-				setLanguage( "Suomi" );
+			console.log( "New Language read from storage: " + this.currentLang );
+			
+			if ( this.validLang( this.currentLang )) {
+				
+				console.log( "Lang was read successfully: " + this.currentLang );
+				
+			} else {
+				console.log( "Read invalid. Will be default: " + this.defaultLang );
+				this.currentLang = this.defaultLang;
 
 			}
 				
