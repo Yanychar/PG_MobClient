@@ -15,9 +15,9 @@ var resource_ru_RU = {
 		headers	:  {
 			login	:	"Вход",
 			mainmenu:	"Главное Меню",
-			catlist	:	"Виды Инструмента",
-			toollist:	"Список Инструментов",
-			tooldata:	"Данные о Инструменте",
+			catlist	:	"Типы",
+			toollist:	"Инструменты",
+			tooldata:	"Инфо",
 			msglist	:	"Сообщения",
 			select	:	"Выберите",
 			settings:	"Установки",
