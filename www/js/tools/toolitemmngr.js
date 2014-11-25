@@ -73,7 +73,9 @@ var toolItemMngr = {
 		
 		contentElement.append( 
 				  "<b>" + this.createCategoriesChainString( tool ) + "</b>"
-				+ "<h3>" + this.getNormalizedString( tool.name  ) + "</h3>"
+				+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
+				+ this.getNormalizedString( tool.manufacturer )
+				+ "</h3>"
 				+ this.getNormalizedString( tool.description  )
 			    + "<hr/>"
 			    + ( tool.currentUser ? settingsManager.getLangResource().labels.usedby + ": "
@@ -114,33 +116,42 @@ var toolItemMngr = {
 
 		// setup correct header
 	    $("#todoMenu .ui-header .ui-title").text( settingsManager.getLangResource().headers.select );
-		
-		switch ( tool.status ) {
+	    
+	    // If user owns the tool 
+	    if ( tool.currentUser && tool.currentUser.id == loginInfo.user.id ) {
+	    	
+	    	console.log( "User owns selected tool: " + tool.name );
+
+			switch ( tool.status ) {
 	    	case "INUSE":
-	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.request,  this.requestHandler );
-	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.takeOver, this.takeOverHandler );
-	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.release,  this.releaseHandler );
-//	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate, this.validateHandler );
-	    		break;
 	    	case "BROCKEN":
 	    	case "REPAIRING":
 	    	case "STOLEN":
-	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate, this.releaseHandler );
-//	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate, this.validateHandler );
-	    		break;
 	    	case "RESERVED":
 	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.release,  this.releaseHandler );
-//	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate, this.validateHandler );
 	    		break;
 	    	case "FREE":
 	    	default:
-	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.request,	this.requestHandler );
-	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.takeOver,	this.takeOverHandler );
 	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.inUse,		this.inUseHandler );
-//	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.validate,	this.validateHandler );
 	    		break;
 	    		break;
 		};
+	    	
+	    } else {
+	    	// If the user does not own the tool
+	    	console.log( "User does not own selected tool: " + tool.name );
+	    	
+			switch ( tool.status ) {
+		    	case "INUSE":
+		    	case "RESERVED":
+		    	case "FREE":
+		    		this.addButton( menuContent, settingsManager.getLangResource().buttons.request,  this.requestHandler );
+		    		this.addButton( menuContent, settingsManager.getLangResource().buttons.takeOver, this.takeOverHandler );
+		    		break;
+			};
+	    	
+	    }
+		
 		
 		
 		
@@ -160,11 +171,10 @@ var toolItemMngr = {
 			console.log( "Failure result received from server after 'borrow' request" );
 		};
 
-		
-		Notification.show( "AAA" );
-		
 		$( "#tool_data_page #todoMenu" ).popup( "close" );
 
+		$("#myPopup").popup("open");
+		
 	},
 	
 	takeOverHandler:	function() {
@@ -184,12 +194,11 @@ var toolItemMngr = {
 			console.log( "Failure result received from server after 'takeOver' request" );
 		};
 		
-		Notification.show( "BBB" );
-		
 		$( "#tool_data_page #todoMenu" ).popup( "close" );
 		
 		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
 
+		$("#myPopup").popup("open");
 		
 	},
 	
@@ -212,10 +221,7 @@ var toolItemMngr = {
 			console.log( "Failure result received from server after 'validation' request" );
 		};
 		
-		Notification.show( "CCC" );
-	
 //		$( "#tool_data_page #todoMenu" ).popup( "close" )
-		
 		
 	},
 	
@@ -235,13 +241,12 @@ var toolItemMngr = {
 			console.log( "Failure result received from server after 'Release' request" );
 		};
 
-		Notification.show( "DDD" );
-		
-		
 		$( "#tool_data_page #todoMenu" ).popup( "close" )
 
 		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
-		
+
+		$("#resultPopup").popup();
+		$("#resultPopup").popup("open");
 		
 	},
 
@@ -262,29 +267,42 @@ var toolItemMngr = {
 			console.log( "Failure result received from server after 'Release' request" );
 		};
 
-		Notification.show( "DDD" );
-		
-		
 		$( "#tool_data_page #todoMenu" ).popup( "close" )
 
 		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
+
 		
+		$("#resultPopup").popup();
+		$("#resultPopup").popup("open");
 		
 	},
 
 	addButton:		function( placeHolder, itemCaption, handler ) {
 		
+				
 		var button = $(
 				"<a href=\"#\" id=\"releaseButton\" 	class=\"ui-btn ui-btn-a\">"
 				+ itemCaption
 				+ "</a>"
 		);
-		
+				
+/*
+		var button = $(
+				"<a href='#popupBasic' data-rel='popup' class='ui-btn ui-corner-all ui-shadow ui-btn-inline' data-transition='pop'>"
+				+ itemCaption
+				+ "</a>"
+		);
+				
+		var popper = $(
+				+ "<a data-role=\"popup\" id=\"popupBasic\"><p>This is a completely basic popup, no options set.</p></a>"
+		);
+*/		
 		if ( handler ) {
 		      button.off().on( "click", handler );
 		}
 		
 	    placeHolder.append( button );
+//	    placeHolder.append( popper );
 	},
 
 	createCategoriesChainString:	function( tool ) {
@@ -478,4 +496,23 @@ var toolItemMngr = {
 	}
 }
 
+
+function notify(message) {        
+
+    console.log( "!!!!! Came into the popup!!!" );
+	
+	var id = "popupid";    
+    try {$("#"+id).remove();} catch(e) {}
+    var popup = document.createElement('div');
+    popup.setAttribute("data-role", "popup");
+    popup.setAttribute("data-transition", "pop");
+    popup.setAttribute("data-theme", "a");
+    popup.setAttribute("data-overlay-theme", "c");
+    popup.setAttribute( "data-dismissible", "false" );
+    popup.setAttribute("id", id);
+    popup.innerHTML = "<p style='margin:1em 2em 1em 2em'>" + message + "</p>";
+    $('div[data-role="content"]').append(popup);        
+    $("#"+id).popup();
+    $("#"+id).popup("open");     
+};
 

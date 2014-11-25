@@ -179,7 +179,9 @@ var toolsManager = {
 
 			"<div data-role=\"collapsible\">"
 
-				+ "<h2>" + (( collapsedName ) ? collapsedName : "") + "</h2>"
+				+ "<h2>" + this.getNormalizedString( collapsedName ) 
+				+ ", " + this.getNormalizedString( tool.manufacturer )
+				+ "</h2>"
 	      
 				+ categoryChain + "<br/>"
 	      
@@ -226,28 +228,34 @@ var toolsManager = {
 
 	},
 
-	 createCategoriesChainString:	function( tool ) {
+	createCategoriesChainString:	function( tool ) {
 		 
-		 var resStr = "";
+		var resStr = "";
 		 
-		 if ( tool && tool.categoriesTree ) {
+		if ( tool && tool.categoriesTree ) {
 
-			 $.each( tool.categoriesTree, function( index, category ) {
+			$.each( tool.categoriesTree, function( index, category ) {
 
-				 if ( category && category.length > 0 ) {
+				if ( category && category.length > 0 ) {
 					 
-					 resStr = resStr 
+					resStr = resStr 
 						+ ( resStr.length > 0 ? " &#x25B6 " : "" )
-                        + category;
-				 }
+						+ category;
+				}
 
-			 });
+			});
 			 
-		 }
+		}
 		 
-		 return resStr; 
+		return resStr; 
 		 
-	 },
+	},
+
+	getNormalizedString:		function( element ) {
+	
+		return ( element && element.length > 0 ) ? element : "";
+		
+	},
 
 
 }

@@ -122,6 +122,7 @@ var settingsManager = {
 		
 			this.currentLang = this.storage.getItem( "mob.inventory.lang" ); 
 			console.log( "New Language read from storage: " + this.currentLang );
+// This was for testing 			this.currentLang = null;
 			
 			if ( this.validLang( this.currentLang )) {
 				
@@ -163,11 +164,13 @@ var settingsManager = {
 
 	validLang:	function( newLang ) {
 		
+		res = ( newLang && this.supportedLangs.indexOf( newLang.trim()) >= 0 );
 		console.log( "Is New Language valid: " + ( newLang && this.supportedLangs.indexOf( newLang.trim()) >= 0 ) );
 		console.log( "  New Language: " + newLang );
-		console.log( "  Is it supported? " + ( this.supportedLangs.indexOf( newLang.trim()) >= 0 ));
+		if ( res )
+			console.log( "  Is it supported? " + ( this.supportedLangs.indexOf( newLang.trim()) >= 0 ));
 
-		return ( newLang && this.supportedLangs.indexOf( newLang.trim()) >= 0 );
+		return res;
 			
 	},
 

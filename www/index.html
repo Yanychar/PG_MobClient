@@ -58,6 +58,11 @@
 	</head>
     <body>
 
+		<div data-role="popup" id="resultPopup">
+		     <p>My Popup</p>
+		</div>		
+
+
 		<div id="readiness_page" data-role="page" data-theme="a" data-title="Readiness" class="loginview" >
 			<div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
 			
@@ -190,8 +195,10 @@
     	</div>
 
 
-
     <div id="tool_data_page" data-role="page" data-theme="b" data-overlay-theme="b" data-title="Tool Info" class="tool_data" data-dialog="true">
+
+		
+
 		<div data-role="header" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
         	<h1 style="text-align: center;">Tool Info</h1>
 
@@ -257,6 +264,7 @@
     	</div>
 
 		<div id="own_basket_page" data-role="page" data-title="OwnBasket" data-theme="a" >
+		
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
         		<a id="back_button" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
         		<h1 id="toolbar_header"style="text-align:center;">Own Basket</h1>
@@ -267,6 +275,7 @@
 					<ul id="tools_list" data-role="listview" data-filter="true" data-filter-placeholder="Search ..." data-theme="a" data-autodividers="false" data-divider-theme="" data-icon="carat-r" data-inset="true" >
 					
 					</ul>
+					
       			</div>
       		</div>
     	</div>
@@ -313,7 +322,7 @@
 
 
       		// Fill Message List list
-      		$(document).on("pageshow","#msg_list_page",function(){
+      		$(document).on("pagebeforeshow","#msg_list_page",function(){
 
       			// Header text
       			$( "#msg_list_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.msglist );
