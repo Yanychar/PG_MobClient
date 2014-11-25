@@ -14,7 +14,7 @@ var resource_fi_FI = {
  */
 
 	headers	:  {
-		login	:	"Sis\u00e4\u00e4nkirjautuminen",
+		login	:	"Kirjaudu",
 		mainmenu:	"P\u00e4\u00e4valikko",
 		catlist	:	"Ty\u00f6kaluryhm\u00e4t",
 		toollist:	"Ty\u00f6kalut",
