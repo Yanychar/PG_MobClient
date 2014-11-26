@@ -45,6 +45,7 @@ var ownBasket = {
 	    $( '#own_basket_page .ui-header .ui-title' ).text( settingsManager.getLangResource().headers.ownbasket );
 		// Search ...
     	$( '#own_basket_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search + " ..."  );
+    	$('input[data-type="search"]').val("");
 		
 		this.readAndShowList();
 
@@ -106,6 +107,8 @@ var ownBasket = {
 //			sort( toolsList );
 
 	    var listControl = $( '#own_basket_page' ).find( '#tools_list' );
+
+	    listControl.empty();
 		
 		$.each( toolsList, function( index, tool ) {
 

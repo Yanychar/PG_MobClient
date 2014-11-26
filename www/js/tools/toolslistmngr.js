@@ -50,7 +50,9 @@ var toolsManager = {
 		$( "#tools_list_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.toollist );
 		// Search ...
     	$( '#tools_list_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search + " ..."  );
-		
+    	$('input[data-type="search"]').val("");
+
+    	
 		this.showCategory( application.selectedCategory );
 
 		console.log( "... ToolsList pageBeforeShow handler end." );

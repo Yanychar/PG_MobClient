@@ -58,11 +58,6 @@
 	</head>
     <body>
 
-		<div data-role="popup" id="resultPopup">
-		     <p>My Popup</p>
-		</div>		
-
-
 		<div id="readiness_page" data-role="page" data-theme="a" data-title="Readiness" class="loginview" >
 			<div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
 			
@@ -144,7 +139,7 @@
       		</div>
 
 			<div data-role="footer" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-				<h1 style="text-align:center;">Uisko Nordic Oy. Copyright © 2014</h1>
+				<h1 id="copyright_footer" style="text-align:center;">Uisko Nordic Oy. Copyright © 2014</h1>
 			</div>
 
     	</div>
@@ -311,6 +306,14 @@
 				$( "#main_menu_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.mainmenu );
 				// Scan button text
 				$("#main_menu_page #scan_button").text( settingsManager.getLangResource().buttons.scan );
+				
+				$("#main_menu_page .ui-footer .ui-title").text( 
+
+					"Uisko Nordic Oy. ver " + settingsManager.version
+						
+				);
+//#copyright_footer
+				
 	    	});
 
 

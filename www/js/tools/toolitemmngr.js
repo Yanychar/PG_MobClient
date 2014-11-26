@@ -121,21 +121,24 @@ var toolItemMngr = {
 	    if ( tool.currentUser && tool.currentUser.id == loginInfo.user.id ) {
 	    	
 	    	console.log( "User owns selected tool: " + tool.name );
-
+/*
 			switch ( tool.status ) {
-	    	case "INUSE":
-	    	case "BROCKEN":
-	    	case "REPAIRING":
-	    	case "STOLEN":
-	    	case "RESERVED":
-	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.release,  this.releaseHandler );
-	    		break;
-	    	case "FREE":
-	    	default:
-	    		this.addButton( menuContent, settingsManager.getLangResource().buttons.inUse,		this.inUseHandler );
-	    		break;
-	    		break;
-		};
+		    	case "INUSE":
+		    	case "BROCKEN":
+		    	case "REPAIRING":
+		    	case "STOLEN":
+		    	case "RESERVED":
+		    		this.addButton( menuContent, settingsManager.getLangResource().buttons.release,  this.releaseHandler );
+		    		break;
+		    	case "FREE":
+		    	default:
+		    		this.addButton( menuContent, settingsManager.getLangResource().buttons.inUse,		this.inUseHandler );
+		    		break;
+		    		break;
+			};
+*/
+	    	
+	    	
 	    	
 	    } else {
 	    	// If the user does not own the tool

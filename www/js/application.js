@@ -23,11 +23,11 @@ var application = {
 		deviceType  : SupportedDeviceType.BROWSER,
 //		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
 
-//		environment : SupportedEnvironments.LOCAL,
-		environment : SupportedEnvironments.DEMO,
+		environment : SupportedEnvironments.LOCAL,
+//		environment : SupportedEnvironments.DEMO,
 		
-		consolelog  : false,
-		autologin   : false,
+		consolelog  : true,
+		autologin   : true,
 
 	},
 

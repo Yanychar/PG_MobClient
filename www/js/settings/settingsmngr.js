@@ -9,6 +9,8 @@ var settingsManager = {
 	
 	currentLang		:	this.defaultLang,
 	
+	version			:	"1.0.1",
+	
 	init:	function() {
 /*
 		this.storage = null;
