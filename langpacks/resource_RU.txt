@@ -34,7 +34,7 @@ var resource_ru_RU = {
 			empty		:	"Тип неизвестен",		// For failure situation. Not used
 			text		:	"Письмо",
 			request		:	"Запрос",
-			agreement	:	"Одобрение",
+			agreement	:	"Разрешение",
 			rejection	:	"Отказ",
 			confirmation	:	"Подтверждение",
 			info		:	"Информация",

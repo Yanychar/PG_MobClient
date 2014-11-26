@@ -27,7 +27,11 @@ var application = {
 //		environment : SupportedEnvironments.DEMO,
 		
 		consolelog  : true,
-		autologin   : true,
+		
+		autologin   	: true,
+		autologinname	: "jaana",
+		autologinpwd	: "jaana",
+		
 
 	},
 

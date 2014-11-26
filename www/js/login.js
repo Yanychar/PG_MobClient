@@ -4,8 +4,6 @@ var	loginInfo = {
 //		sessionid:	null,
 }
 
-
-
 $( document ).on( "pagecreate","#login_page",function() {
 
 	// Login button click
@@ -71,8 +69,8 @@ $( document ).on( "pagebeforeshow","#login_page",function() {
 function loginUser(usrname, pwd, loggedIn, failed) {
 
 	if (application.configuration.autologin && !usrname) {
-		usrname = "sev";
-		pwd = "sev";
+		usrname = application.configuration.autologinname;
+		pwd = application.configuration.autologinpwd;
 	}
 
 	console.log("Login attemptD: " + application.getServiceURL());
