@@ -14,5 +14,6 @@ del %dest%\resource_RU.js
 "%java_home%"\bin\native2ascii -encoding utf8 %source%\resource_FI.txt %dest%\resource_FI.js
 "%java_home%"\bin\native2ascii -encoding utf8 %source%\resource_RU.txt %dest%\resource_RU.js
 
+copy %source%\resource_EN.txt %dest%\resource_EN.js
 
 pause

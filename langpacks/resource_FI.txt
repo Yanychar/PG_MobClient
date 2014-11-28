@@ -33,13 +33,15 @@ var resource_fi_FI = {
  */
 
 	msgheaders	:  {
-		empty		:	"Tuntematon viesti",		// For failure situation. Not used
-		text		:	"Teksti viesti",
+
 		request		:	"Pyydä",
 		agreement	:	"Sovittu",
 		rejection	:	"Hylätty",
 		confirmation	:	"Vahvistus",
+		notneeded	:	"Hylätty",
 		info		:	"Tiedote",
+		text		:	"Teksti viesti",
+		empty		:	"Tuntematon viesti",		// For failure situation. Not used
 
 	},
 
@@ -83,6 +85,7 @@ var resource_fi_FI = {
  */
 
 	labels : {
+
 		username	:	"Käyttäjätunnus",
 		pwd		:	"Salasana",
 		remember	:	"Talleta tunnukset",
@@ -90,6 +93,8 @@ var resource_fi_FI = {
 		respb		:	"Vastuuhenkilö",
 		status		:	"Status",
 		lang		:	"Kieli",
+		from		:	"Lähettäjä",
+
 	},
 
 
@@ -101,11 +106,13 @@ var resource_fi_FI = {
 
 	msgListTemplates : {
 
-		empty		:	"Tyhjä viesti",
-		request		:	"työkalupyyntö käyttäjältä",
-		agreement	:	"Hyväksyntä käyttäjältä",
+		request		:	"Työkalupyyntö",
+		agreement	:	"Käyttö hyväksytty",
 		rejection	:	"Pyyntö hylätty",
 		confirmation	:	"Vahvistettu",
+		notneeded	:	"Työkalupyyntö peruttu",
+		info		:	"Info",
+		empty		:	"",
 
 	},
 
@@ -121,7 +128,9 @@ var resource_fi_FI = {
 		agreement	:	"Työkalun voi lainata",
 		rejection	:	"Ei saa lainata",
 		confirmation	:	"Oli lainattu",
-		info		:	"Uusi käyttäjä",
+		notneeded	:	"Työkalupyyntö peruttu",
+		info		:	"",
+		empty		:	"",
 
 	},
 
