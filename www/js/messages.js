@@ -68,6 +68,12 @@ function readMessages( msgStatus ) {
       console.log( "      " + jqXHR.statusText );
       console.log( "      " + jqXHR.statusCode() );
 
+	  	if ( jqXHR.status==401 ) {
+	
+			settingsManager.logoff();
+			
+		};
+      
       return jqXHR;
 
     },

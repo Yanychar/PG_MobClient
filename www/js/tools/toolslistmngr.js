@@ -102,11 +102,17 @@ var toolsManager = {
 
 		    error: function ( jqXHR ) {
 
-		    	console.log( "... FAILED to Read Tools: " + jqXHR.status );
+		    	if ( jqXHR.status==401 ) {
 
-		    	application.toolsPageDescriptor.setActive( category, null );
-
-		    	toolsManager.showTools();
+					settingsManager.logoff();
+		    		
+		    	} else {
+			    	console.log( "... FAILED to Read Tools: " + jqXHR.status );
+	
+			    	application.toolsPageDescriptor.setActive( category, null );
+	
+			    	toolsManager.showTools();
+		    	}
 		    	
 		    },
 		});

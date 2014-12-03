@@ -85,13 +85,17 @@ var ownBasket = {
 
 		    },
 
-		    error: function ( xhr ) {
+		    error: function ( jqXHR ) {
 		    	
-		    	if ( xhr.status==404 ) {
+		    	if ( jqXHR.status==401 ) {
+
+					settingsManager.logoff();
+		    		
+		    	} else if ( jqXHR.status==404 ) {
 			    	console.log( "... No Tools found" );
 			    	
 		        } else {
-			    	console.log( "... FAILED to Read Tools: " + xhr.status );
+			    	console.log( "... FAILED to Read Tools: " + jqXHR.status );
 		        }
 		    	
 		    	showFunction( {} );

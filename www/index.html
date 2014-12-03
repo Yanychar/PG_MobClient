@@ -41,6 +41,7 @@
 		<script src="js/i18n/resource_RU.js"></script>
 
 		<script src="js/application.js"></script>
+		<script src="js/settings/settingsmngr.js"></script>
 		<script src="js/communication.js"></script>
 		<script src="js/logging.js"></script>
 		<script src="js/login.js"></script>
@@ -48,7 +49,6 @@
 		<script src="js/tools/toolslistmngr.js"></script>
 		<script src="js/tools/toolitemmngr.js"></script>
 		<script src="js/tools/ownbasket.js"></script>
-		<script src="js/settings/settingsmngr.js"></script>
 		<script src="js/messages.js"></script>
 		<script src="js/scanning.js"></script>
 		<script src="js/notification.js"></script>
@@ -89,7 +89,7 @@
     	<div id="main_menu_page" data-role="page" data-theme="a" data-title="Main Menu" class="mainmenuview" >
       		<div data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
 
-        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none">Back Button</a>
+        		<a id="logoff_buton" class="ui-btn-auto" data-theme="a" data-icon="forbidden" data-iconpos="notext" data-transition="none">Back Button</a>
         		<h1 id="toolbar_header"style="text-align:center;">Main Menu</h1>
 
       		</div>
@@ -145,7 +145,12 @@
 
     	<div id="categories_page" data-role="page" data-title="Categories" data-theme="a" >
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+<!-- 
+        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="back" data-transition="none" >Back</a>
+        		<h1 id="toolbar_header"style="text-align:center;">Categories</h1>
+        		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" >Home</a>
+ -->
+        		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" data-iconpos="notext" >Home</a>
         		<h1 id="toolbar_header"style="text-align:center;">Categories</h1>
       		</div>
 
@@ -161,8 +166,9 @@
 
 		<div id="tools_list_page" data-role="page" data-title="Tools" data-theme="a" >
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+        		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" data-iconpos="notext" >Home</a>
         		<h1 id="toolbar_header"style="text-align:center;">Tools</h1>
+        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="back" data-iconpos="notext" data-transition="none" >Back Button</a>
       		</div>
 
       		<div role="main" class="ui-content" style="width:100%;margin:0px;padding:0px">
@@ -176,7 +182,7 @@
 
 		<div id="msg_list_page" data-role="page" data-title="Messages List" data-theme="a" >
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-          		<a id="msg_back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-rel="back">Back Button</a>
+        		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" data-iconpos="notext" >Home</a>
         		<h1 id="toolbar_header"style="text-align:center;">Messages</h1>
       		</div>
 
@@ -242,7 +248,7 @@
 
 		<div id="settings_page" data-role="page" data-title="Settings" data-theme="a" >
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-          		<a id="settings_back_buton" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-rel="back">Back Button</a>
+        		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" data-iconpos="notext" >Home</a>
         		<h1 id="toolbar_header"style="text-align:center;">Settings</h1>
       		</div>
 
@@ -260,7 +266,7 @@
 		<div id="own_basket_page" data-role="page" data-title="OwnBasket" data-theme="a" >
 
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-        		<a id="back_button" class="ui-btn-auto" data-theme="a" data-icon="arrow-l" data-iconpos="notext" data-transition="none" >Back Button</a>
+        		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" data-iconpos="notext" >Home</a>
         		<h1 id="toolbar_header"style="text-align:center;">Own Basket</h1>
       		</div>
 
@@ -289,12 +295,9 @@
 		        	scanner.scan();
 		        });
 
-				$( '#main_menu_page #back_buton' ).on( "click", function() {
+				$( '#main_menu_page #logoff_buton' ).on( "click", function() {
 
-		        	// Return back to Login screen
-		        	$.mobile.navigate( "#login_page", {
-	//	                                  transition: "slide"
-	        		});
+					settingsManager.logoff();
 
 	      		});
 	    	});

@@ -8,8 +8,11 @@ var settingsManager = {
 	defaultLang		:	"Suomi",
 	
 	currentLang		:	this.defaultLang,
+	usrname			:	"",
+	pwd				:	"",
+	loggedin		:	false,
 	
-	version			:	"1.0.1",
+	version			:	"1.0.2",
 	
 	init:	function() {
 /*
@@ -135,6 +138,15 @@ var settingsManager = {
 				this.currentLang = this.defaultLang;
 
 			}
+			
+			this.usrname = this.storage.getItem( "mob.inventory.usrname" );
+			this.pwd = this.storage.getItem( "mob.inventory.pwd" );
+			this.loggedin = this.storage.getItem( "mob.inventory.loggedin" );
+			
+			console.log( "New usrname from storage: " + this.usrname );
+			console.log( "New pwd read from storage: " + this.pwd );
+			console.log( "New loggedin in read from storage: " + this.loggedin );
+			
 				
 			wasRead = true;
 		}
@@ -190,7 +202,48 @@ var settingsManager = {
 
 		return resource_fi_FI;
 		
-	} 
+	}, 
+
+/*
+ *  Log-In/-Out functions
+ */	
+	logoff:	function() {
+
+		this.loggedin = false;
+		
+//		this.usrname = this.storage.getItem( "mob.inventory.usrname" );
+//		this.pwd = this.storage.getItem( "mob.inventory.pwd" );
+		this.loggedin = this.storage.setItem( "mob.inventory.loggedin", false );
+		
+		loginInfo = {};
+
+    	// Return back to Login screen
+    	$.mobile.navigate( "#login_page", {
+//	                                  transition: "slide"
+		});
+		
+	},
+	
+	login:	function( newUsrname, newPwd ) {
+
+		this.usrname = newUsrname;
+		this.pwd = newPwd;
+		this.loggedin = true;
+		
+		this.storage.setItem( "mob.inventory.usrname", this.usrname );
+		this.storage.setItem( "mob.inventory.pwd", this.pwd );
+		this.storage.setItem( "mob.inventory.loggedin", true );
+		
+	},
+	
+	loginFailed:	function() {
+
+		this.loggedin = false;
+		
+		this.storage.setItem( "mob.inventory.loggedin", false );
+		
+	}
+	
 	
 }
 	

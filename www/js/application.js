@@ -20,15 +20,15 @@ var application = {
 
 	configuration : {
 
-		deviceType  : SupportedDeviceType.BROWSER,
-//		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
+//		deviceType  : SupportedDeviceType.BROWSER,
+		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
 
 //		environment : SupportedEnvironments.LOCAL,
 		environment : SupportedEnvironments.DEMO,
 
-		consolelog  : true,
+		consolelog  : false,
 
-		autologin   	: true,
+		autologin   	: false,
 		autologinname	: "sev",
 		autologinpwd	: "sev",
 

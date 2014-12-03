@@ -89,9 +89,18 @@ var catgrsManager = {
 		    },
 
 		    error: function ( jqXHR ) {
-		    	alert( settingsManager.getLangResource().errors.categoriesfailed );
+		    	
+		    	if ( jqXHR.status==401 ) {
+
+					settingsManager.logoff();
+		    		
+		    	} else {
+		    	
+		    		alert( settingsManager.getLangResource().errors.categoriesfailed );
+		    	}
 		    	
 				this.needToReadead = true;
+				
 		    },
 
 		});
