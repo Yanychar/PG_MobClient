@@ -121,7 +121,7 @@ var toolItemMngr = {
 	    if ( tool.currentUser && tool.currentUser.id == loginInfo.user.id ) {
 	    	
 	    	console.log( "User owns selected tool: " + tool.name );
-/*
+
 			switch ( tool.status ) {
 		    	case "INUSE":
 		    	case "BROCKEN":
@@ -134,9 +134,8 @@ var toolItemMngr = {
 		    	default:
 		    		this.addButton( menuContent, settingsManager.getLangResource().buttons.inUse,		this.inUseHandler );
 		    		break;
-		    		break;
 			};
-*/
+
 	    	
 	    	
 	    	
@@ -176,7 +175,7 @@ var toolItemMngr = {
 
 		$( "#tool_data_page #todoMenu" ).popup( "close" );
 
-		$("#myPopup").popup("open");
+//		$( "#tool_data_page " ).popup( "close" );
 		
 	},
 	
@@ -201,7 +200,7 @@ var toolItemMngr = {
 		
 		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
 
-		$("#myPopup").popup("open");
+//		$("#myPopup").popup("open");
 		
 	},
 	
@@ -248,8 +247,8 @@ var toolItemMngr = {
 
 		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
 
-		$("#resultPopup").popup();
-		$("#resultPopup").popup("open");
+//		$("#resultPopup").popup();
+//		$("#resultPopup").popup("open");
 		
 	},
 
@@ -275,8 +274,8 @@ var toolItemMngr = {
 		toolItemMngr.setDialogContent( toolItemMngr.selectedTool );
 
 		
-		$("#resultPopup").popup();
-		$("#resultPopup").popup("open");
+//		$("#resultPopup").popup();
+//		$("#resultPopup").popup("open");
 		
 	},
 

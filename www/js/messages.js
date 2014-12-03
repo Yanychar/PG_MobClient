@@ -117,6 +117,7 @@ function createIconTag( msg ) {
   switch ( msg.type ) {
     case "REQUEST":
     case "AGREEMENT":
+    case "REJECTION":
       str = '<img src=\"img/attention.png\" alt=\"A\" class=\"ui-li-icon\">';
       break;
     default:
@@ -136,30 +137,34 @@ function createShortMsgText( msg ) {
     defText = msg.text;
   }
 
-  var str = "Empty message";
+  var str = msg.from.firstName + " " + msg.from.lastName + ": ";
   switch ( msg.type ) {
-    case "TEXT":
-      str = defText;
-      break;
     case "REQUEST":
-      str = settingsManager.getLangResource().msgListTemplates.request + " "
-        	+ msg.from.firstName + " " + msg.from.lastName;
+      str = str + settingsManager.getLangResource().msgListTemplates.request + " "
+  			+ ( msg.item != undefined  ? msg.item.name + ", " + msg.item.manufacturer : "" );
       break;
     case "AGREEMENT":
-    	str = settingsManager.getLangResource().msgListTemplates.agreement + " "
-        + msg.from.firstName + " " + msg.from.lastName;
-      break;
+    	str = str + settingsManager.getLangResource().msgListTemplates.agreement + " "
+			+ ( msg.item != undefined  ? msg.item.name + ", " + msg.item.manufacturer : "" );
+		break;
     case "REJECTION":
-        str = settingsManager.getLangResource().msgListTemplates.rejection + " "
-        + msg.from.firstName + " " + msg.from.lastName;
-      break;
+        str = str + settingsManager.getLangResource().msgListTemplates.rejection + " "
+		+ ( msg.item != undefined  ? msg.item.name + ", " + msg.item.manufacturer : "" );
+        break;
     case "CONFIRMATION":
-        str = settingsManager.getLangResource().msgListTemplates.confirmation + " "
-        + msg.from.firstName + " " + msg.from.lastName;
+        str = str + settingsManager.getLangResource().msgListTemplates.confirmation + " "
+		+ ( msg.item != undefined  ? msg.item.name + ", " + msg.item.manufacturer : "" );
+        break;
+	case "NOTNEEDED":
+        str = str + settingsManager.getLangResource().msgListTemplates.notneeded + " "
+		+ ( msg.item != undefined  ? msg.item.name + ", " + msg.item.manufacturer : "" );
       break;
     case "INFO":
-      str = defText;
+    	str = str + defText;
       break;
+    case "TEXT":
+    	str = str + defText;
+        break;
   }
 
   return str;
@@ -186,9 +191,6 @@ function setMsgDialogHeader( header, msg ) {
     var headerStr = "";
 
     switch ( msg.type ) {
-    	case "TEXT":
-	        headerStr = settingsManager.getLangResource().msgheaders.text;
-	        break;
     	case "REQUEST":
 	        headerStr = settingsManager.getLangResource().msgheaders.request;
 	        break;
@@ -201,8 +203,14 @@ function setMsgDialogHeader( header, msg ) {
 	    case "CONFIRMATION":
 	        headerStr = settingsManager.getLangResource().msgheaders.confirmation;
 	        break;
+		case "NOTNEEDED":
+	        headerStr = settingsManager.getLangResource().msgheaders.notneeded;
+	        break;
 	    case "INFO":
 	        headerStr = settingsManager.getLangResource().msgheaders.info;
+	        break;
+    	case "TEXT":
+	        headerStr = settingsManager.getLangResource().msgheaders.text;
 	        break;
     }
 
@@ -214,128 +222,162 @@ function setMsgDialogHeader( header, msg ) {
 function setMsgDialogContent( contentElement, msg ) {
 
 	var sender = msg.from.firstName + " " + msg.from.lastName;
-	var tool = ( msg.item != undefined ) ? msg.item.name : settingsManager.getLangResource().text.unknown;
+//	var tool = ( msg.item != undefined ) ? msg.item.name : settingsManager.getLangResource().text.unknown;
+	var tool = ( msg.item != undefined ) ? msg.item : { name : "", manufacturer : "" };
 
 	contentElement.empty();
 
 	contentElement.append(
-			"From: " + "<b>" + sender + "</b><br/><hr/>"
+			settingsManager.getLangResource().labels.from + ": " 
+			+ "<b>" + sender + "</b><br/><hr/>"
 	);
 
 	switch ( msg.type ) {
+    	case "REQUEST":
+    		contentElement.append(
+    				settingsManager.getLangResource().msgContentTemplates.request
+//					+ "<br/>"
+					+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
+					+ this.getNormalizedString( tool.manufacturer )
+					+ "</h3>"
+//					+ "<br/><br/>"
+					+ "<br/>"
+    		);
+    		break;
+    	case "AGREEMENT":
+    		contentElement.append(
+    				settingsManager.getLangResource().msgContentTemplates.agreement
+  //  				+ "<br/>"
+					+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
+					+ this.getNormalizedString( tool.manufacturer )
+					+ "</h3>"
+//					+ "<br/><br/>"
+					+ "<br/>"
+    		);
+    		break;
+	    case "REJECTION":
+	    	contentElement.append(
+	    			settingsManager.getLangResource().msgContentTemplates.rejection
+	    			  //  				+ "<br/>"
+					+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
+					+ this.getNormalizedString( tool.manufacturer )
+					+ "</h3>"
+//					+ "<br/><br/>"
+					+ "<br/>"
+	    	);
+	    	break;
+	    case "CONFIRMATION":
+	    	console.log( "Tool valid? " + (tool != undefined && tool != null ));
+	    	console.log( "Tool name: " + tool.name );
+	    	contentElement.append(
+	    			settingsManager.getLangResource().msgContentTemplates.confirmation
+	    			+ "<br/>"
+					+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
+					+ this.getNormalizedString( tool.manufacturer )
+					+ "</h3>"
+//					+ "<br/><br/>"
+					+ "<br/>"
+	    	);
+	    	break;
+	    case "NOTNEEDED":
+	    	contentElement.append(
+	    			settingsManager.getLangResource().msgContentTemplates.notneeded
+	    			  //  				+ "<br/>"
+					+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
+					+ this.getNormalizedString( tool.manufacturer )
+					+ "</h3>"
+//					+ "<br/><br/>"
+					+ "<br/>"
+	    	);
+	    	break;
+	    case "INFO":
+	    	contentElement.append(
+	    			settingsManager.getLangResource().msgContentTemplates.info
+	    			  //  				+ "<br/>"
+					+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
+					+ this.getNormalizedString( tool.manufacturer )
+					+ "</h3>"
+//					+ "<br/><br/>"
+					+ "<br/>"
+	    	);
+	    	break;
     	case "TEXT":
     		contentElement.append(
     				msg.text
     				+ "<br/><br/>"
     		);
     		break;
-    	case "REQUEST":
-    		contentElement.append(
-    				settingsManager.getLangResource().msgContentTemplates.request
-					+ "<br/>"
-					+ "<h3>" + tool + "</h3>"
-					+ "<br/><br/>"
-    		);
-    		break;
-    	case "AGREEMENT":
-    		contentElement.append(
-    				settingsManager.getLangResource().msgContentTemplates.agreement
-    				+ "<br/>"
-					+ "<h3>" + tool + "</h3>"
-					+ "<br/><br/>"
-    		);
-    		break;
-	    case "REJECTION":
-	    	contentElement.append(
-	    			settingsManager.getLangResource().msgContentTemplates.rejection
-	    			+ "<br/>"
-	    			+ "<h3>" + tool + "</h3>"
-	    			+ "<br/><br/>"
-	    	);
-	    	break;
-	    case "CONFIRMATION":
-	    	contentElement.append(
-	    			settingsManager.getLangResource().msgContentTemplates.confirmation
-	    			+ "<br/>"
-	    			+ "<h3>" + tool + "</h3>"
-	    			+ "<br/><br/>"
-	    	);
-	    	break;
-	    case "INFO":
-	    	contentElement.append(
-	    			settingsManager.getLangResource().msgContentTemplates.info
-	    			+ "<h3>" + tool + "</h3>"
-	    			+ "<br/><br/>"
-	    	);
-	    	break;
 	}
 
 }
 
 function setupDlgButtons( contentElement, msg ) {
 
-console.log( "Enter into setupDlgButtons... message.status = " + msg.status );
+	console.log( "Enter into setupDlgButtons... "  );
+	console.log( "    Message.Type = " + msg.type );
+	console.log( "    Message.status = " + msg.status );
 
-  var buttonElements = null;
+	var buttonElements = null;
 
-  emptyButtons( contentElement );
+	emptyButtons( contentElement );
 
-  if ( msg.status == "UNREAD" ) {
-    switch ( msg.type ) {
-      case "REQUEST":
-        addButtons( contentElement,
-        			settingsManager.getLangResource().buttons.agree,
-                    function() {
-                      console.log( "AGREE button pressed" );
-                      agreeToBorrow( msg.item, msg.from );
-                      updateMessage( msg, "RESPONDED" );
-                      parent.history.back();
-                    },
-        			settingsManager.getLangResource().buttons.reject,
-                    function() {
-                      console.log( "REJECT button pressed" );
-                      rejectToBorrow( msg );
-                      updateMessage( msg, "RESPONDED" );
-                      parent.history.back();
-                    }
-        );
-        break;
-      case "AGREEMENT":
-        addButtons( contentElement,
-    				settingsManager.getLangResource().buttons.borrow,
-                    function() {
-                      console.log( "BORROW button pressed" );
-                      confirmBorrow( msg.item, msg.from );
-                      console.log( "BEFORE UPDATE message.status = " + msg.status );
-                      updateMessage( msg, "RESPONDED" );
-                      console.log( "AFTER UPDATE message.status = " + msg.status );
-                      parent.history.back();
-                    },
-    				settingsManager.getLangResource().buttons.notneeded,
-                    function() {
-                      console.log( "NOT NEEDED button pressed" );
-
-                  //  Cancel reservation shall be done
-                  //  ????( msg );
-
-                      updateMessage( msg, "READ" );
-                      parent.history.back();
-                    }
-        );
-        break;
-      case "REJECTION":
-      case "TEXT":
-      case "CONFIRMATION":
-      case "INFO":
-        addButtons( contentElement,
-					settingsManager.getLangResource().buttons.ok,
-                    function() {
-                      console.log( "OK button pressed" );
-                      updateMessage( msg, "READ" );
-                      parent.history.back();
-                  }
-        );
-        break;
+	if ( msg.status == "UNREAD" ) {
+		switch ( msg.type ) {
+			case "REQUEST":
+    	
+		        addButtons( contentElement,
+		        			settingsManager.getLangResource().buttons.agree,
+		
+		        			function() {
+		                      console.log( "AGREE button pressed" );
+		                      answered( msg, "true" );
+		                      msg.status = "RESPONDED";
+		                      parent.history.back();
+		                    },
+		
+		        			settingsManager.getLangResource().buttons.reject,
+		                    function() {
+		                      console.log( "REJECT button pressed" );
+		                      answered( msg, "false" );                      
+		                      msg.status = "RESPONDED";
+		                      parent.history.back();
+		                    }
+		        );
+		        
+		        break;
+			case "AGREEMENT":
+				addButtons( contentElement,
+		    				settingsManager.getLangResource().buttons.borrow,
+		                    function() {
+		                      console.log( "BORROW button pressed" );
+		                      answered( msg, "true" );                      
+		                      msg.status = "RESPONDED";
+		                      parent.history.back();
+		                    },
+		    				settingsManager.getLangResource().buttons.notneeded,
+		                    function() {
+		                      console.log( "NOT NEEDED button pressed" );
+		                      answered( msg, "false" );                      
+		                      msg.status = "RESPONDED";
+		                      parent.history.back();
+		                    }
+		        );
+		        break;
+			case "REJECTION":
+			case "CONFIRMATION":
+			case "NOTNEEDED":
+			case "INFO":
+			case "TEXT":
+				addButtons( contentElement,
+							settingsManager.getLangResource().buttons.ok,
+		                    function() {
+		                      console.log( "OK button pressed" );
+		                      answered( msg, "true" );                      
+		                      msg.status = "READ";
+		                      parent.history.back();
+		                  }
+		        );
+		        break;
     }
 }
 }
@@ -348,6 +390,8 @@ function emptyButtons( placeHolder ) {
 }
 function addButtons( placeHolder, text_1, onclick_1, text_2, onclick_2 ) {
 
+	console.log( "addButons entered ..." );
+	
   var buttonElement_1 = $(
               "<a id=\"msg_dlg_button_1\" "
             + " href=\"#\" "
@@ -361,6 +405,7 @@ function addButtons( placeHolder, text_1, onclick_1, text_2, onclick_2 ) {
     buttonElement_1.off().on( "click", onclick_1 );
 
   placeHolder.append( buttonElement_1 );
+  console.log( "Button '" + text_1 + "' was added" );
 
   if ( text_2 != undefined ) {
 
@@ -377,207 +422,60 @@ function addButtons( placeHolder, text_1, onclick_1, text_2, onclick_2 ) {
       buttonElement_2.off().on( "click", onclick_2 );
 
     placeHolder.append( buttonElement_2 );
+    console.log( "Button '" + text_2 + "' was added" );
 
   }
 }
 
-function updateMessage( msg, newStatus ) {
+function answered( msg, answer ) {
 
-  console.log( "Update Message Ajax request ..." );
+	  console.log( "ANSWER Ajax request ..." );
 
-  if ( newStatus != undefined ) {
+	  if ( !msg || !answer ) {
+	    console.log( "Msg or Answer are not specified! Cannot send answer!" );
+	    return;
+	  }
+	  
+	  $.ajax({
+	    async : false,
+	    type: 'GET',
+	    url: application.getServiceURL() + "/msganswer",
+	    data: {
+	      sessionid	: loginInfo.sessionid,
+	      msgid		: msg.id,
+	      answer	: answer
+	    },
 
-    console.log( "Message will be updated to " + newStatus );
-    msg.status = newStatus;
+//	    dataType: "json",
 
-  } else {
-    console.log( "No status specified ==>> No update message performed" );
+	    success: function ( result, status, xhr ) {
 
-    return;
-  }
+	      console.log( "... ANSWER was sent successfully!" );
 
-  $.ajax({
-    async : false,
-    type: 'GET',
-    url: application.getServiceURL() + "/updatemessage",
-    data: {
-      sessionid : loginInfo.sessionid,
-      msgid     : msg.id,
-      status    : newStatus
-    },
 
-//    dataType: "json",
+	    },
 
-    success: function ( result, status, xhr ) {
+	    error: function ( jqXHR ) {
 
-      console.log( "... message updated SUCCESSfully" );
+	      console.log( "... FAILED to send ANSWER: " + jqXHR.status );
+	      console.log( "      " + jqXHR.status );
+	      console.log( "      " + jqXHR.statusText );
+	      console.log( "      " + jqXHR.statusCode() );
 
-    },
+	      return jqXHR;
 
-    error: function ( jqXHR ) {
+	    },
+	  });
 
-      console.log( "... FAILED to Update Message: " + jqXHR.status );
-      console.log( "      " + jqXHR.status );
-      console.log( "      " + jqXHR.statusText );
-      console.log( "      " + jqXHR.statusCode() );
+	  console.log( "... return from ANSWER!" );
 
-      return jqXHR;
-
-    },
-  });
-
-  console.log( "... return from Update Message!" );
-
-  return;
-
+	  return;
+	  
 }
 
-function agreeToBorrow( item, requester ) {
+function getNormalizedString( str ) {
 
-  console.log( "Agreement Ajax request ..." );
-
-  if ( item == undefined || item == null ) {
-    console.log( "Tool Item is not specified! Cannot create AGREEMENT to borrow" );
-    return;
-  }
-  if ( requester == undefined || requester == null ) {
-    console.log( "Requester is not specified! Cannot create AGREEMENT to borrow" );
-    return;
-  }
-
-  $.ajax({
-    async : false,
-    type: 'GET',
-    url: application.getServiceURL() + "/agreement",
-    data: {
-      sessionid : loginInfo.sessionid,
-      toolid    : item.id,
-      userid    : requester.id
-    },
-
-//    dataType: "json"
-
-    success: function ( result, status, xhr ) {
-
-      console.log( "... Agreement handled successfully!" );
-
-
-    },
-
-    error: function ( jqXHR ) {
-
-      console.log( "... FAILED to handle Agreement: " + jqXHR.status );
-      console.log( "      " + jqXHR.status );
-      console.log( "      " + jqXHR.statusText );
-      console.log( "      " + jqXHR.statusCode() );
-
-      return jqXHR;
-
-    },
-  });
-
-  console.log( "... return from Agreement!" );
-
-  return;
-
- }
-
-function rejectToBorrow( item, requester ) {
-
-  console.log( "Rejection Ajax request ..." );
-
-  if ( item == undefined || item == null ) {
-    console.log( "Tool Item is not specified! Cannot create REJECTION to borrow" );
-    return;
-  }
-  if ( requester == undefined || requester == null ) {
-    console.log( "Requester is not specified! Cannot create REJECTION to borrow" );
-    return;
-  }
-
-  $.ajax({
-    async : false,
-    type: 'GET',
-    url: application.getServiceURL() + "/rejection",
-    data: {
-      sessionid : loginInfo.sessionid,
-      toolid    : item.id,
-      userid    : requester.id
-    },
-
-//    dataType: "json",
-
-    success: function ( result, status, xhr ) {
-
-      console.log( "... Rejection handled successfully!" );
-
-
-    },
-
-    error: function ( jqXHR ) {
-
-      console.log( "... FAILED to handle Rejection: " + jqXHR.status );
-      console.log( "      " + jqXHR.status );
-      console.log( "      " + jqXHR.statusText );
-      console.log( "      " + jqXHR.statusCode() );
-
-      return jqXHR;
-
-    },
-  });
-
-  console.log( "... return from Rejection!" );
-
-  return;
-
+	return ( str && str.length > 0 ) ? str : "";
+	
 }
 
-function confirmBorrow( item, oldOwner ) {
-
-  console.log( "Borrow Ajax request ..." );
-
-  if ( item == undefined || item == null ) {
-    console.log( "Tool Item is not specified! Cannot create CONFIRM request" );
-    return;
-  }
-  if ( oldOwner == undefined || oldOwner == null ) {
-    console.log( "Requester is not specified! Cannot create CONFIRM request" );
-    return;
-  }
-
-  $.ajax({
-    async : false,
-    type: 'GET',
-    url: application.getServiceURL() + "/confirm",
-    data: {
-      sessionid : loginInfo.sessionid,
-      toolid    : item.id,
-      userid    : oldOwner.id
-    },
-
-//    dataType: "json",
-
-    success: function ( result, status, xhr ) {
-
-      console.log( "... CONFIRM performed successfully!" );
-
-
-    },
-
-    error: function ( jqXHR ) {
-
-      console.log( "... FAILED to perform CONFIRM: " + jqXHR.status );
-      console.log( "      " + jqXHR.status );
-      console.log( "      " + jqXHR.statusText );
-      console.log( "      " + jqXHR.statusCode() );
-
-      return jqXHR;
-
-    },
-  });
-
-  console.log( "... return from CONFIRM!" );
-
-  return;
-
-}

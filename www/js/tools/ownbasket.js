@@ -85,13 +85,16 @@ var ownBasket = {
 
 		    },
 
-		    error: function ( jqXHR ) {
-
-		    	console.log( "... FAILED to Read Tools: " + jqXHR.status );
-
-		    	application.toolsPageDescriptor.setActive( category, null );
-
-		    	toolsManager.showTools();
+		    error: function ( xhr ) {
+		    	
+		    	if ( xhr.status==404 ) {
+			    	console.log( "... No Tools found" );
+			    	
+		        } else {
+			    	console.log( "... FAILED to Read Tools: " + xhr.status );
+		        }
+		    	
+		    	showFunction( {} );
 		    	
 		    },
 		});
@@ -136,7 +139,7 @@ var ownBasket = {
 				+ "<p>" + (( tool.description && tool.name ) ? tool.description : "" ) + "</p>"
 //					 + "<br/>"
 	      		+ (( tool.status != undefined ) ? settingsManager.getLangResource().labels.status 
-	      										  + ": <b>" + tool.status + "</b>" 
+	      										  + ": <b>" + this.showStatus( tool ) + "</b>" 
 	      										: "" )
 	      	+ "</li>"
 		);
@@ -185,6 +188,40 @@ var ownBasket = {
 		 
 	},
 
+	showStatus:		function( tool ) {
+
+		var resStr = "UNKNOWN";
+		
+		if ( tool && tool.status ) {
+			
+			switch ( tool.status ) {
+		    	case "INUSE":
+		    		resStr = settingsManager.getLangResource().toolstatus.inuse;
+		    		break;
+		    	case "BROCKEN":
+		    		resStr = settingsManager.getLangResource().toolstatus.brocken;
+		    		break;
+		    	case "REPAIRING":
+		    		resStr = settingsManager.getLangResource().toolstatus.repair;
+		    		break;
+		    	case "STOLEN":
+		    		resStr = settingsManager.getLangResource().toolstatus.stolen;
+		    		break;
+		    	case "RESERVED":
+		    		resStr = settingsManager.getLangResource().toolstatus.reserved;
+		    		break;
+		    	case "FREE":
+		    	default:
+		    		resStr = settingsManager.getLangResource().toolstatus.free;
+		    		break;
+			}
+			 
+		}
+		 
+		return resStr; 
+		
+	},
+	
 	getNormalizedString:		function( element ) {
 		
 		return ( element && element.length > 0 ) ? element : "";

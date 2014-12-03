@@ -33,13 +33,15 @@ var resource_fi_FI = {
  */
 
 	msgheaders	:  {
-		empty		:	"Tuntematon viesti",		// For failure situation. Not used
-		text		:	"Teksti viesti",
+
 		request		:	"Pyyd\u00e4",
 		agreement	:	"Sovittu",
 		rejection	:	"Hyl\u00e4tty",
 		confirmation	:	"Vahvistus",
+		notneeded	:	"Hyl\u00e4tty",
 		info		:	"Tiedote",
+		text		:	"Teksti viesti",
+		empty		:	"Tuntematon viesti",		// For failure situation. Not used
 
 	},
 
@@ -83,6 +85,7 @@ var resource_fi_FI = {
  */
 
 	labels : {
+
 		username	:	"K\u00e4ytt\u00e4j\u00e4tunnus",
 		pwd		:	"Salasana",
 		remember	:	"Talleta tunnukset",
@@ -90,6 +93,8 @@ var resource_fi_FI = {
 		respb		:	"Vastuuhenkil\u00f6",
 		status		:	"Status",
 		lang		:	"Kieli",
+		from		:	"L\u00e4hett\u00e4j\u00e4",
+
 	},
 
 
@@ -101,11 +106,13 @@ var resource_fi_FI = {
 
 	msgListTemplates : {
 
-		empty		:	"Tyhj\u00e4 viesti",
-		request		:	"ty\u00f6kalupyynt\u00f6 k\u00e4ytt\u00e4j\u00e4lt\u00e4",
-		agreement	:	"Hyv\u00e4ksynt\u00e4 k\u00e4ytt\u00e4j\u00e4lt\u00e4",
+		request		:	"Ty\u00f6kalupyynt\u00f6",
+		agreement	:	"K\u00e4ytt\u00f6 hyv\u00e4ksytty",
 		rejection	:	"Pyynt\u00f6 hyl\u00e4tty",
 		confirmation	:	"Vahvistettu",
+		notneeded	:	"Ty\u00f6kalupyynt\u00f6 peruttu",
+		info		:	"Info",
+		empty		:	"",
 
 	},
 
@@ -121,7 +128,9 @@ var resource_fi_FI = {
 		agreement	:	"Ty\u00f6kalun voi lainata",
 		rejection	:	"Ei saa lainata",
 		confirmation	:	"Oli lainattu",
-		info		:	"Uusi k\u00e4ytt\u00e4j\u00e4",
+		notneeded	:	"Ty\u00f6kalupyynt\u00f6 peruttu",
+		info		:	"",
+		empty		:	"",
 
 	},
 

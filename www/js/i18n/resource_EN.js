@@ -31,13 +31,15 @@ var resource_en_EN = {
  */
 
 	msgheaders	:  {
-		empty		:	"Unknown Message",		// For failure situation. Not used
-		text		:	"Text Message",
+
 		request		:	"Request",
 		agreement	:	"Agreement",
 		rejection	:	"Rejection",
-		confirmation:	"Confirmation",
+		confirmation	:	"Confirmation",
+		notneeded	:	"Cancelation",
 		info		:	"Info Message",
+		text		:	"Text Message",
+		empty		:	"Unknown Message",		// For failure situation. Not used
 
 	},
 	
@@ -88,6 +90,7 @@ var resource_en_EN = {
 		respb		:	"Responsible",
 		status		:	"Status",
 		lang		:	"Language",
+		from		:	"From",
 		
 	},
 	
@@ -100,11 +103,13 @@ var resource_en_EN = {
 
 	msgListTemplates : {
 
-		empty		:	"Empty message",
-		request		:	"Tool requested by",
-		agreement	:	"Approved by",
-		rejection	:	"Rejected by",
-		confirmation:	"Confirmed by",
+		request		:	"Requested",
+		agreement	:	"Approved to get",
+		rejection	:	"Rejected to get",
+		confirmation	:	"Confirmed receiving",
+		notneeded	:	"Request cancelled",
+		info		:	"Info",
+		empty		:	"",
 		
 	},
 
@@ -117,10 +122,12 @@ var resource_en_EN = {
 	msgContentTemplates : {
 
 		request		:	"Request to borrow",
-		agreement	:	"Tool may be borrowed",
+		agreement	:	"Approval to borrow",
 		rejection	:	"Rejected to borrow",
-		confirmation:	"Was borrowed",
-		info		:	"New user of ",
+		confirmation	:	"Confirmed ownership transfer",
+		notneeded	:	"Canceled request to borrow",
+		info		:	"",
+		empty		:	"",
 		
 	},
 
@@ -135,7 +142,7 @@ var resource_en_EN = {
 	toolstatus	:	{
 		
 		free	:	"Not used",
-		inuse	:	"In-use",
+		inuse	:	"In-Use",
 		brocken	:	"Brocken",
 		repair	:	"Under repairing",
 		stolen	:	"Stolen",
