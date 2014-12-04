@@ -66,6 +66,7 @@ var resource_fi_FI = {
 		borrow		:	"Lainaa",
 		notneeded	:	"En tarvitse",
 		todo		:	"Teht\u00e4v\u00e4t",
+		go		:	"Etsi",
 
 		request		:	"Pyynt\u00f6",
 		takeOver	:	"Ota k\u00e4ytt\u00f6\u00f6si",
@@ -168,7 +169,8 @@ var resource_fi_FI = {
 		readiness	:	"LAITE ON VALMIS!",
 		init		:	"Before init ...",
 		unknown		:	"Ei tiedossa",
-		search		:	"Haku",
+		search		:	"Haku ...",
+		quicksearch	:	"Pikahaku ... ",
 
 
 	},
@@ -187,7 +189,7 @@ var resource_fi_FI = {
 	},
 
 // NOT NECESSARY TO TRANSLATE BELOW
-//		copyright	:	"Copyright \u00a9 2014. All rights reserved",
-//		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+//	copyright	:	"Copyright \u00a9 2014. All rights reserved",
+//	copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
 
 }

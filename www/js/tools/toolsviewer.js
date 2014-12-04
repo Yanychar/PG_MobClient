@@ -1,134 +1,90 @@
-var ownBasket = {
+var toolsViewer = {
 
 	init:	function() {
 
-		console.log( "OwnBasket page Init start ..." );
+		console.log( "Common Tools List page Init start ..." );
 
-		$( document ).on( "pagecreate","#own_basket_page",function(){
+			$( document ).on( "pagecreate","#common_tools_list_page",function(){
 
-			ownBasket.pageCreated();
-		});
-
-		$(document).on( "pagebeforeshow","#own_basket_page",function(){
-
-			ownBasket.pageBeforeShow();
-				
-		});
-			 
-		$(document).on( "pageshow","#own_basket_page",function(){
-
-			ownBasket.pageAfterShow();
-				
-		});
-			
-	},
-
-	pageCreated:	function() {
-
-		console.log( "OwnBasket page PageCreated start ..." );
-			
-		// Back button handler
-		$( '#own_basket_page #back_button' ).on( "click", function() {
-			// Return back to Login screen
-			$.mobile.navigate( "#main_menu_page", {
+				toolsViewer.pageCreated();
 			});
 
-		});
-		    
-	},
-		
-	pageBeforeShow:	function() {
+			$(document).on( "pagebeforeshow","#common_tools_list_page",function(){
 
-		console.log( "OwnBasket page PageBeforeShow start ..." );
+				toolsViewer.pageBeforeShow();
+					
+			});
+				 
+			$(document).on( "pageshow","#common_tools_list_page",function(){
+
+				toolsViewer.pageAfterShow();
+					
+			});
+				
+		},
+
+		pageCreated:	function() {
+
+			console.log( "Common Tools List page PageCreated start ..." );
+				
+			// Back button handler
+			$( '#common_tools_list_page #back_button' ).on( "click", function() {
+				// Return back to Login screen
+				$.mobile.navigate( "#main_menu_page", {
+				});
+
+			});
+			    
+		},
 			
-	    // Header text
-	    $( '#own_basket_page .ui-header .ui-title' ).text( settingsManager.getLangResource().headers.ownbasket );
-		// Search ...
-    	$( '#own_basket_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search + " ..."  );
-    	$('input[data-type="search"]').val("");
-		
-		this.readAndShowList();
+		pageBeforeShow:	function() {
 
-	},
+			console.log( "Common Tools List page PageBeforeShow start ..." );
+				
+			// Search ...
+	    	$( '#common_tools_list_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search );
+	    	$('input[data-type="search"]').val("");
 
-	pageAfterShow:	function() {
-		console.log( "OwnBasket page PageAfterShow start ..." );
-		
-	},
-		
-	readAndShowList:	function() {
-		
-	      this.read( this.showList );
-		
-	},
-		
-	read:	function( showFunction ) {
-		
-		console.log( "Ajax call to read Tools List ..." );
+		    $( '#common_tools_list_page' ).find( '#tools_list' ).listview('refresh');
+	    	
+		},
 
-		$.ajax({
-			async : false,
-		    type: 'GET',
-		    url: application.getServiceURL() + "/gettools",
-		    data: {
-		      sessionid : loginInfo.sessionid,
-		      userid : loginInfo.user.id
-		    },
-
-		    dataType: "json",
-
-		    success: function ( result, status, xhr ) {
-
-		    	console.log( "... read Tools SUCCESSfully" );
-
-		    	showFunction( result );
-
-		    },
-
-		    error: function ( jqXHR ) {
-		    	
-		    	if ( jqXHR.status==401 ) {
-
-					settingsManager.logoff();
-		    		
-		    	} else if ( jqXHR.status==404 ) {
-			    	console.log( "... No Tools found" );
-			    	
-		        } else {
-			    	console.log( "... FAILED to Read Tools: " + jqXHR.status );
-		        }
-		    	
-		    	showFunction( {} );
-		    	
-		    },
-		});
-
-		console.log( "... return from Read Tools!" );
-
-	},
+		pageAfterShow:	function() {
+			console.log( "Common Tools List page PageAfterShow start ..." );
+			
+		},
+			
 	
-	showList:	function( toolsList ) {
-
-    	console.log( "ShowToolList after read ..." );
 		
-//			sort( toolsList );
+		
+		
+	parameters : {},
 
-	    var listControl = $( '#own_basket_page' ).find( '#tools_list' );
+	showList:	function( toolsList, params ) {
+
+		console.log( "ShowList started ..." );
+
+		this.parameters = params;
+
+		toolsViewer.sortToolsList( toolsList );
+		
+		toolsViewer.setHeader();
+
+	    var listControl = $( '#common_tools_list_page' ).find( '#tools_list' );
 
 	    listControl.empty();
-		
+			
 		$.each( toolsList, function( index, tool ) {
 
 			console.log( "    Tool row [" + index +"] was added" );
 
-			ownBasket.addToolElement( listControl, tool ); //.listview('refresh');
+			toolsViewer.addToolElement( listControl, tool ); //.listview('refresh');
 
 		});
 	      
-		listControl.listview('refresh');
 		
 	},
-	
+		
 	addToolElement:		function( listElement, tool ) {
 	
 		var categoryChain = this.createCategoriesChainString( tool );
@@ -141,7 +97,7 @@ var ownBasket = {
 				+ ", " + this.getNormalizedString( tool.manufacturer )
 				+ "</h2>"
 				+ "<p>" + (( tool.description && tool.name ) ? tool.description : "" ) + "</p>"
-//					 + "<br/>"
+//						 + "<br/>"
 	      		+ (( tool.status != undefined ) ? settingsManager.getLangResource().labels.status 
 	      										  + ": <b>" + this.showStatus( tool ) + "</b>" 
 	      										: "" )
@@ -231,6 +187,25 @@ var ownBasket = {
 		return ( element && element.length > 0 ) ? element : "";
 		
 	},
-	
-		 
+
+	sortToolsList:	function( toolsList ) {
+		
+		if ( this.parameters && this.parameters.sort ) {
+			
+		}
+		
+	},
+
+	setHeader:	function( toolsList ) {
+		
+		if ( parameters.header && parameters.header.length > 0 ) {
+
+			// Header text
+		    $( '#common_tools_list_page .ui-header .ui-title' ).text( parameters.header );
+			
+		}
+		
+	},
+
+		
 }

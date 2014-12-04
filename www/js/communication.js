@@ -176,4 +176,51 @@ var communicator = {
 
     	return res;
 	},
+
+	readTools:	function( parameters, showFunction ) {
+		
+		console.log( "Ajax call to read Tools List ..." );
+
+		$.ajax({
+			async:	false,
+		    type: 	'GET',
+		    url: 	application.getServiceURL() + "/" + parameters.method,
+
+		    data:	{
+		    	sessionid 	: parameters.sessionid,
+		    	userid 		: parameters.userid,
+		    },
+
+		    dataType: "json",
+
+		    success: function ( result, status, xhr ) {
+
+		    	console.log( "... read Tools SUCCESSfully" );
+
+		    	showFunction( result, { header : parameters.header, search : parameters.search } );
+
+		    },
+
+		    error: function ( jqXHR ) {
+		    	
+		    	if ( jqXHR.status==401 ) {
+
+					settingsManager.logoff();
+		    		
+		    	} else if ( jqXHR.status==404 ) {
+			    	console.log( "... No Tools found" );
+			    	
+		        } else {
+			    	console.log( "... FAILED to Read Tools: " + jqXHR.status );
+		        }
+		    	
+		    	showFunction( {} );
+		    	
+		    },
+		});
+
+		console.log( "... return from Read Tools!" );
+
+	},
+
 }

@@ -44,7 +44,7 @@ var catgrsManager = {
 
     	$( '#categories_page' ).find( '#toolbar_header' ).text( settingsManager.getLangResource().headers.catlist );
     	
-    	$( '#categories_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search + " ..."  );
+    	$( '#categories_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search );
     	$('input[data-type="search"]').val("");
 
     	

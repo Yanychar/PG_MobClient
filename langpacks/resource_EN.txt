@@ -2,10 +2,10 @@
  *	 This is resource file for English Language Pack
  */
 
-var resource_en_EN = { 
-	
+var resource_en_EN = {
+
 	locale			:	"en_EN",					// Do not touch
-	
+
 /**
  *	Headers
  *
@@ -25,7 +25,7 @@ var resource_en_EN = {
 	},
 
 /**
- *	 Message dialog Headers 
+ *	 Message dialog Headers
  *
  *		Message Dialog generates different headers depend on message type
  */
@@ -42,12 +42,12 @@ var resource_en_EN = {
 		empty		:	"Unknown Message",		// For failure situation. Not used
 
 	},
-	
+
 
 /**
- *	Buttons 
+ *	Buttons
  *
- *		There are different buttons text 
+ *		There are different buttons text
  */
 
 	buttons : {
@@ -64,19 +64,20 @@ var resource_en_EN = {
 		borrow		:	"Borrow",
 		notneeded	:	"Not needed",
 		todo		:	"To Do",
-		
+		go		:	"Go",
+
 		request		:	"Request",
-        takeOver	:	"Take Over",
-        validate	:	"Validate",
-        release		:	"Release",
-        recover		:	"Recover",
-        inUse		:	"In Use",
-		
+	        takeOver	:	"Take Over",
+        	validate	:	"Validate",
+	        release		:	"Release",
+        	recover		:	"Recover",
+	        inUse		:	"In Use",
+
 	},
 
 
 /**
- *	Labels 
+ *	Labels
  *
  *		Caption of input fields
  *		For example field to input username has caption "Username:"
@@ -91,9 +92,9 @@ var resource_en_EN = {
 		status		:	"Status",
 		lang		:	"Language",
 		from		:	"From",
-		
+
 	},
-	
+
 
 /**
  *	Messages in the Lists
@@ -110,7 +111,7 @@ var resource_en_EN = {
 		notneeded	:	"Request cancelled",
 		info		:	"Info",
 		empty		:	"",
-		
+
 	},
 
 	/**
@@ -128,7 +129,7 @@ var resource_en_EN = {
 		notneeded	:	"Canceled request to borrow",
 		info		:	"",
 		empty		:	"",
-		
+
 	},
 
 
@@ -136,53 +137,56 @@ var resource_en_EN = {
 	 *	Tool Data
 	 *
 	 *	Different text strings used in Tool Data dialog
-	 * 
+	 *
 	 */
-	
+
 	toolstatus	:	{
-		
+
 		free	:	"Not used",
 		inuse	:	"In-Use",
 		brocken	:	"Brocken",
 		repair	:	"Under repairing",
 		stolen	:	"Stolen",
 		reserved:	"Reserved",
-		
+
 	},
-	
-	
+
+
 	/**
 	 *	Other Text Strings
 	 *
 	 *	Different text strings
 	 */
-	
+
 	text :	{
-		
+
 		personaltool:	"Personal Tool",
 		nolocationdata:	"No location data",
 		progressing	:	"Progressing ...",
 		readiness	:	"DEVICE IS READY!",
 		init		:	"Before init ...",
 		unknown		:	"unknown",
-		search		:	"Search",
-		
-// NOT NECESSARY TO TRANSLATE BELOW
-//		copyright	:	"Copyright © 2014. All rights reserved",
-//		copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
-		
+		search		:	"Search ...",
+		quicksearch	:	"Quick search ...",
+
 	},
 
 	errors : {
-	
+
 		scanfailure	:	"Scanning failed",
 		noconection	:	"No network connection",
 		authfailed	:	"Wrong username and/or password were specified!",
 		loginfailed	:	"Authentication Failed because unknown reason. Code = ",
-		categoriesfailed	:	"Read categories list failed!",
-        toolnotfound		:	"Tool was not found in the Inventory!",
-		searchfailed		:	"Search Failed because unknown reason. Code = ",
-		
-	
+		categoriesfailed:	"Read categories list failed!",
+		toolnotfound	:	"Tool was not found in the Inventory!",
+		searchfailed	:	"Search Failed because unknown reason. Code = ",
+
+
 	},
+
+// NOT NECESSARY TO TRANSLATE BELOW
+//	copyright	:	"Copyright © 2014. All rights reserved",
+//	copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+
+
 }

@@ -42,10 +42,12 @@
 		<script src="js/communication.js"></script>
 		<script src="js/logging.js"></script>
 		<script src="js/login.js"></script>
+		<script src="js/mainmenu.js"></script>
 		<script src="js/tools/categorymngr.js"></script>
 		<script src="js/tools/toolslistmngr.js"></script>
 		<script src="js/tools/toolitemmngr.js"></script>
 		<script src="js/tools/ownbasket.js"></script>
+		<script src="js/tools/toolsviewer.js"></script>
 		<script src="js/messages.js"></script>
 		<script src="js/scanning.js"></script>
 		<script src="js/notification.js"></script>
@@ -114,7 +116,7 @@
         		<div style="overflow: auto;">
           			<div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
             			<div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
-              				<a href="#own_basket_page">
+              				<a id="own_tools_button" href="">
                 				<img style="margin: 0px; padding: 0px; width: 85%; text-align: center;" src="img/owntools.png"/>
               				</a>
             			</div>
@@ -132,6 +134,10 @@
         		<div style="text-align: center;" data-role="controlgroup" data-theme="a" data-corners="true" data-mini="false" data-shadow="false" data-type="">
           			<a id="scan_button" href="" data-role="button" data-theme="a" data-corners="true" data-mini="false" data-transition="none" data-iconpos="top" data-icon="scan" data-shadow="true" data-inline="false">Scan</a>
         		</div>
+        		
+				<p id="version_info" >Version:</p>
+        		
+        		
 <!-- 
 <div data-role="controlgroup" data-type="horizontal">
     <input type="search" id="search-control-group" data-wrapper-class="controlgroup-textinput ui-btn" >
@@ -141,21 +147,16 @@
       		</div>
       		
 			<div data-role="footer" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-				
-    <input type="search" id="search-free" data-wrapper-class="main_search_free_controlgroup ui-btn" placeholder="Placeholder text...">
-    <button class="ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-inline" >Go</button>
-				
+
+    <input type="search" id="search-free-text" data-wrapper-class="main_search_free_controlgroup ui-btn" placeholder="Placeholder text..." >
+    <button type="submit" id="search-free-btn" class="ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-inline" >Go</button>
+
 			</div>
 
     	</div>
 
     	<div id="categories_page" data-role="page" data-title="Categories" data-theme="a" >
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-<!-- 
-        		<a id="back_buton" class="ui-btn-auto" data-theme="a" data-icon="back" data-transition="none" >Back</a>
-        		<h1 id="toolbar_header"style="text-align:center;">Categories</h1>
-        		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" >Home</a>
- -->
         		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" data-iconpos="notext" >Home</a>
         		<h1 id="toolbar_header"style="text-align:center;">Categories</h1>
       		</div>
@@ -269,7 +270,7 @@
       		</div>
     	</div>
 
-		<div id="own_basket_page" data-role="page" data-title="OwnBasket" data-theme="a" >
+		<div id="common_tools_list_page" data-role="page" data-title="OwnBasket" data-theme="a" >
 
       		<div data-role="header" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
         		<a href="#main_menu_page" id="home_buton" class="ui-btn-auto" data-theme="a" data-icon="home" data-transition="none" data-iconpos="notext" >Home</a>
@@ -293,42 +294,11 @@
 	        application.initialize();
 
 
-	    	$(document).on("pagecreate","#main_menu_page",function(){
-
-				scanner.initialize();
-
-		      	$("#main_menu_page #scan_button").on("click",function(){
-		        	scanner.scan();
-		        });
-
-				$( '#main_menu_page #logoff_buton' ).on( "click", function() {
-
-					settingsManager.logoff();
-
-	      		});
-	    	});
-
-	    	$(document).on("pagebeforeshow","#main_menu_page",function(){
-
-				// Header text
-				$( "#main_menu_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.mainmenu );
-				// Scan button text
-				$("#main_menu_page #scan_button").text( settingsManager.getLangResource().buttons.scan );
-
-				$("#main_menu_page .ui-footer .ui-title").text(
-
-					"Uisko Nordic Oy. ver " + settingsManager.version
-
-				);
-//#copyright_footer
-
-	    	});
-
-
-			catgrsManager.init();
+	    	mainMenu.init();
+	    	catgrsManager.init();
 			toolsManager.init();
 			toolItemMngr.init();
-			ownBasket.init();
+			toolsViewer.init();
 
 
 
@@ -350,6 +320,9 @@
 
 			settingsManager.init();
 
+			function testscr() {
+				console.log( "XXXX" );	
+			}
     	</script>
   </body>
 </html>

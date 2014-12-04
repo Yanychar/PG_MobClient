@@ -12,17 +12,17 @@ var resource_ru_RU = {
 	 *		There are headers of all screens in application except Message Dialog headers (see next)
 	 */
 
-		headers	:  {
-			login	:	"Вход",
-			mainmenu:	"Главное Меню",
-			catlist	:	"Типы",
-			toollist:	"Инструменты",
-			tooldata:	"Инфо",
-			msglist	:	"Сообщения",
-			select	:	"Выберите",
-			settings:	"Установки",
-			ownbasket:	"Мои Инструменты",
-		},
+	headers	:  {
+		login	:	"Вход",
+		mainmenu:	"Главное Меню",
+		catlist	:	"Типы",
+		toollist:	"Инструменты",
+		tooldata:	"Инфо",
+		msglist	:	"Сообщения",
+		select	:	"Выберите",
+		settings:	"Установки",
+		ownbasket:	"Мои Инструменты",
+	},
 
 	/**
 	 *	 Message dialog Headers 
@@ -50,29 +50,30 @@ var resource_ru_RU = {
 	 *		There are different buttons text 
 	 */
 
-		buttons : {
-			on		:	"Да",
-			off		:	"Нет",
-			signin		:	"Вход",
-			scan		:	"Сканировать",
-			askborrow	:	"Запросить",
-			ok		:	"OK",
-			cancel		:	"Отказ",
-			back		:	"Назад",
-			agree		:	"Утвердить",
-			reject		:	"Отказать",
-			borrow		:	"Взять",
-			notneeded	:	"Не нужно",
-			todo		:	"Сделать",
+	buttons : {
+		on		:	"Да",
+		off		:	"Нет",
+		signin		:	"Вход",
+		scan		:	"Сканировать",
+		askborrow	:	"Запросить",
+		ok		:	"OK",
+		cancel		:	"Отказ",
+		back		:	"Назад",
+		agree		:	"Утвердить",
+		reject		:	"Отказать",
+		borrow		:	"Взять",
+		notneeded	:	"Не нужно",
+		todo		:	"Сделать",
+		go		:	"Go",
 			
-			request		:	"Запросить",
-			takeOver	:	"Взять",
-			validate	:	"Отметить",
-			release		:	"Свободно",
-			recover		:	"Починено",
-			inUse		:	"Используется",
+		request		:	"Запросить",
+		takeOver	:	"Взять",
+		validate	:	"Отметить",
+		release		:	"Свободно",
+		recover		:	"Починено",
+		inUse		:	"Используется",
 			
-		},
+	},
 
 
 	/**
@@ -152,40 +153,40 @@ var resource_ru_RU = {
 	},
 		
 		
-		/**
-		 *	Other Text Strings
-		 *
-		 *	Different text strings
-		 */
+	/**
+	 *	Other Text Strings
+	 *
+	 *	Different text strings
+	 */
 		
-		text :	{
+	text :	{
 			
-			personaltool:	"Личный Инструмент",
-			nolocationdata:	"Нет данных о местоположении",
-			progressing	:	"Загрузка ...",
-			readiness	:	"Устройство готово!",
-			init		:	"Начало ...",
-			unknown		:	"неизвестно",
-			search		:	"Поиск",
+		personaltool:	"Личный Инструмент",
+		nolocationdata:	"Нет данных о местоположении",
+		progressing	:	"Загрузка ...",
+		readiness	:	"Устройство готово!",
+		init		:	"Начало ...",
+		unknown		:	"неизвестно",
+		search		:	"Поиск ...",
+		quicksearch	:	"Быстрый поиск ... ",
 			
 			
-		},
+	},
 
-		errors : {
+	errors : {
 		
-			scanfailure	:	"Ошибка Сканирования",
-			noconection	:	"Сеть не найдена!",
-			authfailed	:	"Неправильно введено имя и/или пароль пользователя !",
-			loginfailed	:	"Неизвестная ошибка. Код = ",
-			categoriesfailed	:	"Ошибка чтения видов Инструмента!",
-			toolnotfound		:	"Инструмент не найден!",
-			searchfailed		:	"Неизвестная ошибка поиска. Код = ",
-			
+		scanfailure	:	"Ошибка Сканирования",
+		noconection	:	"Сеть не найдена!",
+		authfailed	:	"Неправильно введено имя и/или пароль пользователя !",
+		loginfailed	:	"Неизвестная ошибка. Код = ",
+		categoriesfailed:	"Ошибка чтения видов Инструмента!",
+		toolnotfound	:	"Инструмент не найден!",
+		searchfailed	:	"Неизвестная ошибка поиска. Код = ",
 		
-		},
+	},
 
 // NOT NECESSARY TO TRANSLATE BELOW
-//			copyright	:	"Copyright © 2014. All rights reserved",
-//			copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+//	copyright	:	"Copyright © 2014. All rights reserved",
+//	copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
 
 }
