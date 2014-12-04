@@ -26,16 +26,13 @@
 	    <meta name="msapplication-tap-highlight" content="no" />
 	    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 	    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-	    <link rel="stylesheet" href="css/jqm_1.4.2/jquery.mobile.icons-1.4.2.min.css"/>
-	    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.min.css"/>
+  		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<link rel="stylesheet" href="css/inventtheme_1.min.css" />
 	    <link rel="stylesheet" href="css/addons.css"/>
 
-
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/jquery.mobile-1.4.2.min.js"></script>
-
+  		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+ 
 		<script src="js/i18n/resource_EN.js"></script>
 		<script src="js/i18n/resource_FI.js"></script>
 		<script src="js/i18n/resource_RU.js"></script>
@@ -135,10 +132,19 @@
         		<div style="text-align: center;" data-role="controlgroup" data-theme="a" data-corners="true" data-mini="false" data-shadow="false" data-type="">
           			<a id="scan_button" href="" data-role="button" data-theme="a" data-corners="true" data-mini="false" data-transition="none" data-iconpos="top" data-icon="scan" data-shadow="true" data-inline="false">Scan</a>
         		</div>
+<!-- 
+<div data-role="controlgroup" data-type="horizontal">
+    <input type="search" id="search-control-group" data-wrapper-class="controlgroup-textinput ui-btn" >
+    <button class="ui-btn ui-shadow ui-corner-all ui-icon-grid ">Start</button>
+</div>
+ -->        		
       		</div>
-
+      		
 			<div data-role="footer" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-				<h1 id="copyright_footer" style="text-align:center;">Uisko Nordic Oy. Copyright © 2014</h1>
+				
+    <input type="search" id="search-free" data-wrapper-class="main_search_free_controlgroup ui-btn" placeholder="Placeholder text...">
+    <button class="ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-inline" >Go</button>
+				
 			</div>
 
     	</div>

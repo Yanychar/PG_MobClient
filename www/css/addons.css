@@ -5,3 +5,9 @@
 .ui-nosvg .ui-icon-scan:after {
 	background-image: url("../img/scan16.png");
 }
+
+.main_search_free_controlgroup{
+    padding-top:.22em;
+    padding-bottom:.22em;
+    width:70%;
+}

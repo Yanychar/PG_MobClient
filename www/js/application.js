@@ -26,11 +26,8 @@ var application = {
 //		environment : SupportedEnvironments.LOCAL,
 		environment : SupportedEnvironments.DEMO,
 
-		consolelog  : false,
+		consolelog  : true,
 
-		autologin   	: false,
-		autologinname	: "sev",
-		autologinpwd	: "sev",
 
 
 	},

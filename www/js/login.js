@@ -118,11 +118,6 @@ $( document ).on( "pagebeforeshow","#login_page",function() {
 
 function loginUser(usrname, pwd, loggedIn, failed) {
 
-	if (application.configuration.autologin && !usrname) {
-		usrname = application.configuration.autologinname;
-		pwd = application.configuration.autologinpwd;
-	}
-
 	console.log("Login attemptD: " + application.getServiceURL());
 
 	$.ajax({
