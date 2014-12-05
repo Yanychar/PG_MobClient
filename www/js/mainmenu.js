@@ -108,8 +108,8 @@ var mainMenu = {
 			var parameters = {
 					method : "gettools",
 					sessionid : loginInfo.sessionid,
-					userid : loginInfo.user.id,
-					header : settingsManager.getLangResource().headers.ownbasket,
+					searchStr : searchStr,
+					header : settingsManager.getLangResource().headers.toollist,
 					search : false,
 				      
 				};

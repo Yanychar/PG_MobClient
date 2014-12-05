@@ -189,6 +189,8 @@ var communicator = {
 		    data:	{
 		    	sessionid 	: parameters.sessionid,
 		    	userid 		: parameters.userid,
+				searchs     : parameters.searchStr,
+		    	
 		    },
 
 		    dataType: "json",

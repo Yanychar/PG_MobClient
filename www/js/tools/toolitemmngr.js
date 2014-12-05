@@ -83,6 +83,13 @@ var toolItemMngr = {
 			    + ( tool.personalFlag ? settingsManager.getLangResource().text.personaltool + "<br/>" : "" )
 			    + settingsManager.getLangResource().labels.status + ": " + "<b>" + this.showStatus( tool ) + "</b>"
 			    + "<hr/>"
+			    
+			    + ( tool.serialNumber ? settingsManager.getLangResource().labels.sn + ": "
+			    + "<b>" + tool.serialNumber + "</b><br/>" : "" )
+			    + ( tool.barcode ? settingsManager.getLangResource().labels.barcode + ": "
+			    					+ "<b>" + tool.barcode + "</b><br/>" : "" )
+			    + "<br/>"
+			    
 			);
 			
 	    if ( tool.location ) {

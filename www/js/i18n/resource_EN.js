@@ -92,6 +92,8 @@ var resource_en_EN = {
 		status		:	"Status",
 		lang		:	"Language",
 		from		:	"From",
+		barcode		:	"Barcode",
+		sn		:	"S/N",
 
 	},
 

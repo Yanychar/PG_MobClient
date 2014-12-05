@@ -20,8 +20,8 @@ var application = {
 
 	configuration : {
 
-		deviceType  : SupportedDeviceType.BROWSER,
-//		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
+//		deviceType  : SupportedDeviceType.BROWSER,
+		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
 
 //		environment : SupportedEnvironments.LOCAL,
 		environment : SupportedEnvironments.DEMO,

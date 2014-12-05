@@ -93,6 +93,8 @@ var resource_ru_RU = {
 		status		:	"Статус",
 		lang		:	"Язык",
 		from		:	"От",
+		barcode		:	"Штрихкод",
+		sn		:	"Инв.Номер",
 			
 	},
 		

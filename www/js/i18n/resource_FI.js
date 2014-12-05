@@ -95,6 +95,8 @@ var resource_fi_FI = {
 		status		:	"Status",
 		lang		:	"Kieli",
 		from		:	"L\u00e4hett\u00e4j\u00e4",
+		barcode		:	"Viivakoodi",
+		sn		:	"S/N",
 
 	},
 

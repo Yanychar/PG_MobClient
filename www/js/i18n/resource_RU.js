@@ -93,6 +93,8 @@ var resource_ru_RU = {
 		status		:	"\u0421\u0442\u0430\u0442\u0443\u0441",
 		lang		:	"\u042f\u0437\u044b\u043a",
 		from		:	"\u041e\u0442",
+		barcode		:	"\u0428\u0442\u0440\u0438\u0445\u043a\u043e\u0434",
+		sn		:	"\u0418\u043d\u0432.\u041d\u043e\u043c\u0435\u0440",
 			
 	},
 		
