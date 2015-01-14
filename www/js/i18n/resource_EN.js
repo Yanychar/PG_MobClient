@@ -4,7 +4,7 @@
 
 var resource_en_EN = {
 
-	locale			:	"en_EN",					// Do not touch
+	locale		:	"en_EN",					// Do not touch
 
 /**
  *	Headers
@@ -13,15 +13,15 @@ var resource_en_EN = {
  */
 
 	headers	:  {
-		login	:	"Login",
-		mainmenu:	"Main Menu",
-		catlist	:	"Tools Categories",
-		toollist:	"Tools",
-		tooldata:	"Tool Info",
-		msglist	:	"Messages",
-		select	:	"Select",
-		settings:	"Settings",
-		ownbasket:	"My Tools",
+		login		:	"Login",
+		mainmenu  	:	"Main Menu",
+		catlist	  	:	"Tools Categories",
+		toollist  	:	"Tools",
+		tooldata  	:	"Tool Info",
+		msglist	  	:	"Messages",
+		select	  	:	"Select",
+		settings  	:	"Settings",
+		ownbasket 	:	"My Tools",
 	},
 
 /**
@@ -51,12 +51,12 @@ var resource_en_EN = {
  */
 
 	buttons : {
-		on			:	"On",
-		off			:	"Off",
+		on		:	"On",
+		off		:	"Off",
 		signin		:	"Sign In",
 		scan		:	"Scan",
 		askborrow	:	"Ask to Borrow",
-		ok			:	"OK",
+		ok		:	"OK",
 		cancel		:	"Cancel",
 		back		:	"Back",
 		agree		:	"Agree",
@@ -65,13 +65,16 @@ var resource_en_EN = {
 		notneeded	:	"Not needed",
 		todo		:	"To Do",
 		go		:	"Go",
-
 		request		:	"Request",
-	        takeOver	:	"Take Over",
-        	validate	:	"Validate",
-	        release		:	"Release",
-        	recover		:	"Recover",
-	        inUse		:	"In Use",
+		takeOver	:	"Take Over",
+		validate	:	"Validate",
+		release		:	"Release",
+		available	:	"Available",
+		inUse		:	"In Use",
+		broken		:	"Broken",
+		repair		:	"In Service",
+		stolen		:	"Stolen",
+		nooperation	:	"Nothing To Do",
 
 	},
 
@@ -143,13 +146,12 @@ var resource_en_EN = {
 	 */
 
 	toolstatus	:	{
-
-		free	:	"Not used",
-		inuse	:	"In-Use",
-		brocken	:	"Brocken",
-		repair	:	"Under repairing",
-		stolen	:	"Stolen",
-		reserved:	"Reserved",
+		free		:	"Not Used",
+		inuse		:	"In Use",
+		broken		:	"Broken",
+		repair		:	"In Service",
+		stolen		:	"Stolen",
+		reserved	:	"Reserved",
 
 	},
 
@@ -162,8 +164,8 @@ var resource_en_EN = {
 
 	text :	{
 
-		personaltool:	"Personal Tool",
-		nolocationdata:	"No location data",
+		personaltool	:	"Personal Tool",
+		nolocationdata	:	"No location data",
 		progressing	:	"Progressing ...",
 		readiness	:	"DEVICE IS READY!",
 		init		:	"Before init ...",

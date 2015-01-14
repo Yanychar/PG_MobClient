@@ -44,10 +44,13 @@ var toolsManager = {
 
 		console.log( "ToolsList pageBeforeShow handler start ..." );
 
-		console.log( "Selected category: " + application.selectedCategory.name );
+		if ( application.selectedCategory.name ) {
+			console.log( "Selected category: " + application.selectedCategory.name );
+		}
 	      
 	    // Header text
 		$( "#tools_list_page .ui-header .ui-title" ).text( settingsManager.getLangResource().headers.toollist );
+		
 		// Search ...
     	$( '#tools_list_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.search );
     	$('input[data-type="search"]').val("");
@@ -126,17 +129,9 @@ var toolsManager = {
 		
 	    console.log( "showCategoryToolsList start ..." );
 
-//	    var listControl = $( '#tools_list_page' ).find( '#tools_list' );
-
-//	    if ( application.toolsPageDescriptor.category != category ) {
-
-	      console.log( "Tools list shall be read!" );
-
-	      // Read Tools
-	      this.read( category );
-//	    } else {
-//	      console.log( "Tools list is up-to-date!" );
-//	    }
+	    // Read Tools
+	    this.read( category );
+	      
 
 	    console.log( "... showCategoryToolsList end" );
 
@@ -187,20 +182,42 @@ var toolsManager = {
 
 			"<div data-role=\"collapsible\">"
 
-				+ "<h2>" + this.getNormalizedString( collapsedName ) 
-				+ ", " + this.getNormalizedString( tool.manufacturer )
+				+ "<h2>" 
+				+ this.getNormalizedString( tool.name ) + " "  
+				+ this.getNormalizedString( tool.manufacturer ) + " "
+				+ this.getNormalizedString( tool.model )
 				+ "</h2>"
 	      
-				+ categoryChain + "<br/>"
+//				+ categoryChain + "<br/>"
+				+ "<p>"
+				+ this.getNormalizedString( tool.description ) 
+				+ "</p>"
 	      
 //				+ (( tool.description && tool.name ) ? tool.description + "<br/>" : "" )
 
+				+ "<p>"
 				+ (( tool.currentUser != undefined ) ? settingsManager.getLangResource().labels.usedby + ": "
-				+ tool.currentUser.firstName + " " + tool.currentUser.lastName + "<br/>" : "" )
-//	      		+ (( tool.responsible != undefined ) ? "<b>Responsible: </b>"
-//	      		+ tool.responsible.firstName + " " + tool.responsible.lastName + "<br/>" : "" )
-//	      		+ (( tool.status != undefined ) ? "<b>" + settingsManager.getLangResource().labels.status + ": </b>" + tool.status + "<br/>" : "" )
-
+				+ "<b>"
+				+ tool.currentUser.firstName + " " + tool.currentUser.lastName : "" )
+				+ "</b>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;"
+				
+				+ ( tool.status ? settingsManager.getLangResource().labels.status 
+													+ ": "
+																					
+						
+													+ "<b "
+													+ this.getColorAttribute( tool.status )
+													+ ">"
+													+ this.showStatus( tool.status )
+													+ "</b>" 
+						
+						
+												: "" )
+				
+				
+				+ "</p>"
+				
 		+ "</div>"
 			  
 	  );
@@ -265,6 +282,62 @@ var toolsManager = {
 		
 	},
 
+	getColorAttribute:	function( status ) {
 
+		if ( status ) {
+			switch( status ) {
+				case "FREE":
+					return "style='color:green'"; 
+					
+				case "RESERVED":
+				case "BROKEN":
+				case "REPAIRING":
+				case "STOLEN":
+				case "UNKNOWN":
+					return "style='color:red'"; 
+				case "INUSE":
+					return "style='color:#F9A825'"; 
+	
+			}
+				
+		}
+		
+		return ""; 
+	},
+
+	showStatus:	function( status ) {
+
+		var resStr = "UNKNOWN";
+		
+		if ( status ) {
+			
+			switch ( status ) {
+		    	case "INUSE":
+		    		resStr = settingsManager.getLangResource().toolstatus.inuse;
+		    		break;
+		    	case "BROKEN":
+		    		resStr = settingsManager.getLangResource().toolstatus.broken;
+		    		break;
+		    	case "REPAIRING":
+		    		resStr = settingsManager.getLangResource().toolstatus.repair;
+		    		break;
+		    	case "STOLEN":
+		    		resStr = settingsManager.getLangResource().toolstatus.stolen;
+		    		break;
+		    	case "RESERVED":
+		    		resStr = settingsManager.getLangResource().toolstatus.reserved;
+		    		break;
+		    	case "FREE":
+		    	default:
+		    		resStr = settingsManager.getLangResource().toolstatus.free;
+		    		break;
+			}
+			 
+		}
+		 
+		return resStr; 
+		
+	},
+	
 }
 

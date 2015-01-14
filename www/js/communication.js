@@ -75,8 +75,16 @@ var communicator = {
 		return result;
 
 	},
-
+/*
 	sendInUseRequest:	function( tool ) {
+		
+		return sendUpdateStatusRequest( tool, "INUSE" );
+		
+	},
+*/
+	
+	
+	sendUpdateStatusRequest:	function( tool, newStatus ) {
 
 		var result = false;
 
@@ -88,12 +96,12 @@ var communicator = {
 					{
 						sessionid : loginInfo.sessionid,
 						toolid : tool.id,
-						status : "INUSE"
+						status : newStatus
 					}
-);
+		);
 
 		if ( result ) {
-			console.log( "'InUse' request was sent successfully!" );
+			console.log( "'" + newStatus + "' request was sent successfully!" );
 		};
 
 		return result;
@@ -190,6 +198,7 @@ var communicator = {
 		    	sessionid 	: parameters.sessionid,
 		    	userid 		: parameters.userid,
 				searchs     : parameters.searchStr,
+				categoryid 	: parameters.categoryid
 		    	
 		    },
 
@@ -206,17 +215,20 @@ var communicator = {
 		    error: function ( jqXHR ) {
 		    	
 		    	if ( jqXHR.status==401 ) {
+			    	console.log( "... No Tools found" );
 
 					settingsManager.logoff();
 		    		
 		    	} else if ( jqXHR.status==404 ) {
 			    	console.log( "... No Tools found" );
+
+			    	showFunction( null, { header : parameters.header, search : parameters.search } );
 			    	
 		        } else {
 			    	console.log( "... FAILED to Read Tools: " + jqXHR.status );
+
+			    	showFunction( null, { header : parameters.header, search : parameters.search } );
 		        }
-		    	
-		    	showFunction( {} );
 		    	
 		    },
 		});

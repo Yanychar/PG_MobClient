@@ -6,7 +6,6 @@ var resource_fi_FI = {
 
 	locale	:	"fi_FI",		// Do not touch
 
-
 /**
  *	Headers
  *
@@ -14,15 +13,15 @@ var resource_fi_FI = {
  */
 
 	headers	:  {
-		login	:	"Kirjaudu",
-		mainmenu:	"Päävalikko",
-		catlist	:	"Työkaluryhmät",
-		toollist:	"Työkalut",
-		tooldata:	"Info",
-		msglist	:	"Viestit",
-		select	:	"Valitse",
-		settings:	"Asetukset",
-		ownbasket:	"Minun Työkalut",
+		login		:	"Kirjaudu",
+		mainmenu	:	"Päävalikko",
+		catlist		:	"Työkaluryhmät",
+		toollist	:	"Työkalut",
+		tooldata	:	"Info",
+		msglist		:	"Viestit",
+		select		:	"Valitse",
+		settings	:	"Asetukset",
+		ownbasket	:	"Työkaluni",
 
 	},
 
@@ -41,7 +40,7 @@ var resource_fi_FI = {
 		notneeded	:	"Hylätty",
 		info		:	"Tiedote",
 		text		:	"Teksti viesti",
-		empty		:	"Tuntematon viesti",		// For failure situation. Not used
+		empty		:	"Tuntematon viesti",
 
 	},
 
@@ -67,13 +66,16 @@ var resource_fi_FI = {
 		notneeded	:	"En tarvitse",
 		todo		:	"Tehtävät",
 		go		:	"Etsi",
-
 		request		:	"Pyyntö",
 		takeOver	:	"Ota käyttöösi",
 		validate	:	"Tarkista työkalun tiedot",
 		release		:	"Vapauta",
-		recover		:	"Palauta",
+		available	:	"Saatavissa",
 		inUse		:	"Varattu",
+		broken		:	"Epäkunnossa",
+		repair		:	"Huollossa",
+		stolen		:	"Varastettu",
+		nooperation	:	"Ei mitään tekemistä",
 
 	},
 
@@ -147,12 +149,12 @@ var resource_fi_FI = {
 
 	toolstatus	:	{
 
-		free	:	"Ei käytössä",
-		inuse	:	"Käytössä",
-		brocken	:	"Rikki",
-		repair	:	"Huollossa",
-		stolen	:	"Varastettu",
-		reserved:	"Varattu",
+		free		:	"Vapaa",
+		inuse		:	"Käytössä",
+		broken		:	"Epäkunnossa",
+		repair		:	"Huollossa",
+		stolen		:	"Varastettu",
+		reserved	:	"Varattu",
 
 	},
 

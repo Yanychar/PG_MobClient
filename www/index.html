@@ -85,16 +85,18 @@
     	</div>
 
     	<div id="main_menu_page" data-role="page" data-theme="a" data-title="Main Menu" class="mainmenuview" >
-      		<div data-role="header" data-theme="a" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
-
-        		<a id="logoff_buton" class="ui-btn-auto" data-theme="a" data-icon="forbidden" data-iconpos="notext" data-transition="none">Back Button</a>
-        		<h1 id="toolbar_header"style="text-align:center;">Main Menu</h1>
-
+ 
+      		<div class="u-bar ui-bar-a" >
+      		
+			    <input type="search" id="search-free-text" data-wrapper-class="main_search_free_controlgroup ui-btn ui-mini ui-btn-inline" placeholder="Paceholder text..." />
+        		<a id="search-free-btn" class="ui-btn ui-btn-a ui-icon-gear ui-shadow ui-corner-all ui-btn-inline " >Go</a>
+        		
+        		<a id="logoff_button" class="ui-btn ui-btn-a ui-btn-right ui-btn-icon-notext ui-icon-forbidden ui-shadow ui-corner-all" >Logoff Button</a>
+        		
       		</div>
-
+ 
       		<div class="ui-content" role="main" style="margin: 0px; padding: 1em;">
         		<div style="overflow: auto;">
-
           			<div style="margin: 0px; padding: 0px; width: 50%; float: left; min-height: 1px;">
             			<div style="text-align: center; overflow: hidden; background-repeat: repeat repeat;">
               				<a href="#categories_page">
@@ -136,20 +138,10 @@
         		
 				<p id="version_info" >Version:</p>
         		
-        		
-<!-- 
-<div data-role="controlgroup" data-type="horizontal">
-    <input type="search" id="search-control-group" data-wrapper-class="controlgroup-textinput ui-btn" >
-    <button class="ui-btn ui-shadow ui-corner-all ui-icon-grid ">Start</button>
-</div>
- -->        		
       		</div>
       		
 			<div data-role="footer" data-theme="a" data-fullscreen="false" data-position="fixed" data-tap-toggle="true" data-track-persistent-toolbars="true">
-
-    <input type="search" id="search-free-text" data-wrapper-class="main_search_free_controlgroup ui-btn" placeholder="Placeholder text..." >
-    <button type="submit" id="search-free-btn" class="ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-inline" >Go</button>
-
+ 				<h1 id="copyright-text"></h1>
 			</div>
 
     	</div>
@@ -202,8 +194,6 @@
 
 
     <div id="tool_data_page" data-role="page" data-theme="b" data-overlay-theme="b" data-title="Tool Info" class="tool_data" data-dialog="true">
-
-
 
 		<div data-role="header" data-track-persistent-toolbars="true" data-tap-toggle="true" data-position="false" data-fullscreen="false">
         	<h1 style="text-align: center;">Tool Info</h1>

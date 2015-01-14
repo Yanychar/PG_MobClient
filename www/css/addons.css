@@ -9,5 +9,11 @@
 .main_search_free_controlgroup{
     padding-top:.22em;
     padding-bottom:.22em;
-    width:70%;
+    width:35%;
+}
+
+.hdr {
+	
+	text-align:center;
+//	font-size: 300%;
 }

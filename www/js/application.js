@@ -1,7 +1,7 @@
 
 var SupportedDeviceType = {
 	EMU_OR_DEVICE:	0,
-	BROWSER:	      1
+	BROWSER:	    1
 };
 
 var SupportedEnvironments = {
@@ -12,19 +12,20 @@ var SupportedEnvironments = {
 
 var supportedURL = {
   LOCAL:  "http://192.168.255.11:8080/InventoryServer/rest",
-//  LOCAL:  "http://localhost:8080/InventoryServer/rest",
-  DEMO:   "http://toolsdemo.uisko.com/tools/rest"
+  DEMO:   "http://toolsdemo.uisko.com/tools/rest",
+  PROD:   "http://tools.uisko.com/tools/rest"
 }
 
 var application = {
 
 	configuration : {
 
-//		deviceType  : SupportedDeviceType.BROWSER,
-		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
+		deviceType  : SupportedDeviceType.BROWSER,
+//		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
 
 //		environment : SupportedEnvironments.LOCAL,
 		environment : SupportedEnvironments.DEMO,
+//		environment : SupportedEnvironments.PROD,
 
 		consolelog  : true,
 
@@ -61,6 +62,8 @@ var application = {
 			  return supportedURL.LOCAL;
 		} else if ( this.configuration.environment == SupportedEnvironments.DEMO ) {
 			  return supportedURL.DEMO;
+		} else if ( this.configuration.environment == SupportedEnvironments.PROD ) {
+			  return supportedURL.PROD;
 		} else {
 			  alert( "Wrong Environment set up in the Configuration!" );
 		}

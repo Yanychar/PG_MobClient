@@ -1,3 +1,6 @@
+// 1.0.4	13.12.2014	Bug fixing
+// 1.0.5	14.01.2015	Resources updated, bug fixing
+
 
 var settingsManager = {
 
@@ -12,18 +15,10 @@ var settingsManager = {
 	pwd				:	"",
 	loggedin		:	false,
 	
-	version			:	"1.0.2",
+	version			:	"1.0.5",
 	
 	init:	function() {
-/*
-		this.storage = null;
-		this.wasRead = false;
 
-		this.supportedLangs = [ "Suomi", "English", "Русский" ];		
-		this.defaultLang = "Suomi";
-		
-		this.currentLang = this.defaultLang;
-*/		
 		this.initStorage();
 		this.readSettings();
 		
@@ -76,7 +71,7 @@ var settingsManager = {
 		
 		selectElement.val( this.currentLang );
 		selectElement.selectmenu( "refresh" );
-//		e.preventDefault();
+
     },
 	
 	fillLangMenu:	function() {
@@ -100,12 +95,10 @@ var settingsManager = {
 		var selectItem = $(
 
 				"<option value=" + "'" + lang + "'" 
-//				+ ( lang === this.currentLang ? " selected='selected' " : "" )
 				+ ">" + lang + "</option>"
 
 		  );
 
-//		  selectElement.append( selectItem );
 		  selectItem.appendTo( selectElement );
 		
 	},
@@ -127,7 +120,6 @@ var settingsManager = {
 		
 			this.currentLang = this.storage.getItem( "mob.inventory.lang" ); 
 			console.log( "New Language read from storage: " + this.currentLang );
-// This was for testing 			this.currentLang = null;
 			
 			if ( this.validLang( this.currentLang )) {
 				
@@ -188,7 +180,6 @@ var settingsManager = {
 			
 	},
 
-//	var currentResource = resource_fi_FI;
 	getLangResource: function() {
 		
 		switch( this.currentLang ) {
@@ -204,15 +195,10 @@ var settingsManager = {
 		
 	}, 
 
-/*
- *  Log-In/-Out functions
- */	
 	logoff:	function() {
 
 		this.loggedin = false;
 		
-//		this.usrname = this.storage.getItem( "mob.inventory.usrname" );
-//		this.pwd = this.storage.getItem( "mob.inventory.pwd" );
 		this.loggedin = this.storage.setItem( "mob.inventory.loggedin", false );
 		
 		loginInfo = {};

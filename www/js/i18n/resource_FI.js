@@ -6,7 +6,6 @@ var resource_fi_FI = {
 
 	locale	:	"fi_FI",		// Do not touch
 
-
 /**
  *	Headers
  *
@@ -14,15 +13,15 @@ var resource_fi_FI = {
  */
 
 	headers	:  {
-		login	:	"Kirjaudu",
-		mainmenu:	"P\u00e4\u00e4valikko",
-		catlist	:	"Ty\u00f6kaluryhm\u00e4t",
-		toollist:	"Ty\u00f6kalut",
-		tooldata:	"Info",
-		msglist	:	"Viestit",
-		select	:	"Valitse",
-		settings:	"Asetukset",
-		ownbasket:	"Minun Ty\u00f6kalut",
+		login		:	"Kirjaudu",
+		mainmenu	:	"P\u00e4\u00e4valikko",
+		catlist		:	"Ty\u00f6kaluryhm\u00e4t",
+		toollist	:	"Ty\u00f6kalut",
+		tooldata	:	"Info",
+		msglist		:	"Viestit",
+		select		:	"Valitse",
+		settings	:	"Asetukset",
+		ownbasket	:	"Ty\u00f6kaluni",
 
 	},
 
@@ -41,7 +40,7 @@ var resource_fi_FI = {
 		notneeded	:	"Hyl\u00e4tty",
 		info		:	"Tiedote",
 		text		:	"Teksti viesti",
-		empty		:	"Tuntematon viesti",		// For failure situation. Not used
+		empty		:	"Tuntematon viesti",
 
 	},
 
@@ -67,13 +66,16 @@ var resource_fi_FI = {
 		notneeded	:	"En tarvitse",
 		todo		:	"Teht\u00e4v\u00e4t",
 		go		:	"Etsi",
-
 		request		:	"Pyynt\u00f6",
 		takeOver	:	"Ota k\u00e4ytt\u00f6\u00f6si",
 		validate	:	"Tarkista ty\u00f6kalun tiedot",
 		release		:	"Vapauta",
-		recover		:	"Palauta",
+		available	:	"Saatavissa",
 		inUse		:	"Varattu",
+		broken		:	"Ep\u00e4kunnossa",
+		repair		:	"Huollossa",
+		stolen		:	"Varastettu",
+		nooperation	:	"Ei mit\u00e4\u00e4n tekemist\u00e4",
 
 	},
 
@@ -147,12 +149,12 @@ var resource_fi_FI = {
 
 	toolstatus	:	{
 
-		free	:	"Ei k\u00e4yt\u00f6ss\u00e4",
-		inuse	:	"K\u00e4yt\u00f6ss\u00e4",
-		brocken	:	"Rikki",
-		repair	:	"Huollossa",
-		stolen	:	"Varastettu",
-		reserved:	"Varattu",
+		free		:	"Vapaa",
+		inuse		:	"K\u00e4yt\u00f6ss\u00e4",
+		broken		:	"Ep\u00e4kunnossa",
+		repair		:	"Huollossa",
+		stolen		:	"Varastettu",
+		reserved	:	"Varattu",
 
 	},
 

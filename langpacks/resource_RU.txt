@@ -13,15 +13,15 @@ var resource_ru_RU = {
 	 */
 
 	headers	:  {
-		login	:	"Вход",
-		mainmenu:	"Главное Меню",
-		catlist	:	"Типы",
-		toollist:	"Инструменты",
-		tooldata:	"Инфо",
-		msglist	:	"Сообщения",
-		select	:	"Выберите",
-		settings:	"Установки",
-		ownbasket:	"Мои Инструменты",
+		login		:	"Вход",
+		mainmenu	:	"Главное Меню",
+		catlist		:	"Типы",
+		toollist	:	"Инструменты",
+		tooldata	:	"Инфо",
+		msglist		:	"Сообщения",
+		select		:	"Выберите",
+		settings	:	"Установки",
+		ownbasket	:	"Мои Инструменты",
 	},
 
 	/**
@@ -65,13 +65,16 @@ var resource_ru_RU = {
 		notneeded	:	"Не нужно",
 		todo		:	"Сделать",
 		go		:	"Go",
-			
 		request		:	"Запросить",
 		takeOver	:	"Взять",
 		validate	:	"Отметить",
 		release		:	"Свободно",
-		recover		:	"Починено",
+        	available	:	"Доступно",
 		inUse		:	"Используется",
+	        broken		:	"Сломано",
+	        repair		:	"В ремонте",
+	        stolen		:	"Украдено",
+		nooperation	:	"Нет операций",
 			
 	},
 
@@ -94,7 +97,7 @@ var resource_ru_RU = {
 		lang		:	"Язык",
 		from		:	"От",
 		barcode		:	"Штрихкод",
-		sn		:	"Инв.Номер",
+		sn		:	"Инв. Номер",
 			
 	},
 		
@@ -145,12 +148,12 @@ var resource_ru_RU = {
 	
 	toolstatus	:	{
 		
-		free	:	"Свободен",
-		inuse	:	"Используется",
-		brocken	:	"Сломан",
-		repair	:	"В ремонте",
-		stolen	:	"Украден",
-		reserved:	"Зарезервирован",
+		free		:	"Свободно",
+		inuse		:	"В работе",
+		broken		:	"Сломано",
+		repair		:	"В ремонте",
+		stolen		:	"Украдено",
+		reserved	:	"Зарезервировано",
 	
 	},
 		
@@ -163,8 +166,8 @@ var resource_ru_RU = {
 		
 	text :	{
 			
-		personaltool:	"Личный Инструмент",
-		nolocationdata:	"Нет данных о местоположении",
+		personaltool	:	"Личный Инструмент",
+		nolocationdata	:	"Нет данных о местоположении",
 		progressing	:	"Загрузка ...",
 		readiness	:	"Устройство готово!",
 		init		:	"Начало ...",
