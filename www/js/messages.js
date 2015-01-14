@@ -92,6 +92,7 @@ function addMsgElement( listControl, msg ) {
   var listElement = $( '<li>'
                       + '<a href="#">'
                       + createIconTag( msg )
+                      + createDateStr( msg )
                       + createShortMsgText( msg )
                       + '</a>'
                       + '</li>'
@@ -134,12 +135,44 @@ function createIconTag( msg ) {
   return str;
 }
 
+function createDateStr( msg ) {
+
+	var str;
+	
+	if ( msg && msg.date && dateIsValid( msg.date )) {
+		
+		str = " " 
+			+ msg.date.substr( 0, 2 )
+			+ "."
+			+ msg.date.substr( 2, 2 ) 
+			+ "."
+			+ msg.date.substr( 4, 4 ) 
+			+ ". ";
+	} else {
+		str = "          ";
+	}
+	
+	  return str;
+}
+
+
+
+function dateIsValid( dateStr ) {
+	var dateRegExp = new RegExp( "[0-3]\\d[0-1]\\d[2][0][1-3]\\d", "" );
+	
+	var res =  dateStr && dateStr.length == 8 && dateRegExp.test( dateStr );
+
+	return res;
+}
+
 function createShortMsgText( msg ) {
 
-  var defText = "";
+	console.log ( "Short message descr will be created. Msg.Type = " + msg.type );
+	
+	var defText = "";
 
   if ( msg.text != undefined && msg.text != null && msg.text.length > 0 ) {
-    console.log ( "Msg text presented" );
+    console.log ( "Msg text presented. Type = " + msg.type );
     defText = msg.text;
   }
 
@@ -166,7 +199,7 @@ function createShortMsgText( msg ) {
 		+ ( msg.item != undefined  ? msg.item.name + ", " + msg.item.manufacturer : "" );
       break;
     case "INFO":
-    	str = str + defText;
+    	str = defText;
       break;
     case "TEXT":
     	str = str + defText;
@@ -235,7 +268,11 @@ function setMsgDialogContent( contentElement, msg ) {
 
 	contentElement.append(
 			settingsManager.getLangResource().labels.from + ": " 
-			+ "<b>" + sender + "</b><br/><hr/>"
+			+ "<b>" + sender + "</b>" 
+			+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+			+ "Date: " 
+			+ "<b>" + createDateStr( msg ) + "</b>" 
+			+ "<br/><hr/>"
 	);
 
 	switch ( msg.type ) {
@@ -276,7 +313,7 @@ function setMsgDialogContent( contentElement, msg ) {
 	    	console.log( "Tool valid? " + (tool != undefined && tool != null ));
 	    	console.log( "Tool name: " + tool.name );
 	    	contentElement.append(
-	    			settingsManager.getLangResource().msgContentTemplates.confirmation
+	    			settingsManager.getLangResource().msgContentTemplates.confirmation + ": "
 	    			+ "<br/>"
 					+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
 					+ this.getNormalizedString( tool.manufacturer )
@@ -300,8 +337,10 @@ function setMsgDialogContent( contentElement, msg ) {
 	    	contentElement.append(
 	    			settingsManager.getLangResource().msgContentTemplates.info
 	    			  //  				+ "<br/>"
-					+ "<h3>" + this.getNormalizedString( tool.name  ) + "<br/>" 
-					+ this.getNormalizedString( tool.manufacturer )
+					+ "<h3>" 
+//					+ this.getNormalizedString( tool.name  ) + "<br/>" 
+//					+ this.getNormalizedString( tool.manufacturer )
+					+ this.getNormalizedString( msg.text )
 					+ "</h3>"
 //					+ "<br/><br/>"
 					+ "<br/>"
@@ -327,7 +366,7 @@ function setupDlgButtons( contentElement, msg ) {
 
 	emptyButtons( contentElement );
 
-	if ( msg.status == "UNREAD" ) {
+//	if ( msg.status == "UNREAD" ) {
 		switch ( msg.type ) {
 			case "REQUEST":
     	
@@ -374,6 +413,7 @@ function setupDlgButtons( contentElement, msg ) {
 			case "NOTNEEDED":
 			case "INFO":
 			case "TEXT":
+				console.log( "OK button will be added "  );
 				addButtons( contentElement,
 							settingsManager.getLangResource().buttons.ok,
 		                    function() {
@@ -384,8 +424,8 @@ function setupDlgButtons( contentElement, msg ) {
 		                  }
 		        );
 		        break;
-    }
-}
+//		}
+	}
 }
 
 function emptyButtons( placeHolder ) {

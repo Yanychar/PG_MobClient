@@ -1,5 +1,6 @@
 // 1.0.4	13.12.2014	Bug fixing
 // 1.0.5	14.01.2015	Resources updated, bug fixing
+// 1.0.6	14.01.2015	Messaging improved
 
 
 var settingsManager = {
@@ -15,7 +16,7 @@ var settingsManager = {
 	pwd				:	"",
 	loggedin		:	false,
 	
-	version			:	"1.0.5",
+	version			:	"1.0.6",
 	
 	init:	function() {
 
