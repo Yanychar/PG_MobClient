@@ -193,5 +193,10 @@ var resource_ru_RU = {
 // NOT NECESSARY TO TRANSLATE BELOW
 //	copyright	:	"Copyright \u00a9 2014. All rights reserved",
 //	copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+	copyright : {
+		organisation	:	"Uisko Nordic Oy",
+		symbol			:	"&#xa9",
+		year			:	"2014",
+	}
 
 }

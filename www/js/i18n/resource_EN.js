@@ -191,6 +191,11 @@ var resource_en_EN = {
 // NOT NECESSARY TO TRANSLATE BELOW
 //	copyright	:	"Copyright © 2014. All rights reserved",
 //	copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
+	copyright : {
+		organisation	:	"Uisko Nordic Oy",
+		symbol			:	"&#xa9",
+		year			:	"2014",
+	}
 
 
 }

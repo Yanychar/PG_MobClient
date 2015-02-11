@@ -27,7 +27,7 @@ var application = {
 		environment : SupportedEnvironments.DEMO,
 //		environment : SupportedEnvironments.PROD,
 
-		consolelog  : true,
+		consolelog  : false,
 
 
 

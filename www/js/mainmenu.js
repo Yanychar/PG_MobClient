@@ -63,13 +63,14 @@ var mainMenu = {
 			// Scan button text
 			$("#main_menu_page #scan_button").text( settingsManager.getLangResource().buttons.scan );
 
-			$("#main_menu_page #version_info").text( "Ver. " + settingsManager.version );
-
 	    	$( '#main_menu_page' ).find( '.ui-input-search input' ).attr( 'placeholder', settingsManager.getLangResource().text.quicksearch );
 			$("#main_menu_page #search-free-btn").text( settingsManager.getLangResource().buttons.go );
 
-			$("#copyright-text").html( settingsManager.getLangResource().copyright + "  v." + settingsManager.version);
-//			<h1 id="copyright_footer" style="text-align:center;">Uisko Nordic Oy. Copyright © 2014</h1>			
+			$("#copyright-text").html( 
+					settingsManager.getLangResource().copyright.organisation + " " +
+					settingsManager.getLangResource().copyright.symbol + " " +
+					settingsManager.getLangResource().copyright.year + " " +
+					" v " + settingsManager.version);
 		},
 
 		pageAfterShow:	function() {
