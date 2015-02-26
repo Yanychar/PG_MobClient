@@ -2,6 +2,8 @@
 // 1.0.5	14.01.2015	Resources updated, bug fixing
 // 1.0.6	14.01.2015	Messaging improved
 // 1.0.7	11.02.2015	Footer in MainMenu changed (bug) + small resources changes
+// 1.0.8	18.02.2015	Tools generated resources was used. No new functionality
+// 1.0.9	25.02.2015	version to test Play Store automatic update
 
 
 var settingsManager = {
@@ -17,7 +19,7 @@ var settingsManager = {
 	pwd				:	"",
 	loggedin		:	false,
 	
-	version			:	"1.0.7",
+	version			:	"1.0.9",
 	
 	init:	function() {
 
