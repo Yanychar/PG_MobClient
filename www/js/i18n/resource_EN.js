@@ -1,201 +1,122 @@
-/**
- *	 This is resource file for English Language Pack
- */
-
 var resource_en_EN = {
 
-	locale		:	"en_EN",					// Do not touch
 
-/**
- *	Headers
- *
- *		There are headers of all screens in application except Message Dialog headers (see next)
- */
+	locale	:	"en_FI",
 
-	headers	:  {
-		login		:	"Login",
-		mainmenu  	:	"Main Menu",
-		catlist	  	:	"Tools Categories",
-		toollist  	:	"Tools",
-		tooldata  	:	"Tool Info",
-		msglist	  	:	"Messages",
-		select	  	:	"Select",
-		settings  	:	"Settings",
-		ownbasket 	:	"My Tools",
+	headers	:	{
+	login	:	"Login",
+	mainmenu 	:	"Main Menu",
+	catlist	:	"Tools Categories",
+	toollist 	:	"Tools",
+	tooldata 	:	"Tool Info",
+	msglist	:	"Messages",
+	select	:	"Select",
+	settings 	:	"Settings",
+	ownbasket	:	"My Tools",
 	},
 
-/**
- *	 Message dialog Headers
- *
- *		Message Dialog generates different headers depend on message type
- */
-
-	msgheaders	:  {
-
-		request		:	"Request",
-		agreement	:	"Agreement",
-		rejection	:	"Rejection",
-		confirmation	:	"Confirmation",
-		notneeded	:	"Cancelation",
-		info		:	"Info Message",
-		text		:	"Text Message",
-		empty		:	"Unknown Message",		// For failure situation. Not used
-
+	msgheaders	:	{
+	request	:	"Request",
+	agreement	:	"Agreement",
+	rejection	:	"Rejection",
+	confirmation	:	"Confirmation",
+	notneeded	:	"Cancelation",
+	info	:	"Info Message",
+	text	:	"Text Message",
+	empty	:	"Unknown Message",
 	},
 
-
-/**
- *	Buttons
- *
- *		There are different buttons text
- */
-
-	buttons : {
-		on		:	"On",
-		off		:	"Off",
-		signin		:	"Sign In",
-		scan		:	"Scan",
-		askborrow	:	"Ask to Borrow",
-		ok		:	"OK",
-		cancel		:	"Cancel",
-		back		:	"Back",
-		agree		:	"Agree",
-		reject		:	"Reject",
-		borrow		:	"Borrow",
-		notneeded	:	"Not needed",
-		todo		:	"To Do",
-		go		:	"Go",
-		request		:	"Request",
-		takeOver	:	"Take Over",
-		validate	:	"Validate",
-		release		:	"Release",
-		available	:	"Available",
-		inUse		:	"In Use",
-		broken		:	"Broken",
-		repair		:	"In Service",
-		stolen		:	"Stolen",
-		nooperation	:	"Nothing To Do",
-
+	buttons	:	{
+	on	:	"On",
+	off	:	"Off",
+	signin	:	"Sign In",
+	scan	:	"Scan",
+	askborrow	:	"Ask to Borrow",
+	ok	:	"OK",
+	cancel	:	"Cancel",
+	back	:	"Back",
+	agree	:	"Agree",
+	reject	:	"Reject",
+	borrow	:	"Borrow",
+	notneeded	:	"Not needed",
+	todo	:	"To Do",
+	go	:	"Go",
+	request	:	"Request",
+	takeOver	:	"Take Over",
+	validate	:	"Validate",
+	release	:	"Release",
+	available	:	"Available",
+	inUse	:	"In Use",
+	broken	:	"Broken",
+	repair	:	"In Service",
+	stolen	:	"Stolen",
+	nooperation	:	"Nothing To Do",
 	},
 
-
-/**
- *	Labels
- *
- *		Caption of input fields
- *		For example field to input username has caption "Username:"
- */
-
-	labels : {
-		username	:	"Username",
-		pwd 		:	"Password",
-		remember	:	"Remember",
-		usedby		:	"User",
-		respb		:	"Responsible",
-		status		:	"Status",
-		lang		:	"Language",
-		from		:	"From",
-		barcode		:	"Barcode",
-		sn		:	"S/N",
-
+	labels	:	{
+	username	:	"Username",
+	pwd 	:	"Password",
+	remember	:	"Remember",
+	usedby	:	"User",
+	respb	:	"Responsible",
+	status	:	"Status",
+	lang	:	"Language",
+	from	:	"From",
+	barcode	:	"Barcode",
+	sn	:	"S/N",
 	},
 
-
-/**
- *	Messages in the Lists
- *
- *	Templates. There are templates for messages in the Messages List. They will be modified according to message type
- */
-
-	msgListTemplates : {
-
-		request		:	"Requested",
-		agreement	:	"Approved to get",
-		rejection	:	"Rejected to get",
-		confirmation	:	"Confirmed receiving",
-		notneeded	:	"Request cancelled",
-		info		:	"Info",
-		empty		:	"",
-
+	msgListTemplates	:	{
+	request	:	"Requested",
+	agreement	:	"Approved to get",
+	rejection	:	"Rejected to get",
+	confirmation	:	"Confirmed receiving",
+	notneeded	:	"Request cancelled",
+	info	:	"Info",
+	empty	:	"",
 	},
 
-	/**
-	 *	Content of Message Dialog
-	 *
-	 *	Templates. There are templates for the Message Dialogs. They will be modified according to message type
-	 */
-
-	msgContentTemplates : {
-
-		request		:	"Request to borrow",
-		agreement	:	"Approval to borrow",
-		rejection	:	"Rejected to borrow",
-		confirmation	:	"Confirmed ownership transfer",
-		notneeded	:	"Canceled request to borrow",
-		info		:	"",
-		empty		:	"",
-
+	msgContentTemplates	:	{
+	request	:	"Request to borrow",
+	agreement	:	"Approval to borrow",
+	rejection	:	"Rejected to borrow",
+	confirmation	:	"Confirmed ownership transfer",
+	notneeded	:	"Canceled request to borrow",
 	},
-
-
-	/**
-	 *	Tool Data
-	 *
-	 *	Different text strings used in Tool Data dialog
-	 *
-	 */
 
 	toolstatus	:	{
-		free		:	"Not Used",
-		inuse		:	"In Use",
-		broken		:	"Broken",
-		repair		:	"In Service",
-		stolen		:	"Stolen",
-		reserved	:	"Reserved",
-
+	free	:	"Not Used",
+	inuse	:	"In Use",
+	broken	:	"Broken",
+	repair	:	"In Service",
+	stolen	:	"Stolen",
+	reserved	:	"Reserved",
 	},
 
-
-	/**
-	 *	Other Text Strings
-	 *
-	 *	Different text strings
-	 */
-
-	text :	{
-
-		personaltool	:	"Personal Tool",
-		nolocationdata	:	"No location data",
-		progressing	:	"Progressing ...",
-		readiness	:	"DEVICE IS READY!",
-		init		:	"Before init ...",
-		unknown		:	"unknown",
-		search		:	"Search ...",
-		quicksearch	:	"Quick search ...",
-
+	text	:	{
+	personaltool  	:	"Personal Tool",
+	nolocationdata	:	"No location data",
+	progressing	:	"Progressing ...",
+	readiness	:	"DEVICE IS READY!",
+	init	:	"Before init ...",
+	unknown	:	"unknown",
+	search	:	"Search ...",
+	quicksearch	:	"Quick search ...",
 	},
 
-	errors : {
-
-		scanfailure	:	"Scanning failed",
-		noconection	:	"No network connection",
-		authfailed	:	"Wrong username and/or password were specified!",
-		loginfailed	:	"Authentication Failed because unknown reason. Code = ",
-		categoriesfailed:	"Read categories list failed!",
-		toolnotfound	:	"Tool was not found in the Inventory!",
-		searchfailed	:	"Search Failed because unknown reason. Code = ",
-
-
+	errors	:	{
+	scanfailure	:	"Scanning failed",
+	noconection	:	"No network connection",
+	authfailed	:	"Wrong username and/or password were specified!",
+	loginfailed	:	"Authentication Failed because unknown reason. Code =",
+	categoriesfailed	:	"Read categories list failed!",
+	toolnotfound	:	"Tool was not found in the Inventory!",
+	searchfailed	:	"Search Failed because unknown reason. Code =",
 	},
 
-// NOT NECESSARY TO TRANSLATE BELOW
-//	copyright	:	"Copyright © 2014. All rights reserved",
-//	copyright	:	"Uisko Nordic Oy. Copyright " + "&#xa9" + " 2014",
-	copyright : {
-		organisation	:	"Uisko Nordic Oy",
-		symbol			:	"&#xa9",
-		year			:	"2014",
-	}
-
-
+	copyright	:	{
+	organisation	:	"Uisko Nordic Oy",
+	symbol	:	"&#xa9",
+	year	:	"2015",
+	},
 }
