@@ -70,7 +70,7 @@ var catgrsManager = {
 		$.ajax({
 			async : false,
 		    type: 'GET',
-		    url: application.getServiceURL() + "/getcategories",
+		    url: configuration.getServiceURL() + "/getcategories",
 		    data: {
 			      sessionid : loginInfo.sessionid,
 			      all : "false",

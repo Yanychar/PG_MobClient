@@ -118,12 +118,12 @@ $( document ).on( "pagebeforeshow","#login_page",function() {
 
 function loginUser(usrname, pwd, loggedIn, failed) {
 
-	console.log("Login attemptD: " + application.getServiceURL());
+	console.log("Login attemptD: " + configuration.getServiceURL());
 
 	$.ajax({
 		async : false,
 		type : 'GET',
-		url : application.getServiceURL() + "/authenticate",
+		url : configuration.getServiceURL() + "/authenticate",
 		data : {
 			name : usrname,
 			pwd : pwd

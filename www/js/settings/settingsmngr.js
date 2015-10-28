@@ -4,6 +4,7 @@
 // 1.0.7	11.02.2015	Footer in MainMenu changed (bug) + small resources changes
 // 1.0.8	18.02.2015	Tools generated resources was used. No new functionality
 // 1.0.9	25.02.2015	version to test Play Store automatic update
+// 1.0.10	31.08.2015	PhoneGap v.5.1.1 has been deployed
 
 
 var settingsManager = {
@@ -11,7 +12,7 @@ var settingsManager = {
 	storage	: 	null,
 	wasRead	:	false,
 
-	supportedLangs	:	[ "Suomi", "English", "Русский" ],		
+	supportedLangs	:	[ "Suomi", "English", "???????" ],		
 	defaultLang		:	"Suomi",
 	
 	currentLang		:	this.defaultLang,
@@ -19,7 +20,7 @@ var settingsManager = {
 	pwd				:	"",
 	loggedin		:	false,
 	
-	version			:	"1.0.9",
+	version			:	"1.0.10",
 	
 	init:	function() {
 
@@ -191,7 +192,7 @@ var settingsManager = {
 				return resource_fi_FI;
 			case "English":
 				return resource_en_EN;
-			case "Русский":
+			case "???????":
 				return resource_ru_RU;
 		}
 

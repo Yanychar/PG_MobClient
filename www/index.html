@@ -37,6 +37,7 @@
 		<script src="js/i18n/resource_FI.js"></script>
 		<script src="js/i18n/resource_RU.js"></script>
 
+		<script src="js/configuration.js"></script>
 		<script src="js/application.js"></script>
 		<script src="js/settings/settingsmngr.js"></script>
 		<script src="js/communication.js"></script>
@@ -279,15 +280,6 @@
 
 			$( '#readiness_page' ).find( '.devicestatus' ).text( settingsManager.getLangResource().text.init );
 	        application.initialize();
-
-
-	    	mainMenu.init();
-	    	catgrsManager.init();
-			toolsManager.init();
-			toolItemMngr.init();
-			toolsViewer.init();
-
-
 
       		// Fill Message List list
       		$(document).on("pagebeforeshow","#msg_list_page",function(){

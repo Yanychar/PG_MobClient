@@ -7,7 +7,7 @@ var scanner = {
 
 	scan: function() {
 
-		if ( application.getDeviceType() == SupportedDeviceType.EMU_OR_DEVICE ) {
+		if ( configuration.getDeviceType() == SupportedDeviceType.EMU_OR_DEVICE ) {
 
 			console.log( "Call for BarcodeScanner.scan..." );
 

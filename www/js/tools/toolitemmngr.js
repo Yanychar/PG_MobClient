@@ -494,7 +494,7 @@ var toolItemMngr = {
 		$.ajax({
 			async : false,
 			type: 'GET',
-			url: application.getServiceURL() + "/gettools",
+			url: configuration.getServiceURL() + "/gettools",
 			data: {
 				sessionid:  loginInfo.sessionid,
 			    barcode:    barcode

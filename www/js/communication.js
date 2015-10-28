@@ -154,7 +154,7 @@ var communicator = {
 		$.ajax({
 		    async : false,
 		    type: 'GET',
-		    url: application.getServiceURL() + "/" + command,
+		    url: configuration.getServiceURL() + "/" + command,
 		    data: dataObj,
 
 //		    dataType: "json",
@@ -192,7 +192,7 @@ var communicator = {
 		$.ajax({
 			async:	false,
 		    type: 	'GET',
-		    url: 	application.getServiceURL() + "/" + parameters.method,
+		    url: 	configuration.getServiceURL() + "/" + parameters.method,
 
 		    data:	{
 		    	sessionid 	: parameters.sessionid,

@@ -1,37 +1,6 @@
 
-var SupportedDeviceType = {
-	EMU_OR_DEVICE:	0,
-	BROWSER:	    1
-};
-
-var SupportedEnvironments = {
-    LOCAL:  0,
-    DEMO:   1,
-    PROD:   2
-};
-
-var supportedURL = {
-  LOCAL:  "http://192.168.255.11:8080/InventoryServer/rest",
-  DEMO:   "http://toolsdemo.uisko.com/tools/rest",
-  PROD:   "http://tools.uisko.com/tools/rest"
-}
 
 var application = {
-
-	configuration : {
-
-		deviceType  : SupportedDeviceType.BROWSER,
-//		deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
-
-//		environment : SupportedEnvironments.LOCAL,
-//		environment : SupportedEnvironments.DEMO,
-		environment : SupportedEnvironments.PROD,
-
-		consolelog  : false,
-
-
-
-	},
 
 	/*
 	 * Global variables declarations
@@ -54,28 +23,6 @@ var application = {
 	// Category selected in Category Selection
 	selectedCategory: null,
 
-	// Tool selected in Toolselection view for Tool Details view
-//	currentTool: null,
-
-	getServiceURL:	function() {
-		if ( this.configuration.environment == SupportedEnvironments.LOCAL ) {
-			  return supportedURL.LOCAL;
-		} else if ( this.configuration.environment == SupportedEnvironments.DEMO ) {
-			  return supportedURL.DEMO;
-		} else if ( this.configuration.environment == SupportedEnvironments.PROD ) {
-			  return supportedURL.PROD;
-		} else {
-			  alert( "Wrong Environment set up in the Configuration!" );
-		}
-
-		return "";
-	},
-
-	getDeviceType: function() {
-
-  	return this.configuration.deviceType;
-
-	},
 
 	// Application Constructor
 	initialize: function() {
@@ -85,7 +32,7 @@ var application = {
 
 	    this.initGlobal();
 
-	    if ( this.getDeviceType() != SupportedDeviceType.BROWSER ) {
+	    if ( configuration.getDeviceType() != SupportedDeviceType.BROWSER ) {
 	    	console.log( "Readyness of real device will be listened!!!" );
 
 
@@ -102,12 +49,20 @@ var application = {
 
 	  initGlobal: function() {
 
+	    	mainMenu.init();
+	    	catgrsManager.init();
+			toolsManager.init();
+			toolItemMngr.init();
+			toolsViewer.init();
+
+		  
 	  },
 
 	  listenDeviceReadyness: function() {
 	  },
 
 	  onDeviceReady: function() {
+		console.log( "onDeviceReady ... " );
 
 		$( '#readiness_page' ).find( '.devicestatus' ).text( settingsManager.getLangResource().text.readiness );
 
@@ -119,7 +74,33 @@ var application = {
 		);
 
 		console.log( "After switch login page" );
+/*
+if (window.history && window.history.pushState) {
+	console.log( "History is OK" );
 
+    window.history.pushState('forward', null, 'null');
+
+    $(window).on('popstate', function() {
+      alert('Back button was pressed.');
+    });
+
+} else {
+	console.log( "History is NOT OK" );
+
+}	
+*/
+
+// Bind to the navigate event
+$( window ).on( "navigate", function( event, data ) {
+//	event.preventDefault();
+  console.log( "navigated!" );
+  console.log( "Event: " + event );
+    console.log( data.state.info );
+    console.log( data.state.direction );
+    console.log( data.state.url );
+    console.log( data.state.hash );  
+  
+});		
 	  }
 
 };

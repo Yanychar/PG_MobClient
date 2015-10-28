@@ -44,7 +44,7 @@ var toolsManager = {
 
 		console.log( "ToolsList pageBeforeShow handler start ..." );
 
-		if ( application.selectedCategory.name ) {
+		if ( application.selectedCategory && application.selectedCategory.name ) {
 			console.log( "Selected category: " + application.selectedCategory.name );
 		}
 	      
@@ -85,7 +85,7 @@ var toolsManager = {
 		$.ajax({
 			async : false,
 		    type: 'GET',
-		    url: application.getServiceURL() + "/gettools",
+		    url: configuration.getServiceURL() + "/gettools",
 		    data: {
 		      sessionid : loginInfo.sessionid,
 		      categoryid : catIdToReq

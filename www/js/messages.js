@@ -45,7 +45,7 @@ function readMessages( msgStatus ) {
   $.ajax({
     async : false,
     type: 'GET',
-    url: application.getServiceURL() + "/getmessages",
+    url: configuration.getServiceURL() + "/getmessages",
     data: {
       sessionid : loginInfo.sessionid,
       status : msgStatus
@@ -485,7 +485,7 @@ function answered( msg, answer ) {
 	  $.ajax({
 	    async : false,
 	    type: 'GET',
-	    url: application.getServiceURL() + "/msganswer",
+	    url: configuration.getServiceURL() + "/msganswer",
 	    data: {
 	      sessionid	: loginInfo.sessionid,
 	      msgid		: msg.id,
