@@ -1,12 +1,12 @@
 {
   "project": {
-    "projectSettingsVersion": "3.0.0",
+    "projectSettingsVersion": "2.0.0",
     "creationData": {
       "type": "Import",
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
       "projectGuid": "189d579f-19e2-4347-9c51-8f7e6d916fd8",
-      "lastModifiedDate": 1509016720789,
+      "lastModifiedDate": 1455889647131,
       "creationDate": 1446024662541
     },
     "sourceDirectory": "www",
@@ -16,15 +16,7 @@
     "testDirectory": "test",
     "startFile": "index.html",
     "projectTags": [],
-    "projectFiles": {
-      "xdk-publish-meta-data.json": {
-        "settings": {
-          "project": {
-            "XDK-not-deployed": "True"
-          }
-        }
-      }
-    },
+    "projectFiles": {},
     "projectDirectories": {
       "xdk": {
         "settings": {
@@ -92,7 +84,6 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "certificateId_": "",
         "appName_": "MobiTools",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -109,6 +100,36 @@
         "excludedLibraries_": "",
         "appVersion_": "0.0.1",
         "appVersionCode_": "1",
+        "crosswalkVersion_": "14",
+        "cordovaCLIVersion_": "5.1.1"
+      },
+      "Android-Crosswalk": {
+        "platform_": "android",
+        "runtime_": "Crosswalk with Cordova 3.x",
+        "name_": "Android-Crosswalk",
+        "preferences_": {
+          "android-minSdkVersion": "14",
+          "android-targetSdkVersion": "19",
+          "android-installLocation": "auto"
+        },
+        "isActive_": true,
+        "appName_": "MobiTools",
+        "appID_": "not.yet.specified",
+        "appAccess_": {
+          "mode": "legacy",
+          "network": [
+            "*"
+          ],
+          "intents": [],
+          "navigation": []
+        },
+        "icons_": [],
+        "splashes_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "appVersion_": "0.0.1",
+        "appVersionCode_": "1",
+        "crosswalkVersion_": "15",
         "cordovaCLIVersion_": "5.1.1"
       },
       "iOS": {
@@ -116,21 +137,19 @@
         "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
-          "ios-configuration": "adhoc",
-          "deployment-target": "6"
+          "ios-target": "6",
+          "ios-configuration": "adhoc"
         },
         "isActive_": true,
-        "certificateId_": "",
         "appName_": "MobiTools",
         "appID_": "not.yet.specified",
         "appAccess_": {
-          "mode": "whitelist",
+          "mode": "legacy",
           "network": [
             "*"
           ],
           "intents": [],
-          "navigation": [],
-          "properties": {}
+          "navigation": []
         },
         "icons_": [],
         "splashes_": [],
@@ -146,17 +165,15 @@
         "name_": "Windows8",
         "preferences_": {},
         "isActive_": true,
-        "certificateId_": "",
         "appName_": "MobiTools",
         "appID_": "not.yet.specified",
         "appAccess_": {
-          "mode": "whitelist",
+          "mode": "legacy",
           "network": [
             "*"
           ],
           "intents": [],
-          "navigation": [],
-          "properties": {}
+          "navigation": []
         },
         "icons_": [],
         "splashes_": [],
@@ -171,7 +188,6 @@
         "name_": "WebApp",
         "preferences_": {},
         "isActive_": false,
-        "certificateId_": "",
         "appName_": "MobiTools",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -194,7 +210,6 @@
         "name_": "Firefox",
         "preferences_": {},
         "isActive_": false,
-        "certificateId_": "",
         "appName_": "MobiTools",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -216,8 +231,7 @@
         "runtime_": "W3C on Chrome OS",
         "name_": "Chrome",
         "preferences_": {},
-        "isActive_": true,
-        "certificateId_": "",
+        "isActive_": false,
         "appName_": "MobiTools",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -240,7 +254,6 @@
         "name_": "Facebook",
         "preferences_": {},
         "isActive_": false,
-        "certificateId_": "",
         "appName_": "MobiTools",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -263,7 +276,6 @@
         "name_": "WP81",
         "preferences_": {},
         "isActive_": true,
-        "certificateId_": "",
         "appName_": "MobiTools",
         "appID_": "not.yet.specified",
         "appAccess_": {

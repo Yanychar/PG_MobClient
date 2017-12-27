@@ -140,51 +140,6 @@ var communicator = {
 
 	},
 
-	successResult: null,
-	failureResult: null,
-	sendSyncGetRequest:	function( command, dataObj ) { //}, , succeeded, failed )
-
-		var res = false;
-
-    	console.log( "sendSyncGetRequest start ..." );
-
-		this.tmpResult = null;
-    	this.failureResult = null;
-
-		$.ajax({
-		    async : false,
-		    type: 'GET',
-		    url: configuration.getServiceURL() + "/" + command,
-		    data: dataObj,
-
-//		    dataType: "json",
-
-		    success: function ( result, status, xhr ) {
-
-		    	console.log( "  sendSyncGetRequest succeeded!" );
-
-		    	communicator.successResult = result;
-
-		    	res = true;
-		    },
-
-		    error: function ( jqXHR ) {
-
-				console.log( "  sendSyncGetRequest failed!" );
-				console.log( "      " + jqXHR.status );
-				console.log( "      " + jqXHR.statusText );
-				console.log( "      " + jqXHR.statusCode() );
-
-		    	communicator.failureResult = jqXHR;
-
-		    },
-		  });
-
-    	console.log( "... end sendSyncGetRequest with result: " + res );
-
-    	return res;
-	},
-
 	readTools:	function( parameters, showFunction ) {
 		
 		console.log( "Ajax call to read Tools List ..." );
@@ -237,4 +192,59 @@ var communicator = {
 
 	},
 
+	sendSyncGetRequest:	function( command, dataObj, succeeded, failed ) {
+
+		var res = false;
+
+    	console.log( "sendSyncGetRequest start ..." );
+
+		this.tmpResult = null;
+    	this.failureResult = null;
+
+		$.ajax({
+		    async : false,
+		    type: 'GET',
+		    url: configuration.getServiceURL() + "/" + command,
+		    data: dataObj,
+
+//		    dataType: "json",
+
+		    success: function ( result, status, xhr ) {
+
+		    	console.log( "  sendSyncGetRequest succeeded!" );
+
+		    	communicator.successResult = result;
+                
+                if ( typeof succeeded == 'function' ) {
+                    
+                    succeeded( result );
+                }
+
+		    	res = true;
+		    },
+
+		    error: function ( jqXHR ) {
+
+				console.log( "  sendSyncGetRequest failed!" );
+				console.log( "      " + jqXHR.status );
+				console.log( "      " + jqXHR.statusText );
+				console.log( "      " + jqXHR.statusCode() );
+
+		    	communicator.failureResult = jqXHR;
+
+                if ( typeof failed == 'function' ) {
+                    
+                    failed( jqXHR );
+                }
+                
+                
+		    },
+		  });
+
+    	console.log( "... end sendSyncGetRequest with result: " + res );
+
+    	return res;
+	},
+    
+    
 }

@@ -1,3 +1,5 @@
+// 1.0.11	31.08.2015	PhoneGap v.6.4.6 has been deployed
+
 var mainMenu = {
 
 		init:	function() {
@@ -33,6 +35,7 @@ var mainMenu = {
 	        	scanner.scan();
 	        });
 
+            
 			$( '#main_menu_page #logoff_button' ).on( "click", function() {
 
 				console.log( "Logoff button had been clicked!" );
@@ -41,6 +44,9 @@ var mainMenu = {
 
       		});
 
+//			$( '#main_menu_page #logoff_button' ).on( "click", this.logOffMenu );
+            
+            
 			$( '#main_menu_page #own_tools_button' ).on( "click", function() {
 				
 				mainMenu.gotoOwnTools();
@@ -53,6 +59,13 @@ var mainMenu = {
 
 			    
 		},
+    
+        logOffMenu: function() {
+			console.log( "Right Menu button has been pressed..." );
+            
+            
+            
+        },
 			
 		pageBeforeShow:	function() {
 

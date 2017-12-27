@@ -8,7 +8,8 @@ var loginRunning = false;
 
 $( document ).on( "pagecreate","#login_page",function() {
 
-	// Login button click
+
+    // Login button click
 	$("#login_button").on( "click", function() {
 
 		if ( !loginRunning ) {
@@ -115,7 +116,7 @@ $( document ).on( "pagebeforeshow","#login_page",function() {
 //		$( "#login_button" ).button({ enabled: true });
 	}
 });
-
+/*
 function loginUser(usrname, pwd, loggedIn, failed) {
 
 	console.log("Login attemptD: " + configuration.getServiceURL());
@@ -123,7 +124,7 @@ function loginUser(usrname, pwd, loggedIn, failed) {
 	$.ajax({
 		async : false,
 		type : 'GET',
-		url : configuration.getServiceURL() + "/authenticate",
+		url : configuration.getServiceURL() + "/authenticate/",
 		data : {
 			name : usrname,
 			pwd : pwd
@@ -136,8 +137,9 @@ function loginUser(usrname, pwd, loggedIn, failed) {
 			loggedIn(result);
 
 		},
-		error : function(jqXHR, text) {
-			console.log("Failed to authenticate: ", jqXHR.status, text);
+		error : function(jqXHR, text, errorThrough ) {
+			console.log("Failed to authenticate: ", jqXHR.status, text );
+//			console.log("Failed to authenticate: ", jqXHR );
 
 			failed(jqXHR);
 		},
@@ -147,3 +149,28 @@ function loginUser(usrname, pwd, loggedIn, failed) {
 	console.log("Return from synchronous Ajax call");
 
 }
+*/
+
+function loginUser(usrname, pwd, loggedIn, failed) {
+
+	console.log("Login attemptD: " + configuration.getServiceURL());
+
+    result = communicator.sendSyncGetRequest( 
+        "authenticate",
+		{
+			name : usrname,
+			pwd : pwd
+		},
+        loggedIn,
+        failed
+    );
+
+
+	console.log("Return from login attempt");
+	console.log( JSON.stringify( result ));
+
+}
+
+
+
+
