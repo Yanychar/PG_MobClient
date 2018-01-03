@@ -1,8 +1,5 @@
 // Login info
-var	loginInfo = {
-
-//		sessionid:	null,
-}
+var	loginInfo = null;
 
 var loginRunning = false;
 
@@ -21,9 +18,36 @@ $( document ).on( "pagecreate","#login_page",function() {
 		
 			loginUser( $("#usrname").val(), $("#passwd").val(),
 				// If succeeded
-				function(result) {
+				function( result ) {
+/*                
+        var i=0;
+		$.each( result, function( index, user ) {
+	
+            console.log( "User ", i );
+            console.log( JSON.stringify( user ));
+            i++;
+	
+        });
+*/                
+                    console.log( "Login results returns ", result.length, " users" );
+                
+                    if ( result.length == 1 ) {
+				        loginInfo = result[ 0 ];
+                    } else {
+//                        Select correct record
+//					   loginInfo = result[X];
+                        console.log( "Multiple results" );
+                        
+//                        $('<div />').html('hello there').dialog();
+
+$("#pyetry").popup("open"); 
+        setTimeout(function(){  $("#pyetry").popup("close"); }, 5000);
+                        loginRunning = false;                        
+return;
+                    }
+                
 					console.log("Authentication succeeded!");
-					loginInfo = result;
+                    console.log( JSON.stringify( loginInfo ));
 	
 					settingsManager.login( $("#usrname").val(), $("#passwd").val());
 
@@ -153,10 +177,10 @@ function loginUser(usrname, pwd, loggedIn, failed) {
 
 function loginUser(usrname, pwd, loggedIn, failed) {
 
-	console.log("Login attemptD: " + configuration.getServiceURL());
+	console.log( "Login attemptD: " + configuration.getServiceURL());
 
     result = communicator.sendSyncGetRequest( 
-        "authenticate",
+        "authmultiuser",
 		{
 			name : usrname,
 			pwd : pwd
@@ -167,7 +191,6 @@ function loginUser(usrname, pwd, loggedIn, failed) {
 
 
 	console.log("Return from login attempt");
-	console.log( JSON.stringify( result ));
 
 }
 
