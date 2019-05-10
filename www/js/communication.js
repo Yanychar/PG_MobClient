@@ -246,5 +246,33 @@ var communicator = {
     	return res;
 	},
     
+    sendTestRequest:    function() {
+        communicator.sendSyncGetRequest( 
+
+            "test", 
+            {
+            },
+            
+            null,
+            null
+
+/*
+            succeeded: function( result ) {
+                console.log( "TEST request SUCCEEDED! Handling started ...1 " );
+
+                console.log( JSON.stringify( result ));
+
+                console.log( "... ended Request SUCCEEDED!" );
+            }, 
+            failed: function( jqXHR ) {
+                console.log( "Request FAILED! Handling started ..." );
+
+                this.failed( jqXHR );
+
+                console.log( "... ended Request FAILED!" );
+            }
+*/        
+        );
+    },
     
 }

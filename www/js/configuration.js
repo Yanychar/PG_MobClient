@@ -22,12 +22,12 @@ var SupportedEnvironments = {
 
 var Connections = {
     nonsecure   : {
-        protocol    :   "http://",
-        port        :   ":8080"
+        protocol    :   "http",
+        port        :   "8080"
     },
     secure   : {
-        protocol    :   "https://",
-        port        :   ":8443"
+        protocol    :   "https",
+        port        :   "8443"
     }
 }
 
@@ -39,17 +39,20 @@ var	configuration = {
 
     deviceType  : SupportedDeviceType.EMU_OR_DEVICE,
     
+    securedConnection   :   false,
+    
     getActiveEnv    : function() { return this.activeEnv;	},
     getDeviceType   : function() { return this.deviceType;	},
-    getProtocol  	: function( secured ) {
-        if ( secured && activeEnv != SupportedEnvironments.LOCAL ) {
+    getProtocol  	: function() {
+        if ( this.securedConnection && this.activeEnv != SupportedEnvironments.LOCAL ) {
             return Connections.secure.protocol;
         } else {
             return Connections.nonsecure.protocol;
         }
     },
-    getPort  	: function( secured ) {
-        if ( secured && activeEnv != SupportedEnvironments.LOCAL ) {
+    getPort  	: function() {
+        
+        if ( this.securedConnection && this.activeEnv != SupportedEnvironments.LOCAL ) {
             return Connections.secure.port;
         } else {
             return Connections.nonsecure.port;
@@ -59,16 +62,14 @@ var	configuration = {
     getRestPath	: function() { return this.activeEnv.restPath; },
         
     
-  	getServiceURL  	: function( secured ) {
+  	getServiceURL  	: function() {
     
-        if ( secured === undefined ) {
-            secured = false;    
-        }
+		console.log( "Security = " + this.securedConnection );
         
         url = 
-            this.getProtocol( secured )
-        +   this.getServer( secured )
-        +   this.getPort( secured )
+            this.getProtocol() + "://"
+        +   this.getServer()
+        +   ":" + this.getPort()
         +   this.getRestPath();
         
         return url;

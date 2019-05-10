@@ -178,7 +178,7 @@ function loginUser(usrname, pwd, loggedIn, failed) {
 function loginUser(usrname, pwd, loggedIn, failed) {
 
 	console.log( "Login attemptD: " + configuration.getServiceURL());
-
+/*
     result = communicator.sendSyncGetRequest( 
         "authmultiuser",
 		{
@@ -188,10 +188,11 @@ function loginUser(usrname, pwd, loggedIn, failed) {
         loggedIn,
         failed
     );
-
+*/
+    result = communicator.sendTestRequest();
+    loginRunning=false;
 
 	console.log("Return from login attempt");
-
 }
 
 
